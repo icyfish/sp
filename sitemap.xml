@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://icyfish.github.io/posts/2019/06/27/element-in-view/</loc>
+    
+    <lastmod>2019-06-26T16:40:49.372Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://icyfish.github.io/posts/about/index.html</loc>
     
     <lastmod>2019-06-22T05:01:31.517Z</lastmod>
@@ -9,7 +16,7 @@
   </url>
   
   <url>
-    <loc>https://icyfish.github.io/posts/2019/03/03/react-interals-3/</loc>
+    <loc>https://icyfish.github.io/posts/2019/02/17/javascript-objects-deeper/</loc>
     
     <lastmod>2019-06-22T05:01:31.512Z</lastmod>
     
@@ -23,21 +30,21 @@
   </url>
   
   <url>
-    <loc>https://icyfish.github.io/posts/2019/02/17/javascript-objects-deeper/</loc>
+    <loc>https://icyfish.github.io/posts/2019/03/03/react-interals-3/</loc>
     
     <lastmod>2019-06-22T05:01:31.512Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://icyfish.github.io/posts/2019/02/14/javascript-classes-under-the-hood/</loc>
+    <loc>https://icyfish.github.io/posts/2019/02/14/constructor/</loc>
     
     <lastmod>2019-06-22T05:01:31.511Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://icyfish.github.io/posts/2019/02/14/constructor/</loc>
+    <loc>https://icyfish.github.io/posts/2019/02/14/javascript-classes-under-the-hood/</loc>
     
     <lastmod>2019-06-22T05:01:31.511Z</lastmod>
     
@@ -58,14 +65,14 @@
   </url>
   
   <url>
-    <loc>https://icyfish.github.io/posts/2017/08/16/resources/</loc>
+    <loc>https://icyfish.github.io/posts/2017/08/11/git/</loc>
     
     <lastmod>2019-06-22T05:01:31.510Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://icyfish.github.io/posts/2017/08/11/git/</loc>
+    <loc>https://icyfish.github.io/posts/2017/08/16/resources/</loc>
     
     <lastmod>2019-06-22T05:01:31.510Z</lastmod>
     
