@@ -9,21 +9,7 @@
   </url>
   
   <url>
-    <loc>https://icyfish.github.io/posts/2016/11/02/js-frameworks/</loc>
-    
-    <lastmod>2019-06-30T14:05:17.101Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://icyfish.github.io/posts/2017/03/07/array-stack-queue/</loc>
-    
-    <lastmod>2019-06-30T14:05:17.101Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://icyfish.github.io/posts/2016/10/15/execution-context/</loc>
+    <loc>https://icyfish.github.io/posts/2017/08/11/CORS/</loc>
     
     <lastmod>2019-06-30T14:05:17.101Z</lastmod>
     
@@ -37,7 +23,21 @@
   </url>
   
   <url>
+    <loc>https://icyfish.github.io/posts/2016/11/02/js-frameworks/</loc>
+    
+    <lastmod>2019-06-30T14:05:17.101Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://icyfish.github.io/posts/2017/04/27/flux-cartoon-guide/</loc>
+    
+    <lastmod>2019-06-30T14:05:17.101Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://icyfish.github.io/posts/2017/03/07/array-stack-queue/</loc>
     
     <lastmod>2019-06-30T14:05:17.101Z</lastmod>
     
@@ -51,14 +51,14 @@
   </url>
   
   <url>
-    <loc>https://icyfish.github.io/posts/2017/08/11/CORS/</loc>
+    <loc>https://icyfish.github.io/posts/2016/10/28/objects-functions/</loc>
     
     <lastmod>2019-06-30T14:05:17.101Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://icyfish.github.io/posts/2016/10/28/objects-functions/</loc>
+    <loc>https://icyfish.github.io/posts/2016/10/15/execution-context/</loc>
     
     <lastmod>2019-06-30T14:05:17.101Z</lastmod>
     
@@ -86,34 +86,6 @@
   </url>
   
   <url>
-    <loc>https://icyfish.github.io/posts/2016/10/12/internet-basics/</loc>
-    
-    <lastmod>2019-06-30T14:05:17.099Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://icyfish.github.io/posts/2017/05/15/why-webpack/</loc>
-    
-    <lastmod>2019-06-30T14:05:17.099Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://icyfish.github.io/posts/2017/05/01/redux-cartoon-guide/</loc>
-    
-    <lastmod>2019-06-30T14:05:17.099Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://icyfish.github.io/posts/2016/11/15/closure/</loc>
-    
-    <lastmod>2019-06-30T14:05:17.099Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://icyfish.github.io/posts/2017/04/16/redux-booklist/</loc>
     
     <lastmod>2019-06-30T14:05:17.099Z</lastmod>
@@ -128,6 +100,20 @@
   </url>
   
   <url>
+    <loc>https://icyfish.github.io/posts/2017/05/15/why-webpack/</loc>
+    
+    <lastmod>2019-06-30T14:05:17.099Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://icyfish.github.io/posts/2016/11/15/closure/</loc>
+    
+    <lastmod>2019-06-30T14:05:17.099Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://icyfish.github.io/posts/2016/11/29/async-n-event/</loc>
     
     <lastmod>2019-06-30T14:05:17.099Z</lastmod>
@@ -135,14 +121,28 @@
   </url>
   
   <url>
-    <loc>https://icyfish.github.io/posts/2016/11/12/object-creation-prototype/</loc>
+    <loc>https://icyfish.github.io/posts/2016/10/12/internet-basics/</loc>
+    
+    <lastmod>2019-06-30T14:05:17.099Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://icyfish.github.io/posts/2017/05/01/redux-cartoon-guide/</loc>
+    
+    <lastmod>2019-06-30T14:05:17.099Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://icyfish.github.io/posts/2017/05/01/hot-reloading-time-travel/</loc>
     
     <lastmod>2019-06-30T14:05:17.098Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://icyfish.github.io/posts/2017/05/01/hot-reloading-time-travel/</loc>
+    <loc>https://icyfish.github.io/posts/2016/11/12/object-creation-prototype/</loc>
     
     <lastmod>2019-06-30T14:05:17.098Z</lastmod>
     
