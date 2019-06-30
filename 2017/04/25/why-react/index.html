@@ -1,4 +1,169 @@
-<!DOCTYPE html><html lang="en"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="google-site-verification" content="IDYUPnBNhdnU8o9LRNKZ1RSt14tIxTI0rLeMrBtswXw"><title> [译]React为何在前端开发中大放异彩 · Fish</title><meta name="description" content="[译]React为何在前端开发中大放异彩 - Fish"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/posts/favicon.png"><link rel="stylesheet" href="/posts/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://icyfish.github.io/posts/atom.xml" title="Fish"></head><body><div class="wrap"><header><a href="/posts/" class="logo-link"><img src="/posts/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/posts/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/posts/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/posts/about/" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="http://twitter.com/icyfish_" target="_blank" class="nav-list-link">TWITTER</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">[译]React为何在前端开发中大放异彩</h1><div class="post-info">Apr 25, 2017</div><div class="post-content"><p>原文: <a href="https://medium.freecodecamp.com/yes-react-is-taking-over-front-end-development-the-question-is-why-40837af8ab76" target="_blank" rel="noopener">Yes, React is taking over front-end development. The question is why.</a><br>作者: <a href="https://medium.freecodecamp.com/@samerbuna" target="_blank" rel="noopener">Samer Buna</a><br>原文发布时间: 2017.03.31<br>译文同时发布于: <a href="https://medium.com/@icyfish/%E8%AF%91-react%E4%B8%BA%E4%BD%95%E5%9C%A8%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E4%B8%AD%E5%A4%A7%E6%94%BE%E5%BC%82%E5%BD%A9-cf48c8d69b21" target="_blank" rel="noopener">Medium</a></p>
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+<title>[译]React为何在前端开发中大放异彩 - Fish</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="原文: Yes, React is taking over front-end development. The question is why.作者: Samer Buna原文发布时间: 2017.03.31译文同时发布于: Medium">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[译]React为何在前端开发中大放异彩">
+<meta property="og:url" content="https://icyfish.github.io/posts/2017/04/25/why-react/index.html">
+<meta property="og:site_name" content="Fish">
+<meta property="og:description" content="原文: Yes, React is taking over front-end development. The question is why.作者: Samer Buna原文发布时间: 2017.03.31译文同时发布于: Medium">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://icyfish.github.io/posts/images/og_image.png">
+<meta property="og:updated_time" content="2019-06-30T14:05:17.101Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[译]React为何在前端开发中大放异彩">
+<meta name="twitter:description" content="原文: Yes, React is taking over front-end development. The question is why.作者: Samer Buna原文发布时间: 2017.03.31译文同时发布于: Medium">
+<meta name="twitter:image" content="https://icyfish.github.io/posts/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/posts/images/thumbnail.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/posts/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/posts/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/posts/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/posts/">
+            
+                <img src="/posts/images/avatar.png" alt="[译]React为何在前端开发中大放异彩" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/posts/">Home</a>
+                
+                <a class="navbar-item" href="/posts/archives">Archives</a>
+                
+                <a class="navbar-item" href="/posts/categories">Categories</a>
+                
+                <a class="navbar-item" href="/posts/tags">Tags</a>
+                
+                <a class="navbar-item" href="/posts/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/icyfish/blog">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2017-04-24T16:00:00.000Z">2017-04-25</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    33 minutes read (About 4906 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                [译]React为何在前端开发中大放异彩
+            
+        </h1>
+        <div class="content">
+            <p>原文: <a href="https://medium.freecodecamp.com/yes-react-is-taking-over-front-end-development-the-question-is-why-40837af8ab76" target="_blank" rel="noopener">Yes, React is taking over front-end development. The question is why.</a><br>作者: <a href="https://medium.freecodecamp.com/@samerbuna" target="_blank" rel="noopener">Samer Buna</a><br>原文发布时间: 2017.03.31<br>译文同时发布于: <a href="https://medium.com/@icyfish/%E8%AF%91-react%E4%B8%BA%E4%BD%95%E5%9C%A8%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91%E4%B8%AD%E5%A4%A7%E6%94%BE%E5%BC%82%E5%BD%A9-cf48c8d69b21" target="_blank" rel="noopener">Medium</a></p>
 <a id="more"></a>
 <h2 id="译文"><a href="#译文" class="headerlink" title="译文:"></a>译文:</h2><p><img src="/posts/images/react-hot.png" alt="react-hot"></p>
 <p>本文的重点是阐述React受欢迎的原因, 并不是它与其他框架或库的比较.</p>
@@ -37,39 +202,39 @@
 <p>因为只针对最后一个理念进行试验, 试验的具体内容是创建一个计时器, 在React实例中不使用组件, 也不会使用JSX语法, 虽然JSX语法使代码变得更简单. 在React编程中, 我一直使用JSX语法, 但在这个情况下, 直接使用React API能将概念阐述得更清楚. </p>
 <h3 id="React协调算法实例"><a href="#React协调算法实例" class="headerlink" title="React协调算法实例"></a>React协调算法实例</h3><p>你可以用浏览器和编辑器跟着以下的步骤自己进行操作, 网页编辑器也可以, 我会在本地建立文件使用浏览器直接进行测试(不需要用到web服务器):</p>
 <p>现在我们从零开始构建这个实例, 先创建一个文件夹, 用你最喜欢的编辑器打开这个文件夹: </p>
-<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> react-<span class="built_in">demo</span></span><br><span class="line">cd react-<span class="built_in">demo</span></span><br><span class="line"><span class="built_in">atom</span> .</span><br></pre></td></tr></table></figure>
+<figure class="highlight maxima hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">mkdir</span> react-<span class="hljs-built_in">demo</span></span><br><span class="line">cd react-<span class="hljs-built_in">demo</span></span><br><span class="line"><span class="hljs-built_in">atom</span> .</span><br></pre></td></tr></table></figure>
 <p>在文件夹内创建<code>index.html</code>, 在里面添加标准的HTML模板, 同时在HTML中引入<code>script.js</code>文件, 在js文件中声明<code>console.log</code>语句测试是否引入成功:</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>React Demo<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"script.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>React Demo<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"script.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>用浏览器打开<code>index.html</code>, 确保能看见空的HTML模板, 然后打开控制台, 测试是否看见自己在<code>script.js</code>中声明的<code>console.log</code>语句内容. </p>
-<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">open <span class="keyword">index</span>.html <span class="meta"># On Mac</span></span><br><span class="line">explorer <span class="keyword">index</span>.html <span class="meta"># On Windows</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight axapta hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">open <span class="hljs-keyword">index</span>.html <span class="hljs-meta"># On Mac</span></span><br><span class="line">explorer <span class="hljs-keyword">index</span>.html <span class="hljs-meta"># On Windows</span></span><br></pre></td></tr></table></figure>
 <p>接下来引入React库, <a href="https://facebook.github.io/react/docs/installation.html" target="_blank" rel="noopener">React官网</a>中提供了引入的具体方式. 这里选择直接引入托管在CDN中的js文件, 拷贝react和react-dom托管的地址加入<code>index.html</code>中: </p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://unpkg.com/react@15/dist/react.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://unpkg.com/react-dom@15/dist/react-dom.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unpkg.com/react@15/dist/react.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span> </span><br><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://unpkg.com/react-dom@15/dist/react-dom.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>可以看到我们引入了两个分离的js文件, <code>React</code>库可以脱离浏览器环境使用, 而如果想在浏览器中使用<code>React</code>库, 就需要<code>ReactDOM</code>库的帮助. </p>
 <p>现在我们刷新浏览器, 在控制台中测试可以发现, 全局环境中已经存在<code>React</code>和<code>ReactDOM</code>变量: </p>
 <p><img src="/posts/images/react-dom.png" alt="react-dom"></p>
 <p>这样简单配置之后, 就可以使用<code>React</code>和<code>ReactDOM</code>的API, 当然同时还有原生的Web API和JavaScript, 在第一个例子中会使用后两者. </p>
 <p>使用Web API和JavaScript可以简单实现在浏览器中动态添加HTML. 首先创建<code>div</code>元素用以放置JavaScript生成的 HTML内容 , 给这个div的id属性命名为<code>js</code>. 在<code>index.html</code>的body元素内, <code>script</code>标签之前, 添加:</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"js"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>然后在<code>script.js</code>中, 通过document.getElementById获取这个id为<code>js</code>的<code>div</code>元素, 将其赋值给一个常量<code>jsContainer</code>.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> jsContainer = <span class="built_in">document</span>.getElementById(<span class="string">"js"</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> jsContainer = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"js"</span>);</span><br></pre></td></tr></table></figure>
 <p>要改变jsContainer中的内容, 可以用<code>innerHTML</code>直接在该<code>div</code>元素上执行setter调用. 还可以在其中添加任何想要插入的HTML模板. 现在, 我们在其中添加”class”属性为”demo”, 内容为”Hello JS”的<code>div</code>元素: </p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">jsContainer.innerHTML = <span class="string">`</span></span><br><span class="line"><span class="string">  &lt;div class="demo"&gt;</span></span><br><span class="line"><span class="string">    Hello JS</span></span><br><span class="line"><span class="string">  &lt;/div&gt;</span></span><br><span class="line"><span class="string">`</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">jsContainer.innerHTML = <span class="hljs-string">`</span></span><br><span class="line"><span class="hljs-string">  &lt;div class="demo"&gt;</span></span><br><span class="line"><span class="hljs-string">    Hello JS</span></span><br><span class="line"><span class="hljs-string">  &lt;/div&gt;</span></span><br><span class="line"><span class="hljs-string">`</span>;</span><br></pre></td></tr></table></figure>
 <p>如果各个步骤没有错误, 在浏览器页面上会出现”Hello JS”字符.</p>
 <p>这个class为demo的div是我们目前的UI. 这个UI极其简单, 只是在页面上输出了一些文本内容.</p>
 <p><code>document.getElementById</code>和<code>element.innerHTML</code>是原生Web API. 使用原生API, 我们直接与浏览器进行交互. 而在用React编程时, 我们使用的是React的API, 让React操纵Web API, 自己不与浏览器直接交互. </p>
 <p>React就像是浏览器的代理人, 大部分情况下, 我们只需和React交流, 不需要直接操作浏览器. 上一句提到, 只是大部分情况和React交流, 是因为还有一些情况需要直接操作浏览器, 但这样的情况是少数. </p>
 <p>现在我们使用React创建和前一个例子一样的UI, 这次的<code>div</code>元素id为<code>&quot;react&quot;</code>, 在<code>index.html</code>中, <code>div#js</code>下添加:</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"react"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"react"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>现在在<code>script.js</code>中, 创建一个新的常量用以插入新的<code>div</code>:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> reactContainer = <span class="built_in">document</span>.getElementById(<span class="string">"react"</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> reactContainer = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"react"</span>);</span><br></pre></td></tr></table></figure>
 <p>常量<code>reactContainer</code>是这个实例中唯一一个需要使用原生web API的地方. 这样ReactDOM库才知道应用应该渲染在DOM的那个位置. </p>
 <p>因为声明了<code>reactContainer</code>, 就能使用ReactDOM库将React版的HTML模板渲染到container中:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">  <span class="comment">/* <span class="doctag">TODO:</span> React版的HTML模板 */</span>,</span><br><span class="line">  reactContainer</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">  <span class="hljs-comment">/* <span class="hljs-doctag">TODO:</span> React版的HTML模板 */</span>,</span><br><span class="line">  reactContainer</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 <p>之后要完成的步骤就是我们完全理解React的一个重要步骤. 还记得我之前所说的React是使用JavaScript完成HTML模板的吗, 接下来我们就要完成这项任务.</p>
 <p>我们使用JavaScript调用React API来构建这个简单HTML用户界面, 到了实例的最后, 就能了解React为何要这样做. </p>
 <p>在第一个例子中, 我们在jsContainer中直接加入字符串, 而这次我们使用对象而不是字符串. 任何HTML字符串都会以对象的形式表示出来, 使用React的API<code>React.createElement</code>来实现(这个API是React的核心API).</p>
 <p>以下是具体如何用React来构建与第一个例子类似内容的代码:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">  React.createElement(</span><br><span class="line">    <span class="string">"div"</span>,</span><br><span class="line">    &#123; <span class="attr">className</span>: <span class="string">"demo"</span> &#125;,</span><br><span class="line">    <span class="string">"Hello React"</span></span><br><span class="line">  ),</span><br><span class="line">  reactContainer</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">  React.createElement(</span><br><span class="line">    <span class="hljs-string">"div"</span>,</span><br><span class="line">    &#123; <span class="hljs-attr">className</span>: <span class="hljs-string">"demo"</span> &#125;,</span><br><span class="line">    <span class="hljs-string">"Hello React"</span></span><br><span class="line">  ),</span><br><span class="line">  reactContainer</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 <p><code>React.createElement</code>接受许多参数: </p>
 <ul>
 <li>第一个参数是HTML标签, 在我们的例子中是<code>div</code>.</li>
@@ -77,7 +242,7 @@
 <li>第三个参数是元素的内容, 我们在其中添加字符串”Hello React”.</li>
 </ul>
 <p>然后就可以进行测试了. 浏览器应该将”Hello JS”和”Hello React”都渲染到页面上. 现在我们给”class”为”demo”的两个<code>div</code>添加上样式, 将两部分分开. 在<code>index.html</code>中:</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">media</span>=<span class="string">"screen"</span>&gt;</span></span><br><span class="line"><span class="css">  <span class="selector-class">.demo</span> &#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">border</span>: 1<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-id">#ccc</span>;</span></span><br><span class="line">    margin: 1em;</span><br><span class="line">    padding: 1em;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">style</span> <span class="hljs-attr">media</span>=<span class="hljs-string">"screen"</span>&gt;</span></span><br><span class="line"><span class="hljs-css">  <span class="hljs-selector-class">.demo</span> &#123;</span></span><br><span class="line"><span class="hljs-css">    <span class="hljs-selector-tag">border</span>: 1<span class="hljs-selector-tag">px</span> <span class="hljs-selector-tag">solid</span> <span class="hljs-selector-id">#ccc</span>;</span></span><br><span class="line">    margin: 1em;</span><br><span class="line">    padding: 1em;</span><br><span class="line">  &#125;</span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>下图是添加样式之后的页面:</p>
 <p><img src="/posts/images/demo-style0.png" alt="demo-style0"></p>
 <p>(以上为原文的页面, 但译者自己测试结果与其不一致, 见下图)</p>
@@ -86,21 +251,21 @@
 <p>不管用HTML来表示的UI有多复杂, 任何HTML元素都可以使用<code>React.createElement</code>创建一个JavaScript对象来表示.</p>
 <p>现在我们给之前所创建的简单UI添加新样式 – 读取用户输入的文本框. </p>
 <p>JS版本的第一个例子中, 在HTML模板中嵌入元素比较简单, 因为只需要直接插入HTML即可. 比如我们需要在”class”为”demo”的<code>div</code>中添加<code>&lt;input /&gt;</code>元素, 只需要下面这样简单的操作:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">jsContainer.innerHTML = <span class="string">`</span></span><br><span class="line"><span class="string">  &lt;div class="demo"&gt;</span></span><br><span class="line"><span class="string">    Hello JS</span></span><br><span class="line"><span class="string">    &lt;input /&gt;</span></span><br><span class="line"><span class="string">  &lt;/div&gt;</span></span><br><span class="line"><span class="string">`</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">jsContainer.innerHTML = <span class="hljs-string">`</span></span><br><span class="line"><span class="hljs-string">  &lt;div class="demo"&gt;</span></span><br><span class="line"><span class="hljs-string">    Hello JS</span></span><br><span class="line"><span class="hljs-string">    &lt;input /&gt;</span></span><br><span class="line"><span class="hljs-string">  &lt;/div&gt;</span></span><br><span class="line"><span class="hljs-string">`</span>;</span><br></pre></td></tr></table></figure>
 <p>为了在React版本的第二个例子中达到与上面一样的效果, 需要在<code>React.createElement</code>中加入更多参数. 在第四个参数中使用<code>React.createElement</code>添加<code>input</code>元素(注意, 任何HTML元素都是对象):</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">  React.createElement(</span><br><span class="line">    <span class="string">"div"</span>,</span><br><span class="line">    &#123; <span class="attr">className</span>: <span class="string">"demo"</span> &#125;,</span><br><span class="line">    <span class="string">"Hello React"</span>,</span><br><span class="line">    React.createElement(<span class="string">"input"</span>)</span><br><span class="line">  ),</span><br><span class="line">  reactContainer</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">  React.createElement(</span><br><span class="line">    <span class="hljs-string">"div"</span>,</span><br><span class="line">    &#123; <span class="hljs-attr">className</span>: <span class="hljs-string">"demo"</span> &#125;,</span><br><span class="line">    <span class="hljs-string">"Hello React"</span>,</span><br><span class="line">    React.createElement(<span class="hljs-string">"input"</span>)</span><br><span class="line">  ),</span><br><span class="line">  reactContainer</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 <p><em>现在你可能会觉得使用React是”把简单的步骤复杂化”, 确实是这样, 但是我们有充分的理由这样做, 继续看下面的步骤.</em></p>
 <p>我们继续在UI中分别加入时间戳, 在JS版本中, 把时间戳放在段落标签中再插入. 可以调用<code>new Date()</code>来显示一个简单的时间戳:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">jsContainer.innerHTML = <span class="string">`</span></span><br><span class="line"><span class="string">  &lt;div class="demo"&gt;</span></span><br><span class="line"><span class="string">    Hello JS</span></span><br><span class="line"><span class="string">    &lt;input /&gt;</span></span><br><span class="line"><span class="string">    &lt;p&gt;<span class="subst">$&#123;<span class="keyword">new</span> <span class="built_in">Date</span>()&#125;</span>&lt;/p&gt;</span></span><br><span class="line"><span class="string">  &lt;/div&gt;</span></span><br><span class="line"><span class="string">`</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">jsContainer.innerHTML = <span class="hljs-string">`</span></span><br><span class="line"><span class="hljs-string">  &lt;div class="demo"&gt;</span></span><br><span class="line"><span class="hljs-string">    Hello JS</span></span><br><span class="line"><span class="hljs-string">    &lt;input /&gt;</span></span><br><span class="line"><span class="hljs-string">    &lt;p&gt;<span class="hljs-subst">$&#123;<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()&#125;</span>&lt;/p&gt;</span></span><br><span class="line"><span class="hljs-string">  &lt;/div&gt;</span></span><br><span class="line"><span class="hljs-string">`</span>;</span><br></pre></td></tr></table></figure>
 <p>要在React版本中加入同样的时间戳样式, 需要在<code>React.createElement</code>的第五个参数中添加元素, 如下:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">  React.createElement(</span><br><span class="line">    <span class="string">"div"</span>,</span><br><span class="line">    &#123; <span class="attr">className</span>: <span class="string">"demo"</span> &#125;,</span><br><span class="line">    <span class="string">"Hello React"</span>,</span><br><span class="line">    React.createElement(<span class="string">"input"</span>),</span><br><span class="line">    React.createElement(</span><br><span class="line">      <span class="string">"p"</span>,</span><br><span class="line">      <span class="literal">null</span>,</span><br><span class="line">      <span class="keyword">new</span> <span class="built_in">Date</span>().toString()</span><br><span class="line">    )</span><br><span class="line">  ),</span><br><span class="line">  reactContainer</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">  React.createElement(</span><br><span class="line">    <span class="hljs-string">"div"</span>,</span><br><span class="line">    &#123; <span class="hljs-attr">className</span>: <span class="hljs-string">"demo"</span> &#125;,</span><br><span class="line">    <span class="hljs-string">"Hello React"</span>,</span><br><span class="line">    React.createElement(<span class="hljs-string">"input"</span>),</span><br><span class="line">    React.createElement(</span><br><span class="line">      <span class="hljs-string">"p"</span>,</span><br><span class="line">      <span class="hljs-literal">null</span>,</span><br><span class="line">      <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().toString()</span><br><span class="line">    )</span><br><span class="line">  ),</span><br><span class="line">  reactContainer</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 <p>现在, JS和React版本的例子依然渲染同样的内容:</p>
 <p><img src="/posts/images/react-time.png" alt="react-time"></p>
 <p>可以看到, 直到现在, React版本的例子依旧比JS版本的例子复杂. 究竟React在哪方面做得如此出色, 值得我们耗费那么多的精力用它来替代简单的HTML呢?  答案和最初渲染的HTML视图没有关系, React的长处在于更新DOM中已存在的视图. </p>
 <p>现在我们在所创建的DOM中执行一个更新操作, 让时间戳随秒数增加.</p>
 <p>将对两个版本的DOM操作添加到<code>render</code>函数中, 再使用Web API<code>setInterval</code>重复调用<code>render</code>函数, 每秒调用一次. </p>
 <p>下面是<code>script.js</code>文件中的全部完整代码:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> jsContainer = <span class="built_in">document</span>.getElementById(<span class="string">"js"</span>);</span><br><span class="line"><span class="keyword">const</span> reactContainer = <span class="built_in">document</span>.getElementById(<span class="string">"react"</span>);</span><br><span class="line"><span class="keyword">const</span> render = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  jsContainer.innerHTML = <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;div class="demo"&gt;</span></span><br><span class="line"><span class="string">      Hello JS</span></span><br><span class="line"><span class="string">      &lt;input /&gt;</span></span><br><span class="line"><span class="string">      &lt;p&gt;<span class="subst">$&#123;<span class="keyword">new</span> <span class="built_in">Date</span>()&#125;</span>&lt;/p&gt;</span></span><br><span class="line"><span class="string">    &lt;/div&gt;</span></span><br><span class="line"><span class="string">  `</span>;</span><br><span class="line">  ReactDOM.render(</span><br><span class="line">    React.createElement(</span><br><span class="line">      <span class="string">"div"</span>,</span><br><span class="line">      &#123; <span class="attr">className</span>: <span class="string">"demo"</span> &#125;,</span><br><span class="line">      <span class="string">"Hello React "</span>,</span><br><span class="line">      React.createElement(<span class="string">"input"</span>),</span><br><span class="line">      React.createElement(</span><br><span class="line">        <span class="string">"p"</span>,</span><br><span class="line">        <span class="literal">null</span>,</span><br><span class="line">        <span class="keyword">new</span> <span class="built_in">Date</span>().toString()</span><br><span class="line">      )</span><br><span class="line">    ),</span><br><span class="line">    reactContainer</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line">setInterval(render, <span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> jsContainer = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"js"</span>);</span><br><span class="line"><span class="hljs-keyword">const</span> reactContainer = <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"react"</span>);</span><br><span class="line"><span class="hljs-keyword">const</span> render = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> &#123;</span><br><span class="line">  jsContainer.innerHTML = <span class="hljs-string">`</span></span><br><span class="line"><span class="hljs-string">    &lt;div class="demo"&gt;</span></span><br><span class="line"><span class="hljs-string">      Hello JS</span></span><br><span class="line"><span class="hljs-string">      &lt;input /&gt;</span></span><br><span class="line"><span class="hljs-string">      &lt;p&gt;<span class="hljs-subst">$&#123;<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()&#125;</span>&lt;/p&gt;</span></span><br><span class="line"><span class="hljs-string">    &lt;/div&gt;</span></span><br><span class="line"><span class="hljs-string">  `</span>;</span><br><span class="line">  ReactDOM.render(</span><br><span class="line">    React.createElement(</span><br><span class="line">      <span class="hljs-string">"div"</span>,</span><br><span class="line">      &#123; <span class="hljs-attr">className</span>: <span class="hljs-string">"demo"</span> &#125;,</span><br><span class="line">      <span class="hljs-string">"Hello React "</span>,</span><br><span class="line">      React.createElement(<span class="hljs-string">"input"</span>),</span><br><span class="line">      React.createElement(</span><br><span class="line">        <span class="hljs-string">"p"</span>,</span><br><span class="line">        <span class="hljs-literal">null</span>,</span><br><span class="line">        <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().toString()</span><br><span class="line">      )</span><br><span class="line">    ),</span><br><span class="line">    reactContainer</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line">setInterval(render, <span class="hljs-number">1000</span>);</span><br></pre></td></tr></table></figure>
 <p>刷新浏览器, 在两个版本中, 时间戳字符串随着时间每秒改变一次. 现在我们就是在更新DOM中的UI. </p>
 <p><em>React让你大吃一惊的时刻即将来到了.</em>如果你打算在JS版本的文本框中输入一些文字, 会发现根本无法输入. 这是可以预料到的结果, 因为在JS版本中, 我们每隔一秒就把整个DOM节点抛弃然后再重新生成. 不过, 在React版本中的文本框输入文字却一点困难都没有!</p>
 <p>尽管React部分的代码也是每隔一秒重新渲染一次, 但React版本的实例只重新渲染了时间戳所在元素<code>p</code>的那一部分, 并非改变整个DOM节点, 其中的文本输入框不会随着秒数增加重新渲染, 因此可以在里面输入文字.</p>
@@ -115,4 +280,980 @@
 <p>感谢阅读! 这是本文所完成例子的<a href="https://github.com/jscomplete/react-virtual-dom-demo/tree/master/demo" target="_blank" rel="noopener">源代码</a>, 这是<a href="https://jscomplete.github.io/react-virtual-dom-demo/demo/" target="_blank" rel="noopener">demo</a>.</p>
 <p>如果对这篇文章或本人所著其他文章有任何疑问, 可以通过这个<a href="https://slack.jscomplete.com/" target="_blank" rel="noopener">slack频道</a>联系到我(邀请你自己进入该频道), 在#questions房间中提问.</p>
 <p>我还在在线学习网站<a href="https://www.pluralsight.com/search?q=samer+buna&amp;categories=course" target="_blank" rel="noopener">Pluralsight</a>和<a href="https://www.lynda.com/Samer-Buna/7060467-1.html" target="_blank" rel="noopener">Lynda</a>中教授一些课程. 以下是我最近发布的几个课程<a href="https://www.pluralsight.com/courses/react-js-getting-started" target="_blank" rel="noopener">Getting Started with React.js</a>, <a href="https://www.pluralsight.com/courses/nodejs-advanced" target="_blank" rel="noopener">Advanced Node.js</a>以及 <a href="https://www.lynda.com/Express-js-tutorials/Learning-Full-Stack-JavaScript-Development-MongoDB-Node-React/533304-2.html" target="_blank" rel="noopener">Learning Full-stack JavaScript</a>.</p>
-</div></article></div></main><footer><div class="paginator"><a href="/posts/2017/04/27/flux-cartoon-guide/" class="prev">PREV</a><a href="/posts/2017/04/17/redux-avoid-mutation/" class="next">NEXT</a></div><div class="copyright"><p>© 2019 <a href="https://icyfish.github.io/posts">Fish</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/posts/2017/04/27/flux-cartoon-guide/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">[译]看漫画理解Flux</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/posts/2017/04/17/redux-avoid-mutation/">
+                <span class="level-item">Redux-不可变更新</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="/posts/images/avatar.png" alt="Fish">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Fish
+                    </p>
+                    
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Earth</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        55
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        0
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        0
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://icyfish.github.io/posts" target="_blank">
+                Follow</a>
+        </div>
+        
+        
+    </div>
+</div>
+    
+        
+    
+        
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categories
+            </h3>
+            <ul class="menu-list">
+            
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/2019/06/30/JavaScript-Inside-1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="JavaScript Inside 1 - engine, runtime, callstack">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-29T16:00:00.000Z">2019-06-30</time></div>
+                    <a href="/posts/2019/06/30/JavaScript-Inside-1/" class="has-link-black-ter is-size-6">JavaScript Inside 1 - engine, runtime, callstack</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2019/06/27/element-in-view/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="判断元素是否在可视区域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-26T16:00:00.000Z">2019-06-27</time></div>
+                    <a href="/posts/2019/06/27/element-in-view/" class="has-link-black-ter is-size-6">判断元素是否在可视区域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/02/07/css-position/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="CSS定位笔记(MDN)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-02-06T16:00:00.000Z">2018-02-07</time></div>
+                    <a href="/posts/2018/02/07/css-position/" class="has-link-black-ter is-size-6">CSS定位笔记(MDN)</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/01/18/react-ref/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="React Ref">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-17T16:00:00.000Z">2018-01-18</time></div>
+                    <a href="/posts/2018/01/18/react-ref/" class="has-link-black-ter is-size-6">React Ref</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/01/09/collection-of-web-tools/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="Collection of Web Tools">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-08T16:00:00.000Z">2018-01-09</time></div>
+                    <a href="/posts/2018/01/09/collection-of-web-tools/" class="has-link-black-ter is-size-6">Collection of Web Tools</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2018/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2018/01/">
+                <span class="level-start">
+                    <span class="level-item">January 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/07/">
+                <span class="level-start">
+                    <span class="level-item">July 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/05/">
+                <span class="level-start">
+                    <span class="level-item">May 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">7</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/11/">
+                <span class="level-start">
+                    <span class="level-item">November 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/10/">
+                <span class="level-start">
+                    <span class="level-item">October 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/2019/06/30/JavaScript-Inside-1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="JavaScript Inside 1 - engine, runtime, callstack">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-29T16:00:00.000Z">2019-06-30</time></div>
+                    <a href="/posts/2019/06/30/JavaScript-Inside-1/" class="has-link-black-ter is-size-6">JavaScript Inside 1 - engine, runtime, callstack</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2019/06/27/element-in-view/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="判断元素是否在可视区域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-26T16:00:00.000Z">2019-06-27</time></div>
+                    <a href="/posts/2019/06/27/element-in-view/" class="has-link-black-ter is-size-6">判断元素是否在可视区域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/02/07/css-position/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="CSS定位笔记(MDN)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-02-06T16:00:00.000Z">2018-02-07</time></div>
+                    <a href="/posts/2018/02/07/css-position/" class="has-link-black-ter is-size-6">CSS定位笔记(MDN)</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/01/18/react-ref/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="React Ref">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-17T16:00:00.000Z">2018-01-18</time></div>
+                    <a href="/posts/2018/01/18/react-ref/" class="has-link-black-ter is-size-6">React Ref</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/01/09/collection-of-web-tools/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="Collection of Web Tools">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-08T16:00:00.000Z">2018-01-09</time></div>
+                    <a href="/posts/2018/01/09/collection-of-web-tools/" class="has-link-black-ter is-size-6">Collection of Web Tools</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2018/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2018/01/">
+                <span class="level-start">
+                    <span class="level-item">January 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/07/">
+                <span class="level-start">
+                    <span class="level-item">July 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/05/">
+                <span class="level-start">
+                    <span class="level-item">May 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">7</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/11/">
+                <span class="level-start">
+                    <span class="level-item">November 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/10/">
+                <span class="level-start">
+                    <span class="level-item">October 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/posts/">
+                
+                    <img src="/posts/images/avatar.png" alt="[译]React为何在前端开发中大放异彩" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Fish&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+    
+    
+    
+    <script src="/posts/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/posts/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/posts/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/posts/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+
+<script src="/posts/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/posts/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/posts/js/insight.js" defer></script>
+<link rel="stylesheet" href="/posts/css/search.css">
+<link rel="stylesheet" href="/posts/css/insight.css">
+    
+</body>
+</html>

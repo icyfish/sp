@@ -1,11 +1,176 @@
-<!DOCTYPE html><html lang="en"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="google-site-verification" content="IDYUPnBNhdnU8o9LRNKZ1RSt14tIxTI0rLeMrBtswXw"><title> 类型, 运算符 · Fish</title><meta name="description" content="类型, 运算符 - Fish"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/posts/favicon.png"><link rel="stylesheet" href="/posts/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://icyfish.github.io/posts/atom.xml" title="Fish"></head><body><div class="wrap"><header><a href="/posts/" class="logo-link"><img src="/posts/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/posts/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/posts/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/posts/about/" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="http://twitter.com/icyfish_" target="_blank" class="nav-list-link">TWITTER</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">类型, 运算符</h1><div class="post-info">Oct 25, 2016</div><div class="post-content"><p>JavaScript的变量类型是动态类型, 因此语言中会有很多强制转换的情况发生. 运算符实际上是一种特殊的函数. </p>
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+<title>类型, 运算符 - Fish</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="JavaScript的变量类型是动态类型, 因此语言中会有很多强制转换的情况发生. 运算符实际上是一种特殊的函数.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="类型, 运算符">
+<meta property="og:url" content="https://icyfish.github.io/posts/2016/10/25/types-and-operators/index.html">
+<meta property="og:site_name" content="Fish">
+<meta property="og:description" content="JavaScript的变量类型是动态类型, 因此语言中会有很多强制转换的情况发生. 运算符实际上是一种特殊的函数.">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://icyfish.github.io/posts/images/og_image.png">
+<meta property="og:updated_time" content="2019-06-30T13:50:13.500Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="类型, 运算符">
+<meta name="twitter:description" content="JavaScript的变量类型是动态类型, 因此语言中会有很多强制转换的情况发生. 运算符实际上是一种特殊的函数.">
+<meta name="twitter:image" content="https://icyfish.github.io/posts/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/posts/images/thumbnail.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/posts/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/posts/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/posts/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/posts/">
+            
+                <img src="/posts/images/avatar.png" alt="类型, 运算符" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/posts/">Home</a>
+                
+                <a class="navbar-item" href="/posts/archives">Archives</a>
+                
+                <a class="navbar-item" href="/posts/categories">Categories</a>
+                
+                <a class="navbar-item" href="/posts/tags">Tags</a>
+                
+                <a class="navbar-item" href="/posts/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/icyfish/blog">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2016-10-24T16:00:00.000Z">2016-10-25</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    8 minutes read (About 1165 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                类型, 运算符
+            
+        </h1>
+        <div class="content">
+            <p>JavaScript的变量类型是动态类型, 因此语言中会有很多强制转换的情况发生. 运算符实际上是一种特殊的函数. </p>
 <a id="more"></a>
 <h2 id="动态类型-Dynamic-Typing"><a href="#动态类型-Dynamic-Typing" class="headerlink" title="动态类型 Dynamic Typing:"></a>动态类型 Dynamic Typing:</h2><p>在JavaScript中,定义一个变量时,不需要显式声明变量的类型,JS引擎在代码运行时会自动识别变量类型,所以在程序执行时,一个变量在不同时间可以拥有不同的类型.</p>
 <p>Java, C#的变量类型是静态的(Static Typing), 即需要显式声明变量类型,而且在程序执行过程中类型不可改变.</p>
 <p><strong>Static Typing:</strong></p>
 <p><code>bool isNew = &quot;hello&quot;;</code> 会提示错误.</p>
 <p><strong>Dynamic Typing:</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> isNew = <span class="literal">true</span>; <span class="comment">// 没有错误</span></span><br><span class="line">isNew = <span class="string">'yup!'</span>;</span><br><span class="line">isNew = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> isNew = <span class="hljs-literal">true</span>; <span class="hljs-comment">// 没有错误</span></span><br><span class="line">isNew = <span class="hljs-string">'yup!'</span>;</span><br><span class="line">isNew = <span class="hljs-number">1</span>;</span><br></pre></td></tr></table></figure>
 <h2 id="原始类型-Primitive-Types"><a href="#原始类型-Primitive-Types" class="headerlink" title="原始类型 Primitive Types:"></a>原始类型 Primitive Types:</h2><p>原始类型(定义): A type of data that represents a single value. (在JS中也就是: 不是对象,不存在方法)</p>
 <p><strong>JS中有6种原始类型:</strong></p>
 <p>   <strong>1. undefined</strong>: (represents lack of existence), <code>undefined</code>是JavaScript语言中的一个特殊值,变量的值是undefined表明这个变量未被赋值.</p>
@@ -16,36 +181,1012 @@
 <p>   <strong>5. string</strong></p>
 <p>   <strong>6. symbol</strong>: ECMAScript 2015中新加入的类型</p>
 <h2 id="运算符-operators"><a href="#运算符-operators" class="headerlink" title="运算符 operators"></a>运算符 operators</h2><p>运算符实际上是一种特殊的函数, 只是在句法结构上与一般的函数不同, 一般来说, 运算符接受两个参数, 返回一个结果.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">3</span> + <span class="number">4</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a = <span class="hljs-number">3</span> + <span class="hljs-number">4</span>;</span><br></pre></td></tr></table></figure>
 <p><code>+</code>是运算符, 实际上是一个函数<br>对于上述代码, JS引擎实际是这样执行的:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> +(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="comment">// 返回 a + b 的结果</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> +(<span class="hljs-params">a,b</span>)</span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-comment">// 返回 a + b 的结果</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>那么如果想要调用这个函数, 就该这样做 <code>+(3,4);</code>, 但是这样太过麻烦, 为了简便JS引擎实现了 <strong>中缀标记法(infix notation)</strong>, 于是就可以用这种形式调用函数 <code>3+4</code>;</p>
 <h3 id="运算符优先级"><a href="#运算符优先级" class="headerlink" title="运算符优先级"></a>运算符优先级</h3><p>运算符优先级指哪个运算符会被先调用, 即最先执行.  </p>
 <h3 id="关联性Associativity"><a href="#关联性Associativity" class="headerlink" title="关联性Associativity"></a>关联性Associativity</h3><p>关联性决定了拥有相同优先级的运算符的执行顺序, 如果与左边关联性较强, 那么先执行左边的部分, 反之同理.</p>
 <p>具体的优先级和关联性详见<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence" target="_blank" rel="noopener">Operator Precedence</a>中的表格.</p>
 <h2 id="强制转换-coercion"><a href="#强制转换-coercion" class="headerlink" title="强制转换 coercion"></a>强制转换 coercion</h2><p>将某一类型的变量强制转换成另一种类型, 因为JS是Dynamic Typing, 所以强制转换在语言中很常见. 强制转换包括隐式强制转换和显式强制转换. <a href="https://github.com/icyfish/You-Dont-Know-JS/blob/master/types%20%26%20grammar/ch4.md" target="_blank" rel="noopener">详见</a></p>
 <p><strong>隐式强制转换:</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span> + <span class="string">'2'</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="comment">//'12'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a = <span class="hljs-number">1</span> + <span class="hljs-string">'2'</span>;</span><br><span class="line"><span class="hljs-built_in">console</span>.log(a);</span><br><span class="line"><span class="hljs-comment">//'12'</span></span><br></pre></td></tr></table></figure>
 <p>在内存中<code>1</code>和<code>&#39;1&#39;</code>完全不同, 但在函数执行过程中JS引擎将数字1强制转换为字符. 在一些其他语言中会抛出错误.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">3</span> &lt; <span class="number">2</span> &lt; <span class="number">1</span>);</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"><span class="comment">// 因为优先级相同, `&lt;`是左关联性较强的操作符, `3 &lt; 2`返回false</span></span><br><span class="line"><span class="comment">// 所以实际上是 `false &lt; 1` 的比较, 布尔值会被强制转换为数字</span></span><br><span class="line"><span class="comment">// false被强制转换为0, `0 &lt; 1` 自然返回true</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span> &lt; <span class="number">2</span> &lt; <span class="number">3</span>);</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"><span class="comment">// 返回true的原因并不是1小于2小于3</span></span><br><span class="line"><span class="comment">// 而是 `1 &lt; 2` 返回true</span></span><br><span class="line"><span class="comment">// true被强制转换为1, `1 &lt; 3`</span></span><br><span class="line"><span class="comment">// 因此最终结果为true</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">null</span> == <span class="number">0</span>;</span><br><span class="line"><span class="comment">// false</span></span><br><span class="line"><span class="literal">null</span> &lt; <span class="number">1</span>;</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"><span class="literal">false</span> == <span class="number">0</span>;</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"><span class="string">""</span> == <span class="number">0</span>;</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"><span class="string">""</span> == <span class="literal">false</span>;</span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">console</span>.log(<span class="hljs-number">3</span> &lt; <span class="hljs-number">2</span> &lt; <span class="hljs-number">1</span>);</span><br><span class="line"><span class="hljs-comment">// true</span></span><br><span class="line"><span class="hljs-comment">// 因为优先级相同, `&lt;`是左关联性较强的操作符, `3 &lt; 2`返回false</span></span><br><span class="line"><span class="hljs-comment">// 所以实际上是 `false &lt; 1` 的比较, 布尔值会被强制转换为数字</span></span><br><span class="line"><span class="hljs-comment">// false被强制转换为0, `0 &lt; 1` 自然返回true</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(<span class="hljs-number">1</span> &lt; <span class="hljs-number">2</span> &lt; <span class="hljs-number">3</span>);</span><br><span class="line"><span class="hljs-comment">// true</span></span><br><span class="line"><span class="hljs-comment">// 返回true的原因并不是1小于2小于3</span></span><br><span class="line"><span class="hljs-comment">// 而是 `1 &lt; 2` 返回true</span></span><br><span class="line"><span class="hljs-comment">// true被强制转换为1, `1 &lt; 3`</span></span><br><span class="line"><span class="hljs-comment">// 因此最终结果为true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-literal">null</span> == <span class="hljs-number">0</span>;</span><br><span class="line"><span class="hljs-comment">// false</span></span><br><span class="line"><span class="hljs-literal">null</span> &lt; <span class="hljs-number">1</span>;</span><br><span class="line"><span class="hljs-comment">// true</span></span><br><span class="line"><span class="hljs-literal">false</span> == <span class="hljs-number">0</span>;</span><br><span class="line"><span class="hljs-comment">// true</span></span><br><span class="line"><span class="hljs-string">""</span> == <span class="hljs-number">0</span>;</span><br><span class="line"><span class="hljs-comment">// true</span></span><br><span class="line"><span class="hljs-string">""</span> == <span class="hljs-literal">false</span>;</span><br><span class="line"><span class="hljs-comment">// true</span></span><br></pre></td></tr></table></figure>
 <p>强制转换功能强大, 但也很危险. 用 <code>===</code>(严格相等) 来比较值不会进行强制转换, 因此在比较值时, 多用 <code>===</code> 而不是 <code>==</code>.</p>
 <p><a href="https://developer.mozilla.org/en/docs/Web/JavaScript/Equality_comparisons_and_sameness" target="_blank" rel="noopener">JavaScript中的相等性判断</a></p>
 <p><strong>显式强制转换:</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Number</span>(<span class="literal">true</span>);</span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="literal">false</span>);</span><br><span class="line"><span class="comment">// 0</span></span><br><span class="line"><span class="built_in">Number</span>(<span class="literal">undefined</span>);</span><br><span class="line"><span class="comment">// NaN  </span></span><br><span class="line"><span class="built_in">Number</span>(<span class="literal">null</span>);</span><br><span class="line"><span class="comment">// 0</span></span><br><span class="line"><span class="built_in">Boolean</span>(<span class="number">0</span>);</span><br><span class="line"><span class="comment">// false</span></span><br><span class="line"><span class="built_in">Boolean</span>(<span class="number">1</span>);</span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">Number</span>(<span class="hljs-literal">true</span>);</span><br><span class="line"><span class="hljs-comment">// 1</span></span><br><span class="line"><span class="hljs-built_in">Number</span>(<span class="hljs-literal">false</span>);</span><br><span class="line"><span class="hljs-comment">// 0</span></span><br><span class="line"><span class="hljs-built_in">Number</span>(<span class="hljs-literal">undefined</span>);</span><br><span class="line"><span class="hljs-comment">// NaN  </span></span><br><span class="line"><span class="hljs-built_in">Number</span>(<span class="hljs-literal">null</span>);</span><br><span class="line"><span class="hljs-comment">// 0</span></span><br><span class="line"><span class="hljs-built_in">Boolean</span>(<span class="hljs-number">0</span>);</span><br><span class="line"><span class="hljs-comment">// false</span></span><br><span class="line"><span class="hljs-built_in">Boolean</span>(<span class="hljs-number">1</span>);</span><br><span class="line"><span class="hljs-comment">// true</span></span><br></pre></td></tr></table></figure>
 <h3 id="存在性和布尔值"><a href="#存在性和布尔值" class="headerlink" title="存在性和布尔值"></a>存在性和布尔值</h3><p>表示不存在含义的值会被强制转换为<code>false</code>, 如<code>undefined</code>, <code>null</code>, <code>&quot;&quot;</code>.<br>因此可以利用coercion判断某个变量的存在性.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (a) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'something is there.'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 不会有输出, 因为a被强制转换为false.</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">if</span> (a) &#123;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'something is there.'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-comment">// 不会有输出, 因为a被强制转换为false.</span></span><br></pre></td></tr></table></figure>
 <p>如果a为<code>undefined</code>, <code>null</code>, <code>&quot;&quot;</code>中任意一个, 程序就不会有输出, 有个例外情况, 若a的值为0, 程序也不会有输出, 但0并不是不存在.</p>
 <p>可以这样改进:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"></span><br><span class="line">a = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (a || a === <span class="number">0</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'something is there.'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greet</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Hello '</span>+ name);</span><br><span class="line">&#125;</span><br><span class="line">greet(<span class="string">'Tony'</span>);</span><br><span class="line"><span class="comment">// 'Hello Tony';</span></span><br><span class="line">greet();</span><br><span class="line"><span class="comment">// 若不传入参数, 很多其他编程会抛出错误</span></span><br><span class="line"><span class="comment">// 但是JavaScript这样输出:</span></span><br><span class="line"><span class="comment">// 'Hello undefined';</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a;</span><br><span class="line"></span><br><span class="line">a = <span class="hljs-number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">if</span> (a || a === <span class="hljs-number">0</span>) &#123;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'something is there.'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="默认值"><a href="#默认值" class="headerlink" title="默认值"></a>默认值</h3><figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">greet</span>(<span class="hljs-params">name</span>)</span>&#123;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Hello '</span>+ name);</span><br><span class="line">&#125;</span><br><span class="line">greet(<span class="hljs-string">'Tony'</span>);</span><br><span class="line"><span class="hljs-comment">// 'Hello Tony';</span></span><br><span class="line">greet();</span><br><span class="line"><span class="hljs-comment">// 若不传入参数, 很多其他编程会抛出错误</span></span><br><span class="line"><span class="hljs-comment">// 但是JavaScript这样输出:</span></span><br><span class="line"><span class="hljs-comment">// 'Hello undefined';</span></span><br></pre></td></tr></table></figure>
 <p>可以这样改进:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greet</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">  name = name || <span class="string">'&lt;Your name here&gt;'</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Hello '</span>+ name);</span><br><span class="line">&#125;</span><br><span class="line">greet();</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">greet</span>(<span class="hljs-params">name</span>)</span>&#123;</span><br><span class="line">  name = name || <span class="hljs-string">'&lt;Your name here&gt;'</span>;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Hello '</span>+ name);</span><br><span class="line">&#125;</span><br><span class="line">greet();</span><br></pre></td></tr></table></figure>
 <p>运用ES6的改进方式:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> greet = <span class="function">(<span class="params">name=<span class="string">'&lt;Your name here&gt;'</span></span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`Hello <span class="subst">$&#123;name&#125;</span>`</span>);</span><br><span class="line">&#125;</span><br><span class="line">greet();</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> greet = <span class="hljs-function">(<span class="hljs-params">name=<span class="hljs-string">'&lt;Your name here&gt;'</span></span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Hello <span class="hljs-subst">$&#123;name&#125;</span>`</span>);</span><br><span class="line">&#125;</span><br><span class="line">greet();</span><br></pre></td></tr></table></figure>
 <hr>
 <p><strong>参考</strong></p>
 <ul>
 <li><a href="https://www.udemy.com/understand-javascript/" target="_blank" rel="noopener">JavaScript: Understanding the Weird Parts</a></li>
 </ul>
-</div></article></div></main><footer><div class="paginator"><a href="/posts/2016/10/28/objects-functions/" class="prev">PREV</a><a href="/posts/2016/10/15/execution-context/" class="next">NEXT</a></div><div class="copyright"><p>© 2019 <a href="https://icyfish.github.io/posts">Fish</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/posts/2016/10/28/objects-functions/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">对象与函数</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/posts/2016/10/15/execution-context/">
+                <span class="level-item">执行环境, 执行栈, 作用域</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="/posts/images/avatar.png" alt="Fish">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Fish
+                    </p>
+                    
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Earth</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        55
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        0
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        0
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://icyfish.github.io/posts" target="_blank">
+                Follow</a>
+        </div>
+        
+        
+    </div>
+</div>
+    
+        
+    
+        
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categories
+            </h3>
+            <ul class="menu-list">
+            
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/2019/06/30/JavaScript-Inside-1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="JavaScript Inside 1 - engine, runtime, callstack">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-29T16:00:00.000Z">2019-06-30</time></div>
+                    <a href="/posts/2019/06/30/JavaScript-Inside-1/" class="has-link-black-ter is-size-6">JavaScript Inside 1 - engine, runtime, callstack</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2019/06/27/element-in-view/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="判断元素是否在可视区域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-26T16:00:00.000Z">2019-06-27</time></div>
+                    <a href="/posts/2019/06/27/element-in-view/" class="has-link-black-ter is-size-6">判断元素是否在可视区域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/02/07/css-position/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="CSS定位笔记(MDN)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-02-06T16:00:00.000Z">2018-02-07</time></div>
+                    <a href="/posts/2018/02/07/css-position/" class="has-link-black-ter is-size-6">CSS定位笔记(MDN)</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/01/18/react-ref/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="React Ref">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-17T16:00:00.000Z">2018-01-18</time></div>
+                    <a href="/posts/2018/01/18/react-ref/" class="has-link-black-ter is-size-6">React Ref</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/01/09/collection-of-web-tools/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="Collection of Web Tools">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-08T16:00:00.000Z">2018-01-09</time></div>
+                    <a href="/posts/2018/01/09/collection-of-web-tools/" class="has-link-black-ter is-size-6">Collection of Web Tools</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2018/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2018/01/">
+                <span class="level-start">
+                    <span class="level-item">January 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/07/">
+                <span class="level-start">
+                    <span class="level-item">July 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/05/">
+                <span class="level-start">
+                    <span class="level-item">May 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">7</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/11/">
+                <span class="level-start">
+                    <span class="level-item">November 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/10/">
+                <span class="level-start">
+                    <span class="level-item">October 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/2019/06/30/JavaScript-Inside-1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="JavaScript Inside 1 - engine, runtime, callstack">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-29T16:00:00.000Z">2019-06-30</time></div>
+                    <a href="/posts/2019/06/30/JavaScript-Inside-1/" class="has-link-black-ter is-size-6">JavaScript Inside 1 - engine, runtime, callstack</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2019/06/27/element-in-view/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="判断元素是否在可视区域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-26T16:00:00.000Z">2019-06-27</time></div>
+                    <a href="/posts/2019/06/27/element-in-view/" class="has-link-black-ter is-size-6">判断元素是否在可视区域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/02/07/css-position/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="CSS定位笔记(MDN)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-02-06T16:00:00.000Z">2018-02-07</time></div>
+                    <a href="/posts/2018/02/07/css-position/" class="has-link-black-ter is-size-6">CSS定位笔记(MDN)</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/01/18/react-ref/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="React Ref">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-17T16:00:00.000Z">2018-01-18</time></div>
+                    <a href="/posts/2018/01/18/react-ref/" class="has-link-black-ter is-size-6">React Ref</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/01/09/collection-of-web-tools/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="Collection of Web Tools">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-08T16:00:00.000Z">2018-01-09</time></div>
+                    <a href="/posts/2018/01/09/collection-of-web-tools/" class="has-link-black-ter is-size-6">Collection of Web Tools</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2018/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2018/01/">
+                <span class="level-start">
+                    <span class="level-item">January 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/07/">
+                <span class="level-start">
+                    <span class="level-item">July 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/05/">
+                <span class="level-start">
+                    <span class="level-item">May 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">7</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/11/">
+                <span class="level-start">
+                    <span class="level-item">November 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/10/">
+                <span class="level-start">
+                    <span class="level-item">October 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/posts/">
+                
+                    <img src="/posts/images/avatar.png" alt="类型, 运算符" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Fish&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+    
+    
+    
+    <script src="/posts/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/posts/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/posts/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/posts/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+
+<script src="/posts/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/posts/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/posts/js/insight.js" defer></script>
+<link rel="stylesheet" href="/posts/css/search.css">
+<link rel="stylesheet" href="/posts/css/insight.css">
+    
+</body>
+</html>

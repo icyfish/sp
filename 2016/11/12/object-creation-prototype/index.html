@@ -1,4 +1,169 @@
-<!DOCTYPE html><html lang="en"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="google-site-verification" content="IDYUPnBNhdnU8o9LRNKZ1RSt14tIxTI0rLeMrBtswXw"><title> 创建对象与原型继承 · Fish</title><meta name="description" content="创建对象与原型继承 - Fish"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/posts/favicon.png"><link rel="stylesheet" href="/posts/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://icyfish.github.io/posts/atom.xml" title="Fish"></head><body><div class="wrap"><header><a href="/posts/" class="logo-link"><img src="/posts/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/posts/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/posts/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/posts/about/" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="http://twitter.com/icyfish_" target="_blank" class="nav-list-link">TWITTER</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">创建对象与原型继承</h1><div class="post-info">Nov 12, 2016</div><div class="post-content"><p>继承指使某个对象 <strong>关联</strong> 另一个对象的属性和方法. 大多数编程语言中运用的继承类型为基于类的继承(Classical Inheritance), 而JavaScript中的继承类型为基于原型的继承(Prototypal Inheritance).</p>
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+<title>创建对象与原型继承 - Fish</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="继承指使某个对象 关联 另一个对象的属性和方法. 大多数编程语言中运用的继承类型为基于类的继承(Classical Inheritance), 而JavaScript中的继承类型为基于原型的继承(Prototypal Inheritance).">
+<meta property="og:type" content="article">
+<meta property="og:title" content="创建对象与原型继承">
+<meta property="og:url" content="https://icyfish.github.io/posts/2016/11/12/object-creation-prototype/index.html">
+<meta property="og:site_name" content="Fish">
+<meta property="og:description" content="继承指使某个对象 关联 另一个对象的属性和方法. 大多数编程语言中运用的继承类型为基于类的继承(Classical Inheritance), 而JavaScript中的继承类型为基于原型的继承(Prototypal Inheritance).">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://icyfish.github.io/posts/images/og_image.png">
+<meta property="og:updated_time" content="2019-06-30T14:05:17.098Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="创建对象与原型继承">
+<meta name="twitter:description" content="继承指使某个对象 关联 另一个对象的属性和方法. 大多数编程语言中运用的继承类型为基于类的继承(Classical Inheritance), 而JavaScript中的继承类型为基于原型的继承(Prototypal Inheritance).">
+<meta name="twitter:image" content="https://icyfish.github.io/posts/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/posts/images/thumbnail.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/posts/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/posts/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/posts/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/posts/">
+            
+                <img src="/posts/images/avatar.png" alt="创建对象与原型继承" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/posts/">Home</a>
+                
+                <a class="navbar-item" href="/posts/archives">Archives</a>
+                
+                <a class="navbar-item" href="/posts/categories">Categories</a>
+                
+                <a class="navbar-item" href="/posts/tags">Tags</a>
+                
+                <a class="navbar-item" href="/posts/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/icyfish/blog">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2016-11-11T16:00:00.000Z">2016-11-12</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    13 minutes read (About 1944 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                创建对象与原型继承
+            
+        </h1>
+        <div class="content">
+            <p>继承指使某个对象 <strong>关联</strong> 另一个对象的属性和方法. 大多数编程语言中运用的继承类型为基于类的继承(Classical Inheritance), 而JavaScript中的继承类型为基于原型的继承(Prototypal Inheritance).</p>
 <a id="more"></a>
 <h2 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h2><p>假设现在有一个对象obj, obj有prop1属性, 可以通过<code>.</code>操作符获取这个属性值: <code>obj.prop1</code>. 在JavaScript中, 所有对象(包括函数)都有一个隐藏的属性(无法直接获取的属性):原型属性.</p>
 <p>原型属性的作用是关联到另一个对象<code>proto</code>(The property is simply a reference to another object <code>proto</code>). <code>proto</code>还能关联另一个<code>proto</code>. 形成了一个原型链(Prototype Chain)</p>
@@ -7,26 +172,26 @@
 <p>如果有另一个对象<code>obj2</code>, <code>obj2</code>可以与<code>obj1</code>共享同一个原型对象, 甚至同一条原型链, 如下图, 如果调用<code>obj2.prop2</code>, 返回的是与<code>obj1.prop2</code>同样的属性值, 指向的是内存空间的同一位置.</p>
 <p><img src="/posts/images/prototype-prop.jpg" alt="prototype-prop"></p>
 <p>可以通过<code>__proto__</code>为对象设置原型对象, 但在 <strong>实际应用中不应该这样做</strong>,对性能不利.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  firstname : <span class="string">'Default'</span>,</span><br><span class="line">  lastname : <span class="string">'Default'</span>,</span><br><span class="line">  getFullName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.firstname + <span class="string">' '</span> + <span class="keyword">this</span>.lastname;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> john = &#123;</span><br><span class="line">  firstname: <span class="string">'John'</span>,</span><br><span class="line">  lastname: <span class="string">'Doe'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// don't do this EVER! for demo purpose only!!!</span></span><br><span class="line">john.__proto__ = person;</span><br><span class="line"><span class="built_in">console</span>.log(john.getFullName()); <span class="comment">// John Doe</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> jane = &#123;</span><br><span class="line">  firstname: <span class="string">'Jane'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// share the same proto object</span></span><br><span class="line">jane.__proto__ = person;</span><br><span class="line"><span class="built_in">console</span>.log(jane.getFullName()); <span class="comment">// Jane Default</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> person = &#123;</span><br><span class="line">  firstname : <span class="hljs-string">'Default'</span>,</span><br><span class="line">  lastname : <span class="hljs-string">'Default'</span>,</span><br><span class="line">  getFullName: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.firstname + <span class="hljs-string">' '</span> + <span class="hljs-keyword">this</span>.lastname;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> john = &#123;</span><br><span class="line">  firstname: <span class="hljs-string">'John'</span>,</span><br><span class="line">  lastname: <span class="hljs-string">'Doe'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// don't do this EVER! for demo purpose only!!!</span></span><br><span class="line">john.__proto__ = person;</span><br><span class="line"><span class="hljs-built_in">console</span>.log(john.getFullName()); <span class="hljs-comment">// John Doe</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> jane = &#123;</span><br><span class="line">  firstname: <span class="hljs-string">'Jane'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// share the same proto object</span></span><br><span class="line">jane.__proto__ = person;</span><br><span class="line"><span class="hljs-built_in">console</span>.log(jane.getFullName()); <span class="hljs-comment">// Jane Default</span></span><br></pre></td></tr></table></figure>
 <h2 id="一切皆对象"><a href="#一切皆对象" class="headerlink" title="一切皆对象"></a>一切皆对象</h2><p>在JavaScript中, 一切皆对象(或原始类型) Everything is an object(or a primitive). 它们都有原型对象, 除了base object(对象的原型对象), 下例中的<code>a.__proto__</code>.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line"><span class="keyword">var</span> c = [];</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a.__proto__); <span class="comment">// Object &#123;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(a.__proto__.__proto__); <span class="comment">// null</span></span><br><span class="line"><span class="built_in">console</span>.log(b.__proto__); <span class="comment">// function () &#123;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(b.__proto__.__proto__); <span class="comment">// Object &#123;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(c.__proto__); <span class="comment">// [Symbol(Symbol.unscopables): Object]</span></span><br><span class="line"><span class="built_in">console</span>.log(c.__proto__.__proto__); <span class="comment">// Object &#123;&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a = &#123;&#125;;</span><br><span class="line"><span class="hljs-keyword">var</span> b = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;&#125;;</span><br><span class="line"><span class="hljs-keyword">var</span> c = [];</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(a.__proto__); <span class="hljs-comment">// Object &#123;&#125;</span></span><br><span class="line"><span class="hljs-built_in">console</span>.log(a.__proto__.__proto__); <span class="hljs-comment">// null</span></span><br><span class="line"><span class="hljs-built_in">console</span>.log(b.__proto__); <span class="hljs-comment">// function () &#123;&#125;</span></span><br><span class="line"><span class="hljs-built_in">console</span>.log(b.__proto__.__proto__); <span class="hljs-comment">// Object &#123;&#125;</span></span><br><span class="line"><span class="hljs-built_in">console</span>.log(c.__proto__); <span class="hljs-comment">// [Symbol(Symbol.unscopables): Object]</span></span><br><span class="line"><span class="hljs-built_in">console</span>.log(c.__proto__.__proto__); <span class="hljs-comment">// Object &#123;&#125;</span></span><br></pre></td></tr></table></figure>
 <h2 id="对象的内省"><a href="#对象的内省" class="headerlink" title="对象的内省"></a>对象的内省</h2><p>Reflection: An object can look at itself, listing<br>and changing its properties and methods.</p>
 <blockquote>
 <p><strong>Reflection:</strong> 在传统的面向类环境中，检查一个实例（JavaScript中的对象）的继承祖先（JavaScript中的委托关联）通常被称为内省（或者反射）。            – <a href="https://github.com/getify/You-Dont-Know-JS/blob/31e1d4ff600d88cc2ce243903ab8a3a9d15cce15/this%20%26%20object%20prototypes/ch5.md#inspecting-class-relationships" target="_blank" rel="noopener">You Don’t Know JS</a></p>
 </blockquote>
 <p><strong>for-in:</strong> 以任意顺序迭代对象中的<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties" target="_blank" rel="noopener">可枚举属性</a>.</p>
 <p><code>for-in</code>与数组:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.myCustomFeature = <span class="string">"cool"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="string">'John'</span>, <span class="string">'Jane'</span>, <span class="string">'Jim'</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> prop <span class="keyword">in</span> arr)&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(prop + <span class="string">': '</span> + arr[prop]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">Array</span>.prototype.myCustomFeature = <span class="hljs-string">"cool"</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> arr = [<span class="hljs-string">'John'</span>, <span class="hljs-string">'Jane'</span>, <span class="hljs-string">'Jim'</span>];</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> prop <span class="hljs-keyword">in</span> arr)&#123;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(prop + <span class="hljs-string">': '</span> + arr[prop]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>从上述代码看出, 数组的索引实际上是属性名, 但在原型对象中加入自己定义的属性之后, 用<code>for-in</code>也迭代出了该属性, 因此不要在数组中使用<code>for-in</code>, 应该用一般的for循环或<code>forEach</code>.</p>
 <p><strong>hasOwnProperty:</strong> 用这个方法判断属性是否只存在于对象本身, 而不是在原型链的原型对象中.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  firstname: <span class="string">'Default'</span>,</span><br><span class="line">  lastname: <span class="string">'Default'</span>,</span><br><span class="line">  getFullName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.firstname + <span class="string">' '</span> + <span class="keyword">this</span>.lastname;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> john = &#123;</span><br><span class="line">  firstname: <span class="string">'John'</span>,</span><br><span class="line">  lastname: <span class="string">'Doe'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">john.__proto__ = person;</span><br><span class="line">john.getFullName(); <span class="comment">// "John Doe"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> john)&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(prop + <span class="string">': '</span> + john[prop]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// firstname: John</span></span><br><span class="line"><span class="comment">// lastname: Doe</span></span><br><span class="line"><span class="comment">// getFullName: function()&#123;</span></span><br><span class="line"><span class="comment">//   return this.firstname + ' ' + this.lastname;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> john)&#123;</span><br><span class="line">  <span class="keyword">if</span>(john.hasOwnProperty(prop))&#123; <span class="comment">//运用`hasOwnProperty`方法获取只存在于对象内的属性</span></span><br><span class="line">    <span class="built_in">console</span>.log(prop + <span class="string">': '</span> + john[prop]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// firstname: John</span></span><br><span class="line"><span class="comment">// lastname: Doe</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> person = &#123;</span><br><span class="line">  firstname: <span class="hljs-string">'Default'</span>,</span><br><span class="line">  lastname: <span class="hljs-string">'Default'</span>,</span><br><span class="line">  getFullName: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.firstname + <span class="hljs-string">' '</span> + <span class="hljs-keyword">this</span>.lastname;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> john = &#123;</span><br><span class="line">  firstname: <span class="hljs-string">'John'</span>,</span><br><span class="line">  lastname: <span class="hljs-string">'Doe'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">john.__proto__ = person;</span><br><span class="line">john.getFullName(); <span class="hljs-comment">// "John Doe"</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> prop <span class="hljs-keyword">in</span> john)&#123;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(prop + <span class="hljs-string">': '</span> + john[prop]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// firstname: John</span></span><br><span class="line"><span class="hljs-comment">// lastname: Doe</span></span><br><span class="line"><span class="hljs-comment">// getFullName: function()&#123;</span></span><br><span class="line"><span class="hljs-comment">//   return this.firstname + ' ' + this.lastname;</span></span><br><span class="line"><span class="hljs-comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> prop <span class="hljs-keyword">in</span> john)&#123;</span><br><span class="line">  <span class="hljs-keyword">if</span>(john.hasOwnProperty(prop))&#123; <span class="hljs-comment">//运用`hasOwnProperty`方法获取只存在于对象内的属性</span></span><br><span class="line">    <span class="hljs-built_in">console</span>.log(prop + <span class="hljs-string">': '</span> + john[prop]);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-comment">// firstname: John</span></span><br><span class="line"><span class="hljs-comment">// lastname: Doe</span></span><br></pre></td></tr></table></figure>
 <p>Underscore库中的<code>extend</code>方法(运用了对象的内省), 见下例👇, 执行<code>_.extend(john, jane, jim);</code>之后, john就有了jane和jim的属性, 除了<code>exdend</code>方法, 还有<code>extendOwn</code>方法:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  firstname: <span class="string">'Default'</span>,</span><br><span class="line">  lastname: <span class="string">'Default'</span>,</span><br><span class="line">  getFullName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.firstname + <span class="string">' '</span> + <span class="keyword">this</span>.lastname;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> john = &#123;</span><br><span class="line">  firstname: <span class="string">'John'</span>,</span><br><span class="line">  lastname: <span class="string">'Doe'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> jane = &#123;</span><br><span class="line">  address: <span class="string">'111 Main St.'</span>,</span><br><span class="line">  getFormalFullName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.lastname + <span class="string">', '</span> + <span class="keyword">this</span>.firstname;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">jane.__proto__ = person;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> jim = &#123;</span><br><span class="line">  getFirstName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> firstname;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">_.extend(john, jane, jim);</span><br><span class="line"><span class="comment">// _.extendOwn(john, jane, jim);</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> prop <span class="keyword">in</span> john)&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(prop + <span class="string">': '</span> + john[prop]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// extend</span></span><br><span class="line">firstname: Default</span><br><span class="line">lastname: Default</span><br><span class="line">address: <span class="number">111</span> Main St.</span><br><span class="line">getFormalFullName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.lastname + <span class="string">', '</span> + <span class="keyword">this</span>.firstname;</span><br><span class="line">&#125;</span><br><span class="line">getFullName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.firstname + <span class="string">' '</span> + <span class="keyword">this</span>.lastname;</span><br><span class="line">&#125;</span><br><span class="line">getFirstName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> firstname;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// extendOwn</span></span><br><span class="line">firstname: John</span><br><span class="line">lastname: Doe</span><br><span class="line">address: <span class="number">111</span> Main St.</span><br><span class="line">getFormalFullName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.lastname + <span class="string">', '</span> + <span class="keyword">this</span>.firstname;</span><br><span class="line">&#125;</span><br><span class="line">getFirstName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> firstname;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> person = &#123;</span><br><span class="line">  firstname: <span class="hljs-string">'Default'</span>,</span><br><span class="line">  lastname: <span class="hljs-string">'Default'</span>,</span><br><span class="line">  getFullName: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.firstname + <span class="hljs-string">' '</span> + <span class="hljs-keyword">this</span>.lastname;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> john = &#123;</span><br><span class="line">  firstname: <span class="hljs-string">'John'</span>,</span><br><span class="line">  lastname: <span class="hljs-string">'Doe'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> jane = &#123;</span><br><span class="line">  address: <span class="hljs-string">'111 Main St.'</span>,</span><br><span class="line">  getFormalFullName: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.lastname + <span class="hljs-string">', '</span> + <span class="hljs-keyword">this</span>.firstname;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">jane.__proto__ = person;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> jim = &#123;</span><br><span class="line">  getFirstName: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> firstname;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">_.extend(john, jane, jim);</span><br><span class="line"><span class="hljs-comment">// _.extendOwn(john, jane, jim);</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> prop <span class="hljs-keyword">in</span> john)&#123;</span><br><span class="line">   <span class="hljs-built_in">console</span>.log(prop + <span class="hljs-string">': '</span> + john[prop]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// extend</span></span><br><span class="line">firstname: Default</span><br><span class="line">lastname: Default</span><br><span class="line">address: <span class="hljs-number">111</span> Main St.</span><br><span class="line">getFormalFullName: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.lastname + <span class="hljs-string">', '</span> + <span class="hljs-keyword">this</span>.firstname;</span><br><span class="line">&#125;</span><br><span class="line">getFullName: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.firstname + <span class="hljs-string">' '</span> + <span class="hljs-keyword">this</span>.lastname;</span><br><span class="line">&#125;</span><br><span class="line">getFirstName: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> firstname;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-comment">// extendOwn</span></span><br><span class="line">firstname: John</span><br><span class="line">lastname: Doe</span><br><span class="line">address: <span class="hljs-number">111</span> Main St.</span><br><span class="line">getFormalFullName: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.lastname + <span class="hljs-string">', '</span> + <span class="hljs-keyword">this</span>.firstname;</span><br><span class="line">&#125;</span><br><span class="line">getFirstName: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> firstname;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><code>extend</code>方法中首个参数对象接受其后参数对象的属性, 包括后面的对象的原型属性, 而且如果有相同属性, 后面对象的属性会覆盖第一个参数对象属性.</p>
 <p><code>extendOwn</code>与<code>extend</code>相似, 但不包括后面对象的原型属性.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// An internal function for creating assigner functions.</span></span><br><span class="line"><span class="keyword">var</span> createAssigner = <span class="function"><span class="keyword">function</span>(<span class="params">keysFunc, undefinedOnly</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> length = <span class="built_in">arguments</span>.length;</span><br><span class="line">    <span class="keyword">if</span> (length &lt; <span class="number">2</span> || obj == <span class="literal">null</span>) <span class="keyword">return</span> obj;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> index = <span class="number">1</span>; index &lt; length; index++) &#123;</span><br><span class="line">      <span class="keyword">var</span> source = <span class="built_in">arguments</span>[index],</span><br><span class="line">          keys = keysFunc(source),</span><br><span class="line">          l = keys.length;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; l; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> key = keys[i];</span><br><span class="line">        <span class="keyword">if</span> (!undefinedOnly || obj[key] === <span class="keyword">void</span> <span class="number">0</span>) obj[key] = source[key];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> obj;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Extend a given object with all the properties in passed-in object(s).</span></span><br><span class="line">_.extend = createAssigner(_.allKeys);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Assigns a given object with all the own properties in the passed-in object(s)</span></span><br><span class="line">_.extendOwn = _.assign = createAssigner(_.keys);</span><br></pre></td></tr></table></figure>
-<h2 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h2><h3 id="构造器函数与new操作符"><a href="#构造器函数与new操作符" class="headerlink" title="构造器函数与new操作符"></a>构造器函数与new操作符</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.firstname = <span class="string">'John'</span>;</span><br><span class="line">  <span class="keyword">this</span>.lastname = <span class="string">'Doe'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> john = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="built_in">console</span>.log(john)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// An internal function for creating assigner functions.</span></span><br><span class="line"><span class="hljs-keyword">var</span> createAssigner = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">keysFunc, undefinedOnly</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">var</span> length = <span class="hljs-built_in">arguments</span>.length;</span><br><span class="line">    <span class="hljs-keyword">if</span> (length &lt; <span class="hljs-number">2</span> || obj == <span class="hljs-literal">null</span>) <span class="hljs-keyword">return</span> obj;</span><br><span class="line">    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> index = <span class="hljs-number">1</span>; index &lt; length; index++) &#123;</span><br><span class="line">      <span class="hljs-keyword">var</span> source = <span class="hljs-built_in">arguments</span>[index],</span><br><span class="line">          keys = keysFunc(source),</span><br><span class="line">          l = keys.length;</span><br><span class="line">      <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; l; i++) &#123;</span><br><span class="line">        <span class="hljs-keyword">var</span> key = keys[i];</span><br><span class="line">        <span class="hljs-keyword">if</span> (!undefinedOnly || obj[key] === <span class="hljs-keyword">void</span> <span class="hljs-number">0</span>) obj[key] = source[key];</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> obj;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// Extend a given object with all the properties in passed-in object(s).</span></span><br><span class="line">_.extend = createAssigner(_.allKeys);</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// Assigns a given object with all the own properties in the passed-in object(s)</span></span><br><span class="line">_.extendOwn = _.assign = createAssigner(_.keys);</span><br></pre></td></tr></table></figure>
+<h2 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h2><h3 id="构造器函数与new操作符"><a href="#构造器函数与new操作符" class="headerlink" title="构造器函数与new操作符"></a>构造器函数与new操作符</h3><figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">  <span class="hljs-keyword">this</span>.firstname = <span class="hljs-string">'John'</span>;</span><br><span class="line">  <span class="hljs-keyword">this</span>.lastname = <span class="hljs-string">'Doe'</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-keyword">var</span> john = <span class="hljs-keyword">new</span> Person();</span><br><span class="line"><span class="hljs-built_in">console</span>.log(john)</span><br></pre></td></tr></table></figure>
 <ol>
 <li><code>new</code> 创建一个空对象</li>
 <li>调用<code>Person</code>函数, 新的执行环境被创建</li>
@@ -34,21 +199,997 @@
 <li><code>Person</code>内定义的firstname和lastname成为新创建对象的属性</li>
 <li>如果在构造器函数中没有声明返回的值, 返回的就是新创建的对象</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">firstname, lastname</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.firstname = firstname;</span><br><span class="line">  <span class="keyword">this</span>.lastname = lastname;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> john = <span class="keyword">new</span> Person(<span class="string">'John'</span>, <span class="string">'Doe'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(john);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> jane = <span class="keyword">new</span> Person(<span class="string">'Jane'</span>, <span class="string">'Doe'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(jane);</span><br></pre></td></tr></table></figure>
-<p>利用构造器函数(Function Constructor)和<code>new</code>创建对象时, 会给创建出的对象自动关联一个原型对象, 上述对象的原型对象是constructor为👇的<code>Object{}</code>:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.firstname = <span class="string">'John'</span>;</span><br><span class="line">  <span class="keyword">this</span>.lastname = <span class="string">'Doe'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3 id="proto-与prototype"><a href="#proto-与prototype" class="headerlink" title="__proto__与prototype"></a><code>__proto__</code>与<code>prototype</code></h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">firstname,lastname</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.firstname = firstname;</span><br><span class="line">  <span class="keyword">this</span>.lastname = lastname;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> john = <span class="keyword">new</span> Person(<span class="string">'John'</span>,<span class="string">'Doe'</span>);</span><br><span class="line"><span class="keyword">var</span> jane = <span class="keyword">new</span> Person(<span class="string">'Jane'</span>,<span class="string">'Doe'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(john.__proto__ === Person.prototype); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 因为上述声明成立, 所以可以通过下面👇的方法给john的原型对象定义属性</span></span><br><span class="line"></span><br><span class="line">Person.prototype.greet = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Hello, '</span>+ <span class="keyword">this</span>.firstname + <span class="string">' '</span> + <span class="keyword">this</span>.lastname);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">john.greet();</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(john.__proto__);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params">firstname, lastname</span>)</span>&#123;</span><br><span class="line">  <span class="hljs-keyword">this</span>.firstname = firstname;</span><br><span class="line">  <span class="hljs-keyword">this</span>.lastname = lastname;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-keyword">var</span> john = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">'John'</span>, <span class="hljs-string">'Doe'</span>);</span><br><span class="line"><span class="hljs-built_in">console</span>.log(john);</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> jane = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">'Jane'</span>, <span class="hljs-string">'Doe'</span>);</span><br><span class="line"><span class="hljs-built_in">console</span>.log(jane);</span><br></pre></td></tr></table></figure>
+<p>利用构造器函数(Function Constructor)和<code>new</code>创建对象时, 会给创建出的对象自动关联一个原型对象, 上述对象的原型对象是constructor为👇的<code>Object{}</code>:<br><figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">  <span class="hljs-keyword">this</span>.firstname = <span class="hljs-string">'John'</span>;</span><br><span class="line">  <span class="hljs-keyword">this</span>.lastname = <span class="hljs-string">'Doe'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="proto-与prototype"><a href="#proto-与prototype" class="headerlink" title="__proto__与prototype"></a><code>__proto__</code>与<code>prototype</code></h3><figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params">firstname,lastname</span>)</span>&#123;</span><br><span class="line">  <span class="hljs-keyword">this</span>.firstname = firstname;</span><br><span class="line">  <span class="hljs-keyword">this</span>.lastname = lastname;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> john = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">'John'</span>,<span class="hljs-string">'Doe'</span>);</span><br><span class="line"><span class="hljs-keyword">var</span> jane = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">'Jane'</span>,<span class="hljs-string">'Doe'</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(john.__proto__ === Person.prototype); <span class="hljs-comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 因为上述声明成立, 所以可以通过下面👇的方法给john的原型对象定义属性</span></span><br><span class="line"></span><br><span class="line">Person.prototype.greet = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Hello, '</span>+ <span class="hljs-keyword">this</span>.firstname + <span class="hljs-string">' '</span> + <span class="hljs-keyword">this</span>.lastname);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">john.greet();</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(john.__proto__);</span><br></pre></td></tr></table></figure>
 <p>一般利用<code>.prototype</code>给对象定义方法, 在构造器函数中定义属性, 其实也可以直接在构造器函数中定义方法, 但因为在JavaScript中, 函数是对象, 会占用内存空间, 见上例, 如果在构造器内定义<code>greet</code>方法, 那么由这个构造器所创建出的每个对象中都含有<code>greet</code>方法的拷贝, 这样就占用更多的内存空间. 而如果在<code>.prototype</code>内定义方法, 不管创建出多少个对象, 这个方法在内存空间只存在一次.</p>
-<h3 id="内置构造器函数"><a href="#内置构造器函数" class="headerlink" title="内置构造器函数"></a>内置构造器函数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="keyword">new</span> <span class="built_in">Number</span>(<span class="number">3</span>);</span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// Number &#123;[[PrimitiveValue]]: 3&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'john'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(b);</span><br><span class="line"><span class="comment">// String &#123;0: "j", 1: "o", 2: "h", 3: "n", length: 4, [[PrimitiveValue]]: "john"&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="内置构造器函数"><a href="#内置构造器函数" class="headerlink" title="内置构造器函数"></a>内置构造器函数</h3><figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Number</span>(<span class="hljs-number">3</span>);</span><br><span class="line"><span class="hljs-built_in">console</span>.log(a); <span class="hljs-comment">// Number &#123;[[PrimitiveValue]]: 3&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> b = <span class="hljs-keyword">new</span> <span class="hljs-built_in">String</span>(<span class="hljs-string">'john'</span>);</span><br><span class="line"><span class="hljs-built_in">console</span>.log(b);</span><br><span class="line"><span class="hljs-comment">// String &#123;0: "j", 1: "o", 2: "h", 3: "n", length: 4, [[PrimitiveValue]]: "john"&#125;</span></span><br></pre></td></tr></table></figure>
 <p>利用内置构造器函数创建出的变量a, b是形式为原始类型的对象, 不同的类型有不同的内置属性和方法, 也可以自己定义属性和方法:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span>.prototype.isLengthGreaterThan = <span class="function"><span class="keyword">function</span>(<span class="params">limit</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.length &gt; limit;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">'John'</span>.isLengthGreaterThan(<span class="number">3</span>)); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// JavaScript会自动将字符串转换为对象, 因此上述声明成立, 但不会自动转换数字</span></span><br><span class="line"><span class="built_in">Number</span>.prototype.isPositive = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span> &gt; <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// console.log(3.isPositive()); // SyntaxError</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 除非必要, 否则不要用构造器函数创建原始类型</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="built_in">Number</span>(<span class="number">3</span>);</span><br><span class="line"><span class="built_in">console</span>.log(a.isPositive()); <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> b = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a == b); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(a === b); <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">String</span>.prototype.isLengthGreaterThan = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">limit</span>)</span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.length &gt; limit;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(<span class="hljs-string">'John'</span>.isLengthGreaterThan(<span class="hljs-number">3</span>)); <span class="hljs-comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// JavaScript会自动将字符串转换为对象, 因此上述声明成立, 但不会自动转换数字</span></span><br><span class="line"><span class="hljs-built_in">Number</span>.prototype.isPositive = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span> &gt; <span class="hljs-number">0</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// console.log(3.isPositive()); // SyntaxError</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 除非必要, 否则不要用构造器函数创建原始类型</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> a = <span class="hljs-built_in">Number</span>(<span class="hljs-number">3</span>);</span><br><span class="line"><span class="hljs-built_in">console</span>.log(a.isPositive()); <span class="hljs-comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> b = <span class="hljs-number">3</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(a == b); <span class="hljs-comment">// false</span></span><br><span class="line"><span class="hljs-built_in">console</span>.log(a === b); <span class="hljs-comment">// true</span></span><br></pre></td></tr></table></figure>
 <h3 id="Object-create与原型继承"><a href="#Object-create与原型继承" class="headerlink" title="Object.create与原型继承"></a>Object.create与原型继承</h3><p>用构造器函数所实现的继承是模仿其他语言中的类式继承, 而用<code>Object.create</code>实现的是真正的原型继承.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  firstname: <span class="string">'Default'</span>,</span><br><span class="line">  lastname: <span class="string">'Default'</span>,</span><br><span class="line">  greet: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Hi '</span> + <span class="keyword">this</span>.firstname + <span class="string">' '</span> + <span class="keyword">this</span>.lastname;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> john = <span class="built_in">Object</span>.create(person);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(john); <span class="comment">// Object &#123;&#125;</span></span><br><span class="line"></span><br><span class="line">john.firstname = <span class="string">'John'</span>;</span><br><span class="line">john.lastname = <span class="string">'Doe'</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(john); <span class="comment">// Object &#123;firstname: "John", lastname: "Doe"&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> person = &#123;</span><br><span class="line">  firstname: <span class="hljs-string">'Default'</span>,</span><br><span class="line">  lastname: <span class="hljs-string">'Default'</span>,</span><br><span class="line">  greet: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-string">'Hi '</span> + <span class="hljs-keyword">this</span>.firstname + <span class="hljs-string">' '</span> + <span class="hljs-keyword">this</span>.lastname;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> john = <span class="hljs-built_in">Object</span>.create(person);</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(john); <span class="hljs-comment">// Object &#123;&#125;</span></span><br><span class="line"></span><br><span class="line">john.firstname = <span class="hljs-string">'John'</span>;</span><br><span class="line">john.lastname = <span class="hljs-string">'Doe'</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(john); <span class="hljs-comment">// Object &#123;firstname: "John", lastname: "Doe"&#125;</span></span><br></pre></td></tr></table></figure>
 <p><strong>polyfill:</strong> 对于不支持某些特性的浏览器, 使用polyfill来实现同样的功能. (Code that adds a feature which the engine may lack.)</p>
 <p><code>Object.create</code>的polyfill简化版:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(!<span class="built_in">Object</span>.create)&#123;</span><br><span class="line">  <span class="built_in">Object</span>.create = <span class="function"><span class="keyword">function</span> (<span class="params">o</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">arguments</span>.length &gt; <span class="number">1</span>)&#123;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Object.create implementation only accepts the firstparameter'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">    F.prototype = o;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> F();</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">if</span>(!<span class="hljs-built_in">Object</span>.create)&#123;</span><br><span class="line">  <span class="hljs-built_in">Object</span>.create = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">o</span>)</span>&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span>(<span class="hljs-built_in">arguments</span>.length &gt; <span class="hljs-number">1</span>)&#123;</span><br><span class="line">      <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'Object.create implementation only accepts the firstparameter'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">F</span>(<span class="hljs-params"></span>) </span>&#123;&#125;;</span><br><span class="line">    F.prototype = o;</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> F();</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 <p><strong>参考</strong></p>
 <ul>
 <li><a href="https://www.udemy.com/understand-javascript/" target="_blank" rel="noopener">JavaScript: Understanding the Weird Parts</a></li>
 </ul>
-</div></article></div></main><footer><div class="paginator"><a href="/posts/2016/11/15/closure/" class="prev">PREV</a><a href="/posts/2016/11/02/js-frameworks/" class="next">NEXT</a></div><div class="copyright"><p>© 2019 <a href="https://icyfish.github.io/posts">Fish</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/posts/2016/11/15/closure/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">闭包</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/posts/2016/11/02/js-frameworks/">
+                <span class="level-item">JavaScript知识点在框架中的应用</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="/posts/images/avatar.png" alt="Fish">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Fish
+                    </p>
+                    
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Earth</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        55
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        0
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        0
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://icyfish.github.io/posts" target="_blank">
+                Follow</a>
+        </div>
+        
+        
+    </div>
+</div>
+    
+        
+    
+        
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categories
+            </h3>
+            <ul class="menu-list">
+            
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/2019/06/30/JavaScript-Inside-1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="JavaScript Inside 1 - engine, runtime, callstack">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-29T16:00:00.000Z">2019-06-30</time></div>
+                    <a href="/posts/2019/06/30/JavaScript-Inside-1/" class="has-link-black-ter is-size-6">JavaScript Inside 1 - engine, runtime, callstack</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2019/06/27/element-in-view/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="判断元素是否在可视区域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-26T16:00:00.000Z">2019-06-27</time></div>
+                    <a href="/posts/2019/06/27/element-in-view/" class="has-link-black-ter is-size-6">判断元素是否在可视区域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/02/07/css-position/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="CSS定位笔记(MDN)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-02-06T16:00:00.000Z">2018-02-07</time></div>
+                    <a href="/posts/2018/02/07/css-position/" class="has-link-black-ter is-size-6">CSS定位笔记(MDN)</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/01/18/react-ref/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="React Ref">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-17T16:00:00.000Z">2018-01-18</time></div>
+                    <a href="/posts/2018/01/18/react-ref/" class="has-link-black-ter is-size-6">React Ref</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/01/09/collection-of-web-tools/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="Collection of Web Tools">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-08T16:00:00.000Z">2018-01-09</time></div>
+                    <a href="/posts/2018/01/09/collection-of-web-tools/" class="has-link-black-ter is-size-6">Collection of Web Tools</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2018/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2018/01/">
+                <span class="level-start">
+                    <span class="level-item">January 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/07/">
+                <span class="level-start">
+                    <span class="level-item">July 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/05/">
+                <span class="level-start">
+                    <span class="level-item">May 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">7</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/11/">
+                <span class="level-start">
+                    <span class="level-item">November 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/10/">
+                <span class="level-start">
+                    <span class="level-item">October 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/2019/06/30/JavaScript-Inside-1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="JavaScript Inside 1 - engine, runtime, callstack">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-29T16:00:00.000Z">2019-06-30</time></div>
+                    <a href="/posts/2019/06/30/JavaScript-Inside-1/" class="has-link-black-ter is-size-6">JavaScript Inside 1 - engine, runtime, callstack</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2019/06/27/element-in-view/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="判断元素是否在可视区域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-26T16:00:00.000Z">2019-06-27</time></div>
+                    <a href="/posts/2019/06/27/element-in-view/" class="has-link-black-ter is-size-6">判断元素是否在可视区域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/02/07/css-position/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="CSS定位笔记(MDN)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-02-06T16:00:00.000Z">2018-02-07</time></div>
+                    <a href="/posts/2018/02/07/css-position/" class="has-link-black-ter is-size-6">CSS定位笔记(MDN)</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/01/18/react-ref/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="React Ref">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-17T16:00:00.000Z">2018-01-18</time></div>
+                    <a href="/posts/2018/01/18/react-ref/" class="has-link-black-ter is-size-6">React Ref</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/01/09/collection-of-web-tools/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="Collection of Web Tools">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-08T16:00:00.000Z">2018-01-09</time></div>
+                    <a href="/posts/2018/01/09/collection-of-web-tools/" class="has-link-black-ter is-size-6">Collection of Web Tools</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2018/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2018/01/">
+                <span class="level-start">
+                    <span class="level-item">January 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/07/">
+                <span class="level-start">
+                    <span class="level-item">July 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/05/">
+                <span class="level-start">
+                    <span class="level-item">May 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">7</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/11/">
+                <span class="level-start">
+                    <span class="level-item">November 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/10/">
+                <span class="level-start">
+                    <span class="level-item">October 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/posts/">
+                
+                    <img src="/posts/images/avatar.png" alt="创建对象与原型继承" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Fish&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+    
+    
+    
+    <script src="/posts/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/posts/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/posts/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/posts/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+
+<script src="/posts/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/posts/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/posts/js/insight.js" defer></script>
+<link rel="stylesheet" href="/posts/css/search.css">
+<link rel="stylesheet" href="/posts/css/insight.css">
+    
+</body>
+</html>

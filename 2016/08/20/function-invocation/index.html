@@ -1,18 +1,183 @@
-<!DOCTYPE html><html lang="en"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="google-site-verification" content="IDYUPnBNhdnU8o9LRNKZ1RSt14tIxTI0rLeMrBtswXw"><title> JavaScript中四种函数调用模式 · Fish</title><meta name="description" content="JavaScript中四种函数调用模式 - Fish"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/posts/favicon.png"><link rel="stylesheet" href="/posts/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://icyfish.github.io/posts/atom.xml" title="Fish"></head><body><div class="wrap"><header><a href="/posts/" class="logo-link"><img src="/posts/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/posts/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/posts/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/posts/about/" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="http://twitter.com/icyfish_" target="_blank" class="nav-list-link">TWITTER</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">JavaScript中四种函数调用模式</h1><div class="post-info">Aug 20, 2016</div><div class="post-content"><p>在JavaScript中对函数进行调用有多种方式, 以下是对四种函数调用模式的介绍, 以及call, apply, bind的区别.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+<title>JavaScript中四种函数调用模式 - Fish</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="在JavaScript中对函数进行调用有多种方式, 以下是对四种函数调用模式的介绍, 以及call, apply, bind的区别.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript中四种函数调用模式">
+<meta property="og:url" content="https://icyfish.github.io/posts/2016/08/20/function-invocation/index.html">
+<meta property="og:site_name" content="Fish">
+<meta property="og:description" content="在JavaScript中对函数进行调用有多种方式, 以下是对四种函数调用模式的介绍, 以及call, apply, bind的区别.">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://icyfish.github.io/posts/images/og_image.png">
+<meta property="og:updated_time" content="2019-06-30T13:49:18.931Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JavaScript中四种函数调用模式">
+<meta name="twitter:description" content="在JavaScript中对函数进行调用有多种方式, 以下是对四种函数调用模式的介绍, 以及call, apply, bind的区别.">
+<meta name="twitter:image" content="https://icyfish.github.io/posts/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/posts/images/thumbnail.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/posts/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/posts/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/posts/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/posts/">
+            
+                <img src="/posts/images/avatar.png" alt="JavaScript中四种函数调用模式" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/posts/">Home</a>
+                
+                <a class="navbar-item" href="/posts/archives">Archives</a>
+                
+                <a class="navbar-item" href="/posts/categories">Categories</a>
+                
+                <a class="navbar-item" href="/posts/tags">Tags</a>
+                
+                <a class="navbar-item" href="/posts/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/icyfish/blog">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2016-08-19T16:00:00.000Z">2016-08-20</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    8 minutes read (About 1196 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                JavaScript中四种函数调用模式
+            
+        </h1>
+        <div class="content">
+            <p>在JavaScript中对函数进行调用有多种方式, 以下是对四种函数调用模式的介绍, 以及call, apply, bind的区别.</p>
 <a id="more"></a>
 <h2 id="方法调用"><a href="#方法调用" class="headerlink" title="方法调用"></a>方法调用</h2><p>当一个函数被保存为对象的一个属性时,我们称它为一个方法,当一个方法被调用时,this被绑定到该对象.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建myObject.它有一个value属性和一个increment方法.</span></span><br><span class="line"><span class="comment">//increment方法接受一个可选的参数.如果参数不是数字,那么默认使用数字1.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> myObject = &#123;</span><br><span class="line">    value: <span class="number">0</span>,</span><br><span class="line">    increment: <span class="function"><span class="keyword">function</span> (<span class="params">inc</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.value += <span class="keyword">typeof</span> inc === <span class="string">'number'</span> ? inc : <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">myObject.increment();</span><br><span class="line"><span class="built_in">console</span>.log(myObject.value); <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line">myObject.increment(<span class="number">2</span>);</span><br><span class="line"><span class="built_in">console</span>.log(myObject.value); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//创建myObject.它有一个value属性和一个increment方法.</span></span><br><span class="line"><span class="hljs-comment">//increment方法接受一个可选的参数.如果参数不是数字,那么默认使用数字1.</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> myObject = &#123;</span><br><span class="line">    value: <span class="hljs-number">0</span>,</span><br><span class="line">    increment: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">inc</span>)</span>&#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.value += <span class="hljs-keyword">typeof</span> inc === <span class="hljs-string">'number'</span> ? inc : <span class="hljs-number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">myObject.increment();</span><br><span class="line"><span class="hljs-built_in">console</span>.log(myObject.value); <span class="hljs-comment">// 1</span></span><br><span class="line"></span><br><span class="line">myObject.increment(<span class="hljs-number">2</span>);</span><br><span class="line"><span class="hljs-built_in">console</span>.log(myObject.value); <span class="hljs-comment">// 3</span></span><br></pre></td></tr></table></figure>
 <p>this直接修改了该对象的value属性,所以第二次调用increment是在value == 1的基础上增加.</p>
 <h2 id="函数调用"><a href="#函数调用" class="headerlink" title="函数调用"></a>函数调用</h2><p>此模式为最常见的调用模式.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">showThis</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line">showThis();</span><br><span class="line"><span class="comment">//返回Window&#123;...&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">showThis</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;</span><br><span class="line">&#125;</span><br><span class="line">showThis();</span><br><span class="line"><span class="hljs-comment">//返回Window&#123;...&#125;</span></span><br></pre></td></tr></table></figure>
 <p>当函数以此模式调用时,this被绑定到全局对象.在浏览器中,全局对象为Window.this绑定到全局对象是语言设计上的一个错误,当内部函数被调用时,this应该仍然绑定到外部函数的this变量.这个设计错误的后果是方法不能利用内部函数来帮助它工作,因为内部函数的this被绑定了错误值,不能共享该方法对对象的访问权,不过有个很容易的解决方案,在对象的方法内定义一个变量并给它赋值为this,那么内部函数就能通过那个变量访问到this.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myObject = &#123;</span><br><span class="line">    value: <span class="number">0</span>,</span><br><span class="line">    increment: <span class="function"><span class="keyword">function</span> (<span class="params">inc</span>)</span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.value += <span class="keyword">typeof</span> inc === <span class="string">'number'</span> ? inc : <span class="number">1</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    getValue: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a+b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">myObject.double = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> that = <span class="keyword">this</span>; <span class="comment">//解决方法</span></span><br><span class="line">    <span class="keyword">var</span> helper  = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        that.value = add(that.value,that.value);</span><br><span class="line">        <span class="comment">//alert(this); //用以测试this的值,在浏览器中会弹出object Window</span></span><br><span class="line">    &#125;;</span><br><span class="line">    helper(); <span class="comment">//以函数形式调用helper</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">myObject.increment();</span><br><span class="line">myObject.increment(<span class="number">2</span>);</span><br><span class="line">myObject.double();</span><br><span class="line"><span class="built_in">console</span>.log(myObject.getValue()); <span class="comment">//6</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> myObject = &#123;</span><br><span class="line">    value: <span class="hljs-number">0</span>,</span><br><span class="line">    increment: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">inc</span>)</span>&#123;</span><br><span class="line">        <span class="hljs-keyword">this</span>.value += <span class="hljs-keyword">typeof</span> inc === <span class="hljs-string">'number'</span> ? inc : <span class="hljs-number">1</span>;</span><br><span class="line">    &#125;,</span><br><span class="line">    getValue: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">        <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">add</span>(<span class="hljs-params">a,b</span>)</span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> a+b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">myObject.double = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">    <span class="hljs-keyword">var</span> that = <span class="hljs-keyword">this</span>; <span class="hljs-comment">//解决方法</span></span><br><span class="line">    <span class="hljs-keyword">var</span> helper  = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">        that.value = add(that.value,that.value);</span><br><span class="line">        <span class="hljs-comment">//alert(this); //用以测试this的值,在浏览器中会弹出object Window</span></span><br><span class="line">    &#125;;</span><br><span class="line">    helper(); <span class="hljs-comment">//以函数形式调用helper</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">myObject.increment();</span><br><span class="line">myObject.increment(<span class="hljs-number">2</span>);</span><br><span class="line">myObject.double();</span><br><span class="line"><span class="hljs-built_in">console</span>.log(myObject.getValue()); <span class="hljs-comment">//6</span></span><br></pre></td></tr></table></figure>
 <p>上例在给myObject增加double方法的函数中创建了一个内部函数helper,但helpler无法直接用this访问到myObject对象中的value属性,因为在helper中this为全局对象,可以在helper中添加alert(this)测试.为了让helper访问到外部函数myObject.double的this值,定义了一个变量that来保存this值,这个this值为myObject.</p>
 <h2 id="构造器调用"><a href="#构造器调用" class="headerlink" title="构造器调用"></a>构造器调用</h2><p>如果在一个函数前面带上new来调用,那么将创建一个隐藏连接到该函数的prototype成员的新对象,同时this将会被绑定到那个新对象上.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建一个名为Quo的构造器函数,它构造一个带有status属性的对象.</span></span><br><span class="line"><span class="keyword">var</span> Quo = <span class="function"><span class="keyword">function</span>(<span class="params">string</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.status = string;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//给Quo的所有示例提供一个名为getStatus的公共方法.</span></span><br><span class="line">Quo.prototype.getStatus = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.status;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//构造一个Quo实例</span></span><br><span class="line"><span class="keyword">var</span> myQuo = <span class="keyword">new</span> Quo(<span class="string">"confused"</span>)</span><br><span class="line"><span class="built_in">console</span>.log(myQuo.getStatus());</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">//创建一个名为Quo的构造器函数,它构造一个带有status属性的对象.</span></span><br><span class="line"><span class="hljs-keyword">var</span> Quo = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">string</span>)</span>&#123;</span><br><span class="line">    <span class="hljs-keyword">this</span>.status = string;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//给Quo的所有示例提供一个名为getStatus的公共方法.</span></span><br><span class="line">Quo.prototype.getStatus = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.status;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//构造一个Quo实例</span></span><br><span class="line"><span class="hljs-keyword">var</span> myQuo = <span class="hljs-keyword">new</span> Quo(<span class="hljs-string">"confused"</span>)</span><br><span class="line"><span class="hljs-built_in">console</span>.log(myQuo.getStatus());</span><br></pre></td></tr></table></figure>
 <h2 id="call调用和apply调用"><a href="#call调用和apply调用" class="headerlink" title="call调用和apply调用"></a>call调用和apply调用</h2><p>因为JavaScript是一门函数式的面向对象编程语言,所以函数也是对象,可以拥有方法.</p>
 <p><strong>bind(), apply(), call()</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  firstname: <span class="string">'John'</span>,</span><br><span class="line">  lastname: <span class="string">'Doe'</span>,</span><br><span class="line">  getFullName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> fullname = <span class="keyword">this</span>.firstname + <span class="string">" "</span> + <span class="keyword">this</span>.lastname;</span><br><span class="line">    <span class="keyword">return</span> fullname;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> logName = <span class="function"><span class="keyword">function</span>(<span class="params">lang1, lang2</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Logged: '</span> + <span class="keyword">this</span>.getFullName());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> logPersonName = logName.bind(person); <span class="comment">// &#123;1&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// logName(); //Error: this.getFullName is not a function at logName // &#123;2&#125;</span></span><br><span class="line"></span><br><span class="line">logPersonName(); <span class="comment">// Logged: John Doe</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// var logName = function(lang1, lang2)&#123;</span></span><br><span class="line"><span class="comment">//   console.log('Logged: ' + this.getFullName());</span></span><br><span class="line"><span class="comment">// &#125;.bind(person); // &#123;3&#125;</span></span><br><span class="line"></span><br><span class="line">logName.call(person, <span class="string">'en'</span>, <span class="string">'es'</span>);</span><br><span class="line">logName.apply(person, [<span class="string">'en'</span>, <span class="string">'es'</span>]);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> person = &#123;</span><br><span class="line">  firstname: <span class="hljs-string">'John'</span>,</span><br><span class="line">  lastname: <span class="hljs-string">'Doe'</span>,</span><br><span class="line">  getFullName: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">    <span class="hljs-keyword">var</span> fullname = <span class="hljs-keyword">this</span>.firstname + <span class="hljs-string">" "</span> + <span class="hljs-keyword">this</span>.lastname;</span><br><span class="line">    <span class="hljs-keyword">return</span> fullname;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> logName = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">lang1, lang2</span>)</span>&#123;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>);</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Logged: '</span> + <span class="hljs-keyword">this</span>.getFullName());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> logPersonName = logName.bind(person); <span class="hljs-comment">// &#123;1&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// logName(); //Error: this.getFullName is not a function at logName // &#123;2&#125;</span></span><br><span class="line"></span><br><span class="line">logPersonName(); <span class="hljs-comment">// Logged: John Doe</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// var logName = function(lang1, lang2)&#123;</span></span><br><span class="line"><span class="hljs-comment">//   console.log('Logged: ' + this.getFullName());</span></span><br><span class="line"><span class="hljs-comment">// &#125;.bind(person); // &#123;3&#125;</span></span><br><span class="line"></span><br><span class="line">logName.call(person, <span class="hljs-string">'en'</span>, <span class="hljs-string">'es'</span>);</span><br><span class="line">logName.apply(person, [<span class="hljs-string">'en'</span>, <span class="hljs-string">'es'</span>]);</span><br></pre></td></tr></table></figure>
 <p>行{1}利用bind方法, 在参数内传入<code>person</code>对象, 将this值绑定到<code>person</code>, 此时<code>getFullName()</code>就可以正常执行. 如果像行{2}那样直接执行, 那么this指向的就是全局对象<code>window</code>, 而window中没有定义<code>firstname</code>,<code>getFullName()</code>,<code>lastname</code>, 因此会抛出错误. 还可以像行{3}那样绑定this.</p>
 <ul>
 <li>bind方法返回一个新的函数, 是原函数的拷贝.</li>
@@ -20,9 +185,978 @@
 </ul>
 <p>在call和apply中传入的第一个参数为this需要绑定到的对象, 后面为传入函数的参数, call和apply唯一的区别就是传入apply中的参数为数组. call和apply第二个及之后的参数是可选参数, 也可以不传入直接执行.</p>
 <p><strong>应用</strong></p>
-<h3 id="function-borrowing"><a href="#function-borrowing" class="headerlink" title="function borrowing"></a>function borrowing</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  firstname: <span class="string">'John'</span>,</span><br><span class="line">  lastname: <span class="string">'Doe'</span>,</span><br><span class="line">  getFullName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> fullname = <span class="keyword">this</span>.firstname + <span class="string">' '</span> + <span class="keyword">this</span>.lastname;</span><br><span class="line">    <span class="keyword">return</span> fullname;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person2 = &#123;</span><br><span class="line">  firstname: <span class="string">'Jane'</span>,</span><br><span class="line">  lastname: <span class="string">'Doe'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person.getFullName.apply(person2));</span><br><span class="line"><span class="built_in">console</span>.log(person.getFullName.call(person2));</span><br></pre></td></tr></table></figure>
+<h3 id="function-borrowing"><a href="#function-borrowing" class="headerlink" title="function borrowing"></a>function borrowing</h3><figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> person = &#123;</span><br><span class="line">  firstname: <span class="hljs-string">'John'</span>,</span><br><span class="line">  lastname: <span class="hljs-string">'Doe'</span>,</span><br><span class="line">  getFullName: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">    <span class="hljs-keyword">var</span> fullname = <span class="hljs-keyword">this</span>.firstname + <span class="hljs-string">' '</span> + <span class="hljs-keyword">this</span>.lastname;</span><br><span class="line">    <span class="hljs-keyword">return</span> fullname;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-keyword">var</span> person2 = &#123;</span><br><span class="line">  firstname: <span class="hljs-string">'Jane'</span>,</span><br><span class="line">  lastname: <span class="hljs-string">'Doe'</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(person.getFullName.apply(person2));</span><br><span class="line"><span class="hljs-built_in">console</span>.log(person.getFullName.call(person2));</span><br></pre></td></tr></table></figure>
 <p>利用apply和call从<code>person</code>对象中’借’<code>getFullName</code>方法.</p>
 <h3 id="function-currying"><a href="#function-currying" class="headerlink" title="function currying"></a>function currying</h3><p>函数柯里化:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">multiply</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a*b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> multiplyByTwo = multiply.bind(<span class="keyword">this</span>, <span class="number">2</span>);</span><br><span class="line"><span class="keyword">var</span> multiplyByThree = multiply.bind(<span class="keyword">this</span>, <span class="number">3</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(multiplyByTwo(<span class="number">2</span>)); <span class="comment">// 4</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//给bind()传入第二个参数,第二个参数成为函数对象第一个参数的默认值,</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// multiplyByTwo相当于:</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// function multiplyByTwo(b)&#123;</span></span><br><span class="line"><span class="comment">//   var a = 2;</span></span><br><span class="line"><span class="comment">//   return a * b;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 也可以传入多个参数</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(multiply.bind(<span class="keyword">this</span>, <span class="number">2</span>, <span class="number">3</span>)()); <span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">multiply</span>(<span class="hljs-params">a,b</span>)</span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> a*b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> multiplyByTwo = multiply.bind(<span class="hljs-keyword">this</span>, <span class="hljs-number">2</span>);</span><br><span class="line"><span class="hljs-keyword">var</span> multiplyByThree = multiply.bind(<span class="hljs-keyword">this</span>, <span class="hljs-number">3</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(multiplyByTwo(<span class="hljs-number">2</span>)); <span class="hljs-comment">// 4</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//给bind()传入第二个参数,第二个参数成为函数对象第一个参数的默认值,</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// multiplyByTwo相当于:</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// function multiplyByTwo(b)&#123;</span></span><br><span class="line"><span class="hljs-comment">//   var a = 2;</span></span><br><span class="line"><span class="hljs-comment">//   return a * b;</span></span><br><span class="line"><span class="hljs-comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 也可以传入多个参数</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(multiply.bind(<span class="hljs-keyword">this</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>)()); <span class="hljs-comment">// 6</span></span><br></pre></td></tr></table></figure>
 <p>柯里化: 创建函数的拷贝, 在该拷贝中传入部分预设参数(creating a copy of a function but with some preset parameters), 常用于有许多有关数学计算的场景中.</p>
-</div></article></div></main><footer><div class="paginator"><a href="/posts/2016/09/02/scope-of-variables/" class="prev">PREV</a></div><div class="copyright"><p>© 2019 <a href="https://icyfish.github.io/posts">Fish</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/posts/2016/09/02/scope-of-variables/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">变量的作用域</span>
+            </a>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="/posts/images/avatar.png" alt="Fish">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Fish
+                    </p>
+                    
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Earth</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        55
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        0
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        0
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://icyfish.github.io/posts" target="_blank">
+                Follow</a>
+        </div>
+        
+        
+    </div>
+</div>
+    
+        
+    
+        
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categories
+            </h3>
+            <ul class="menu-list">
+            
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/2019/06/30/JavaScript-Inside-1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="JavaScript Inside 1 - engine, runtime, callstack">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-29T16:00:00.000Z">2019-06-30</time></div>
+                    <a href="/posts/2019/06/30/JavaScript-Inside-1/" class="has-link-black-ter is-size-6">JavaScript Inside 1 - engine, runtime, callstack</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2019/06/27/element-in-view/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="判断元素是否在可视区域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-26T16:00:00.000Z">2019-06-27</time></div>
+                    <a href="/posts/2019/06/27/element-in-view/" class="has-link-black-ter is-size-6">判断元素是否在可视区域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/02/07/css-position/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="CSS定位笔记(MDN)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-02-06T16:00:00.000Z">2018-02-07</time></div>
+                    <a href="/posts/2018/02/07/css-position/" class="has-link-black-ter is-size-6">CSS定位笔记(MDN)</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/01/18/react-ref/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="React Ref">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-17T16:00:00.000Z">2018-01-18</time></div>
+                    <a href="/posts/2018/01/18/react-ref/" class="has-link-black-ter is-size-6">React Ref</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/01/09/collection-of-web-tools/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="Collection of Web Tools">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-08T16:00:00.000Z">2018-01-09</time></div>
+                    <a href="/posts/2018/01/09/collection-of-web-tools/" class="has-link-black-ter is-size-6">Collection of Web Tools</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2018/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2018/01/">
+                <span class="level-start">
+                    <span class="level-item">January 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/07/">
+                <span class="level-start">
+                    <span class="level-item">July 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/05/">
+                <span class="level-start">
+                    <span class="level-item">May 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">7</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/11/">
+                <span class="level-start">
+                    <span class="level-item">November 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/10/">
+                <span class="level-start">
+                    <span class="level-item">October 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/2019/06/30/JavaScript-Inside-1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="JavaScript Inside 1 - engine, runtime, callstack">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-29T16:00:00.000Z">2019-06-30</time></div>
+                    <a href="/posts/2019/06/30/JavaScript-Inside-1/" class="has-link-black-ter is-size-6">JavaScript Inside 1 - engine, runtime, callstack</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2019/06/27/element-in-view/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="判断元素是否在可视区域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-26T16:00:00.000Z">2019-06-27</time></div>
+                    <a href="/posts/2019/06/27/element-in-view/" class="has-link-black-ter is-size-6">判断元素是否在可视区域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/02/07/css-position/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="CSS定位笔记(MDN)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-02-06T16:00:00.000Z">2018-02-07</time></div>
+                    <a href="/posts/2018/02/07/css-position/" class="has-link-black-ter is-size-6">CSS定位笔记(MDN)</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/01/18/react-ref/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="React Ref">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-17T16:00:00.000Z">2018-01-18</time></div>
+                    <a href="/posts/2018/01/18/react-ref/" class="has-link-black-ter is-size-6">React Ref</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/01/09/collection-of-web-tools/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="Collection of Web Tools">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-08T16:00:00.000Z">2018-01-09</time></div>
+                    <a href="/posts/2018/01/09/collection-of-web-tools/" class="has-link-black-ter is-size-6">Collection of Web Tools</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2018/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2018/01/">
+                <span class="level-start">
+                    <span class="level-item">January 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/07/">
+                <span class="level-start">
+                    <span class="level-item">July 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/05/">
+                <span class="level-start">
+                    <span class="level-item">May 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">7</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/11/">
+                <span class="level-start">
+                    <span class="level-item">November 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/10/">
+                <span class="level-start">
+                    <span class="level-item">October 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/posts/">
+                
+                    <img src="/posts/images/avatar.png" alt="JavaScript中四种函数调用模式" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Fish&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+    
+    
+    
+    <script src="/posts/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/posts/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/posts/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/posts/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+
+<script src="/posts/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/posts/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/posts/js/insight.js" defer></script>
+<link rel="stylesheet" href="/posts/css/search.css">
+<link rel="stylesheet" href="/posts/css/insight.css">
+    
+</body>
+</html>

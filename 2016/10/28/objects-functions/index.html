@@ -1,7 +1,172 @@
-<!DOCTYPE html><html lang="en"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="google-site-verification" content="IDYUPnBNhdnU8o9LRNKZ1RSt14tIxTI0rLeMrBtswXw"><title> 对象与函数 · Fish</title><meta name="description" content="对象与函数 - Fish"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/posts/favicon.png"><link rel="stylesheet" href="/posts/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://icyfish.github.io/posts/atom.xml" title="Fish"></head><body><div class="wrap"><header><a href="/posts/" class="logo-link"><img src="/posts/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/posts/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/posts/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/posts/about/" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="http://twitter.com/icyfish_" target="_blank" class="nav-list-link">TWITTER</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">对象与函数</h1><div class="post-info">Oct 28, 2016</div><div class="post-content"><p>在JavaScript中, 一切皆对象, 函数也是特殊的对象.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+<title>对象与函数 - Fish</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="在JavaScript中, 一切皆对象, 函数也是特殊的对象.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对象与函数">
+<meta property="og:url" content="https://icyfish.github.io/posts/2016/10/28/objects-functions/index.html">
+<meta property="og:site_name" content="Fish">
+<meta property="og:description" content="在JavaScript中, 一切皆对象, 函数也是特殊的对象.">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://icyfish.github.io/posts/images/og_image.png">
+<meta property="og:updated_time" content="2019-06-30T14:05:17.101Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="对象与函数">
+<meta name="twitter:description" content="在JavaScript中, 一切皆对象, 函数也是特殊的对象.">
+<meta name="twitter:image" content="https://icyfish.github.io/posts/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/posts/images/thumbnail.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/posts/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/posts/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/posts/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/posts/">
+            
+                <img src="/posts/images/avatar.png" alt="对象与函数" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/posts/">Home</a>
+                
+                <a class="navbar-item" href="/posts/archives">Archives</a>
+                
+                <a class="navbar-item" href="/posts/categories">Categories</a>
+                
+                <a class="navbar-item" href="/posts/tags">Tags</a>
+                
+                <a class="navbar-item" href="/posts/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/icyfish/blog">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2016-10-27T16:00:00.000Z">2016-10-28</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    14 minutes read (About 2124 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                对象与函数
+            
+        </h1>
+        <div class="content">
+            <p>在JavaScript中, 一切皆对象, 函数也是特殊的对象.</p>
 <a id="more"></a>
 <h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><p>在JavaScript中, <strong>对象</strong> 是名值对的集合, 值可以由多个名值对组成. 名值对是互相关联的一对名和值 Name/Value Pair. 名可以被定义多次,但在特定的 <strong>执行环境</strong> 中只能匹配一个值.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Address:</span><br><span class="line">&#123;</span><br><span class="line">  Street: <span class="string">'Main'</span>,</span><br><span class="line">  <span class="built_in">Number</span>: <span class="number">100</span>,</span><br><span class="line">  Apartment:</span><br><span class="line">  &#123;</span><br><span class="line">    Floor: <span class="number">3</span>,</span><br><span class="line">    <span class="built_in">Number</span>: <span class="number">301</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Address:</span><br><span class="line">&#123;</span><br><span class="line">  Street: <span class="hljs-string">'Main'</span>,</span><br><span class="line">  <span class="hljs-built_in">Number</span>: <span class="hljs-number">100</span>,</span><br><span class="line">  Apartment:</span><br><span class="line">  &#123;</span><br><span class="line">    Floor: <span class="hljs-number">3</span>,</span><br><span class="line">    <span class="hljs-built_in">Number</span>: <span class="hljs-number">301</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="对象的属性"><a href="#对象的属性" class="headerlink" title="对象的属性"></a>对象的属性</h3><p>对象及其属性(将属性和方法统称为属性, 下同)都存在于内存空间, 对象可以获取到与其相关联的属性(have a reference to them, 即获取到的是指向属性所在内存空间的地址).</p>
 <p><img src="/posts/images/object-in-memory.jpg" alt="Object in memory"></p>
 <p>有两种操作符可以获取属性值:</p>
@@ -11,15 +176,15 @@
 </ol>
 <p>多用点号操作符, 因为更简洁也更利于调试.</p>
 <h3 id="对象字面量-Object-Literals"><a href="#对象字面量-Object-Literals" class="headerlink" title="对象字面量(Object Literals)"></a>对象字面量(Object Literals)</h3><p><code>var person = {}</code>: 用对象字面量方法创建对象.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  firstname: <span class="string">'John'</span>,</span><br><span class="line">  lastname: <span class="string">'Doe'</span>,</span><br><span class="line">  address: &#123;</span><br><span class="line">    street: <span class="string">'111 Main St.'</span>,</span><br><span class="line">    city: <span class="string">'New York'</span>,</span><br><span class="line">    state: <span class="string">'NY'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">person.firstname = <span class="string">'John'</span>;</span><br><span class="line">person.lastname = <span class="string">'Doe'</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> person = &#123;</span><br><span class="line">  firstname: <span class="hljs-string">'John'</span>,</span><br><span class="line">  lastname: <span class="hljs-string">'Doe'</span>,</span><br><span class="line">  address: &#123;</span><br><span class="line">    street: <span class="hljs-string">'111 Main St.'</span>,</span><br><span class="line">    city: <span class="hljs-string">'New York'</span>,</span><br><span class="line">    state: <span class="hljs-string">'NY'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> person = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Object</span>();</span><br><span class="line">person.firstname = <span class="hljs-string">'John'</span>;</span><br><span class="line">person.lastname = <span class="hljs-string">'Doe'</span>;</span><br></pre></td></tr></table></figure>
 <p>两种方法中, 对象字面量创建对象的方法更好, 比<code>new</code>更简洁, 用处更大. 比如:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> john = &#123;</span><br><span class="line">  firstname: <span class="string">'John'</span>,</span><br><span class="line">  lastname: <span class="string">'Doe'</span>,</span><br><span class="line">  address: &#123;</span><br><span class="line">    street: <span class="string">'111 Main St.'</span>,</span><br><span class="line">    city: <span class="string">'New York'</span>,</span><br><span class="line">    state: <span class="string">'NY'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greet</span>(<span class="params">person</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Hi '</span> + person.firstname);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet(john);</span><br><span class="line"></span><br><span class="line">greet(&#123;</span><br><span class="line">  firstname: <span class="string">'Jane'</span>,</span><br><span class="line">  lastname: <span class="string">'Doe'</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以直接传入对象作为参数</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> john = &#123;</span><br><span class="line">  firstname: <span class="hljs-string">'John'</span>,</span><br><span class="line">  lastname: <span class="hljs-string">'Doe'</span>,</span><br><span class="line">  address: &#123;</span><br><span class="line">    street: <span class="hljs-string">'111 Main St.'</span>,</span><br><span class="line">    city: <span class="hljs-string">'New York'</span>,</span><br><span class="line">    state: <span class="hljs-string">'NY'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">greet</span>(<span class="hljs-params">person</span>)</span>&#123;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Hi '</span> + person.firstname);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet(john);</span><br><span class="line"></span><br><span class="line">greet(&#123;</span><br><span class="line">  firstname: <span class="hljs-string">'Jane'</span>,</span><br><span class="line">  lastname: <span class="hljs-string">'Doe'</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 可以直接传入对象作为参数</span></span><br></pre></td></tr></table></figure>
 <p>尽管语法不一致, 实际的原理是一样的, 都是在内存空间中创建对象及属性.</p>
 <h3 id="JSON与对象字面量"><a href="#JSON与对象字面量" class="headerlink" title="JSON与对象字面量"></a>JSON与对象字面量</h3><p>过去传输数据常用XML格式:</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">object</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">firstname</span>&gt;</span>Mary<span class="tag">&lt;/<span class="name">firstname</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">isAProgrammer</span>&gt;</span>true<span class="tag">&lt;/<span class="name">isAProgrammer</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">object</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">object</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">firstname</span>&gt;</span>Mary<span class="hljs-tag">&lt;/<span class="hljs-name">firstname</span>&gt;</span></span><br><span class="line">  <span class="hljs-tag">&lt;<span class="hljs-name">isAProgrammer</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">isAProgrammer</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">object</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>但因为XML格式包含太多额外的标记, 在传输过程中会浪费很多带宽, JSON的出现解决了这样的问题.<br>JSON实际上是对象字面量语法的一个子集. 并不属于JavaScript, 但因为格式和JS对象十分相似, 所以JavaScript解析JSON格式的数据十分容易. JavaScript中内置了<code>JSON.stringify()</code>将JS对象转化为JSON, <code>JSON.parse()</code>将JSON解析为JS对象.</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"firstname"</span>: <span class="string">"Mary"</span>,</span><br><span class="line">  <span class="attr">"isAProgrammer"</span>: <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight json hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="hljs-attr">"firstname"</span>: <span class="hljs-string">"Mary"</span>,</span><br><span class="line">  <span class="hljs-attr">"isAProgrammer"</span>: <span class="hljs-literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="函数也是对象"><a href="#函数也是对象" class="headerlink" title="函数也是对象"></a>函数也是对象</h2><p><strong>JavaScript中, 函数是一等公民</strong></p>
 <p>任何其他数据类型可以做的事, 函数也能做到, 如:</p>
 <ul>
@@ -27,26 +192,26 @@
 <li>作为参数传递给其他函数</li>
 <li>可以被即时创建</li>
 </ul>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">  a();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">log(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'hi'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">log</span>(<span class="hljs-params">a</span>) </span>&#123;</span><br><span class="line">  a();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">log(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'hi'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>函数也是对象, 因此可以为函数关联属性. 其中两个比较特别的属性是函数名和代码. 而函数名并不是必要的, 不存在函数名的函数是匿名函数. 我们所写的那段代码实际上是函数作为对象的其中一个属性, 并不是函数本身, 同时这个属性是可以被调用的.</p>
 <p><img src="/posts/images/function=object.jpg" alt="functions-are-objects"></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greet</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'hi'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 给函数(对象)greet关联language属性</span></span><br><span class="line">greet.language = <span class="string">'English'</span>;  </span><br><span class="line"><span class="built_in">console</span>.log(greet.language);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">greet</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'hi'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-comment">// 给函数(对象)greet关联language属性</span></span><br><span class="line">greet.language = <span class="hljs-string">'English'</span>;  </span><br><span class="line"><span class="hljs-built_in">console</span>.log(greet.language);</span><br></pre></td></tr></table></figure>
 <p><img src="/posts/images/func-example.jpg" alt="function-example"></p>
 <p>当函数greet被创建时, 该函数被置于内存空间, 在上述情况下, 该函数是全局对象的属性.</p>
 <h2 id="函数声明与函数表达式"><a href="#函数声明与函数表达式" class="headerlink" title="函数声明与函数表达式"></a>函数声明与函数表达式</h2><p><strong>表达式(expression):</strong> 会返回值, 可以将其储存在一个变量中, 但并非必要.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">3</span>;</span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"><span class="number">1</span> + <span class="number">2</span>;</span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line">a = &#123;<span class="attr">greeting</span>: <span class="string">'hi'</span>&#125;;</span><br><span class="line"><span class="comment">// Object &#123;greeting: "hi"&#125;;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="hljs-number">3</span>;</span><br><span class="line"><span class="hljs-comment">// 3</span></span><br><span class="line"><span class="hljs-number">1</span> + <span class="hljs-number">2</span>;</span><br><span class="line"><span class="hljs-comment">// 3</span></span><br><span class="line">a = &#123;<span class="hljs-attr">greeting</span>: <span class="hljs-string">'hi'</span>&#125;;</span><br><span class="line"><span class="hljs-comment">// Object &#123;greeting: "hi"&#125;;</span></span><br></pre></td></tr></table></figure>
 <p>以上三者都为表达式, 因为都返回了值, 表达式返回的可以是任何类型的值.</p>
 <p><strong>声明(statement):</strong> 不会返回值.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(a === <span class="number">3</span>)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> a;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">if</span>(a === <span class="hljs-number">3</span>)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>以上代码中<code>a === 3</code>是表达式, 返回布尔值, if语句是声明.</p>
 <p><strong>函数声明:</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">greet();</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greet</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'hi'</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">greet();</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">greet</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'hi'</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>函数声明直到执行时才返回值, 在执行环境的创建阶段(creation phase)被置于内存空间, 即被提升(<strong>hoisting</strong>), 因此在声明之前的位置可以调用函数.</p>
 <p><strong>函数表达式:</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">anonymousGreet(); <span class="comment">// 不可以在这里调用</span></span><br><span class="line"><span class="keyword">var</span> anonymousGreet = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'hi'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// anonymousGreet();</span></span><br><span class="line"><span class="comment">//在这里调用才能够执行</span></span><br><span class="line"><span class="comment">//</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">anonymousGreet(); <span class="hljs-comment">// 不可以在这里调用</span></span><br><span class="line"><span class="hljs-keyword">var</span> anonymousGreet = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'hi'</span>);</span><br><span class="line">&#125;;</span><br><span class="line"><span class="hljs-comment">// anonymousGreet();</span></span><br><span class="line"><span class="hljs-comment">//在这里调用才能够执行</span></span><br><span class="line"><span class="hljs-comment">//</span></span><br></pre></td></tr></table></figure>
 <p>函数表达式不会被提升(<strong>no hoisting</strong>), 因为事先置于内存空间的是<code>var anonymousGreet;</code>, 因此上述代码会抛出错误.</p>
 <h2 id="值-by-value-与引用-by-reference"><a href="#值-by-value-与引用-by-reference" class="headerlink" title="值(by value)与引用(by reference)"></a>值(by value)与引用(by reference)</h2><p><strong>变量(原始类型)通过值传递</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// by value</span></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">var</span> b;</span><br><span class="line"></span><br><span class="line">b = a;</span><br><span class="line">a = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">console</span>.log(b); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// by value</span></span><br><span class="line"><span class="hljs-keyword">var</span> a = <span class="hljs-number">3</span>;</span><br><span class="line"><span class="hljs-keyword">var</span> b;</span><br><span class="line"></span><br><span class="line">b = a;</span><br><span class="line">a = <span class="hljs-number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(a); <span class="hljs-comment">// 2</span></span><br><span class="line"><span class="hljs-built_in">console</span>.log(b); <span class="hljs-comment">// 3</span></span><br></pre></td></tr></table></figure>
 <p><img src="/posts/images/by-value.jpg" alt="pass by value"></p>
 <ol>
 <li>将某个原始类型值(primitive value)赋值给变量a, 此时a就指向了那个值在内存空间所在的地址;</li>
@@ -54,7 +219,7 @@
 <li>因为存储在不同的地址, 因此之后再改变a的值不会影响到b的值.</li>
 </ol>
 <p><strong>变量(对象)通过引用传递</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> c = &#123;<span class="attr">greeting</span>: <span class="string">'hi'</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> d;</span><br><span class="line"></span><br><span class="line">d = c;</span><br><span class="line">c.greeting = <span class="string">'hello'</span>; <span class="comment">// mutate</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(c); <span class="comment">// Object &#123;greeting: 'hello'&#125;;</span></span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// Object &#123;greeting: 'hello'&#125;;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeGreeting</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">  obj.greeting = <span class="string">'Hola'</span>; <span class="comment">// mutate</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">changeGreeting(d);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(c); <span class="comment">// Object &#123;greeting: 'Hola'&#125;;</span></span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// Object &#123;greeting: 'Hola'&#125;;</span></span><br><span class="line"></span><br><span class="line">c = &#123; <span class="attr">greeting</span>: <span class="string">'howdy'</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(c); <span class="comment">// Object &#123;greeting: 'howdy'&#125;;</span></span><br><span class="line"><span class="built_in">console</span>.log(d); <span class="comment">// Object &#123;greeting: 'Hola'&#125;;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> c = &#123;<span class="hljs-attr">greeting</span>: <span class="hljs-string">'hi'</span>&#125;;</span><br><span class="line"><span class="hljs-keyword">var</span> d;</span><br><span class="line"></span><br><span class="line">d = c;</span><br><span class="line">c.greeting = <span class="hljs-string">'hello'</span>; <span class="hljs-comment">// mutate</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(c); <span class="hljs-comment">// Object &#123;greeting: 'hello'&#125;;</span></span><br><span class="line"><span class="hljs-built_in">console</span>.log(d); <span class="hljs-comment">// Object &#123;greeting: 'hello'&#125;;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">changeGreeting</span>(<span class="hljs-params">obj</span>) </span>&#123;</span><br><span class="line">  obj.greeting = <span class="hljs-string">'Hola'</span>; <span class="hljs-comment">// mutate</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">changeGreeting(d);</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(c); <span class="hljs-comment">// Object &#123;greeting: 'Hola'&#125;;</span></span><br><span class="line"><span class="hljs-built_in">console</span>.log(d); <span class="hljs-comment">// Object &#123;greeting: 'Hola'&#125;;</span></span><br><span class="line"></span><br><span class="line">c = &#123; <span class="hljs-attr">greeting</span>: <span class="hljs-string">'howdy'</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(c); <span class="hljs-comment">// Object &#123;greeting: 'howdy'&#125;;</span></span><br><span class="line"><span class="hljs-built_in">console</span>.log(d); <span class="hljs-comment">// Object &#123;greeting: 'Hola'&#125;;</span></span><br></pre></td></tr></table></figure>
 <p><img src="/posts/images/by-ref.jpg" alt="pass by ref"></p>
 <ol>
 <li>将对象(包括函数)赋值给变量a时, a指向对象在内存空间所在地址;</li>
@@ -67,20 +232,996 @@
 <h2 id="参数-arguments"><a href="#参数-arguments" class="headerlink" title="参数(arguments)"></a>参数(arguments)</h2><p><img src="/posts/images/args.jpg" alt="arguments"></p>
 <p>当函数的执行环境被创建时, JS引擎除了创建变量环境(container for variables), <code>this</code>, 外部环境(for reference), 还创建了另一个特殊的变量<code>arguments</code>.<br><code>arguments</code>是所有参数值的集合, 是类数组元素, 并非数组.</p>
 <p><strong>设置参数默认值:</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greet</span>(<span class="params">firstname, lastname, language</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(firstname);</span><br><span class="line">  <span class="built_in">console</span>.log(lastname);</span><br><span class="line">  <span class="built_in">console</span>.log(language);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet();</span><br><span class="line"><span class="comment">// undefined</span></span><br><span class="line"><span class="comment">// undefined</span></span><br><span class="line"><span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">greet</span>(<span class="hljs-params">firstname, lastname, language</span>)</span>&#123;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(firstname);</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(lastname);</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(language);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet();</span><br><span class="line"><span class="hljs-comment">// undefined</span></span><br><span class="line"><span class="hljs-comment">// undefined</span></span><br><span class="line"><span class="hljs-comment">// undefined</span></span><br></pre></td></tr></table></figure>
 <p>尽管greet函数在定义时有三个参数, 但还是可以不传递任何参数调用greet函数, 这是JavaScript的特性, 在大多数编程语言中不可以这样调用, 由于变量声明提升(Hoisting), 结果出现三个undefined, 但这不是我们想要的结果, 可是实际过程中不传递参数直接调用函数的情况很可能出现, 可以通过以下方法避免出现undefined的情况.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greet</span>(<span class="params">firstname, lastname, language</span>)</span>&#123;</span><br><span class="line"><span class="comment">// 1. 为参数设定默认值</span></span><br><span class="line">  language = language || <span class="string">'en'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 通过arguments变量获取参数数量</span></span><br><span class="line"><span class="comment">//    如果没有参数, 在控制台中提示</span></span><br><span class="line"><span class="comment">//    并直接返回, 中断函数的执行</span></span><br><span class="line">  <span class="keyword">if</span>(<span class="built_in">arguments</span>.length === <span class="number">0</span>)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Missing parameters'</span>);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(firstname);</span><br><span class="line">  <span class="built_in">console</span>.log(lastname);</span><br><span class="line">  <span class="built_in">console</span>.log(language);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet(); <span class="comment">// "Missing parameters"</span></span><br><span class="line">greet(<span class="string">'John'</span>, <span class="string">'Doe'</span>);</span><br><span class="line"><span class="comment">// John</span></span><br><span class="line"><span class="comment">// Doe</span></span><br><span class="line"><span class="comment">// en</span></span><br><span class="line"><span class="comment">// ["John", "Doe"]</span></span><br><span class="line">greet(<span class="string">'John'</span>, <span class="string">'Doe'</span>, <span class="string">'es'</span>);</span><br><span class="line"><span class="comment">// John</span></span><br><span class="line"><span class="comment">// Doe</span></span><br><span class="line"><span class="comment">// es</span></span><br><span class="line"><span class="comment">// ["John", "Doe", "es"]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">greet</span>(<span class="hljs-params">firstname, lastname, language</span>)</span>&#123;</span><br><span class="line"><span class="hljs-comment">// 1. 为参数设定默认值</span></span><br><span class="line">  language = language || <span class="hljs-string">'en'</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 2. 通过arguments变量获取参数数量</span></span><br><span class="line"><span class="hljs-comment">//    如果没有参数, 在控制台中提示</span></span><br><span class="line"><span class="hljs-comment">//    并直接返回, 中断函数的执行</span></span><br><span class="line">  <span class="hljs-keyword">if</span>(<span class="hljs-built_in">arguments</span>.length === <span class="hljs-number">0</span>)&#123;</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Missing parameters'</span>);</span><br><span class="line">    <span class="hljs-keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(firstname);</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(lastname);</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(language);</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">arguments</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet(); <span class="hljs-comment">// "Missing parameters"</span></span><br><span class="line">greet(<span class="hljs-string">'John'</span>, <span class="hljs-string">'Doe'</span>);</span><br><span class="line"><span class="hljs-comment">// John</span></span><br><span class="line"><span class="hljs-comment">// Doe</span></span><br><span class="line"><span class="hljs-comment">// en</span></span><br><span class="line"><span class="hljs-comment">// ["John", "Doe"]</span></span><br><span class="line">greet(<span class="hljs-string">'John'</span>, <span class="hljs-string">'Doe'</span>, <span class="hljs-string">'es'</span>);</span><br><span class="line"><span class="hljs-comment">// John</span></span><br><span class="line"><span class="hljs-comment">// Doe</span></span><br><span class="line"><span class="hljs-comment">// es</span></span><br><span class="line"><span class="hljs-comment">// ["John", "Doe", "es"]</span></span><br></pre></td></tr></table></figure>
 <p>在ES6中可以这样设定默认值:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">greet</span>(<span class="params">firstname=<span class="string">'John'</span>, lastname=<span class="string">'Doe'</span>, language=<span class="string">'en'</span></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(firstname);</span><br><span class="line">  <span class="built_in">console</span>.log(lastname);</span><br><span class="line">  <span class="built_in">console</span>.log(language);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet();</span><br><span class="line"><span class="comment">// John</span></span><br><span class="line"><span class="comment">// Doe</span></span><br><span class="line"><span class="comment">// en</span></span><br><span class="line"><span class="comment">// []</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">greet</span>(<span class="hljs-params">firstname=<span class="hljs-string">'John'</span>, lastname=<span class="hljs-string">'Doe'</span>, language=<span class="hljs-string">'en'</span></span>)</span>&#123;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(firstname);</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(lastname);</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(language);</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">arguments</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">greet();</span><br><span class="line"><span class="hljs-comment">// John</span></span><br><span class="line"><span class="hljs-comment">// Doe</span></span><br><span class="line"><span class="hljs-comment">// en</span></span><br><span class="line"><span class="hljs-comment">// []</span></span><br></pre></td></tr></table></figure>
 <h2 id="‘this’"><a href="#‘this’" class="headerlink" title="‘this’"></a>‘this’</h2><p><code>this</code>的值取决于函数是如何被调用的.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> c = &#123;</span><br><span class="line">  name: <span class="string">'The c object'</span>,</span><br><span class="line">  log: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = <span class="string">'Updated c object'</span>;<span class="comment">// 这里的this执行对象c, 因此this.name改变的是对象c的name属性</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// Object &#123;name: "Updated c object"&#125;</span></span><br><span class="line">    <span class="keyword">var</span> setname = <span class="function"><span class="keyword">function</span>(<span class="params">newname</span>)</span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.name = newname;</span><br><span class="line">      <span class="comment">// console.log(this); // Window</span></span><br><span class="line">    &#125;</span><br><span class="line">    setname(<span class="string">'Updated again'</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// Object &#123;name: "Updated c object"&#125;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// c.log();</span></span><br><span class="line"><span class="built_in">console</span>.log(name); <span class="comment">// "Updated again"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> c = &#123;</span><br><span class="line">  name: <span class="hljs-string">'The c object'</span>,</span><br><span class="line">  log: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">    <span class="hljs-keyword">this</span>.name = <span class="hljs-string">'Updated c object'</span>;<span class="hljs-comment">// 这里的this执行对象c, 因此this.name改变的是对象c的name属性</span></span><br><span class="line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>); <span class="hljs-comment">// Object &#123;name: "Updated c object"&#125;</span></span><br><span class="line">    <span class="hljs-keyword">var</span> setname = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">newname</span>)</span>&#123;</span><br><span class="line">      <span class="hljs-keyword">this</span>.name = newname;</span><br><span class="line">      <span class="hljs-comment">// console.log(this); // Window</span></span><br><span class="line">    &#125;</span><br><span class="line">    setname(<span class="hljs-string">'Updated again'</span>);</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>); <span class="hljs-comment">// Object &#123;name: "Updated c object"&#125;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-comment">// c.log();</span></span><br><span class="line"><span class="hljs-built_in">console</span>.log(name); <span class="hljs-comment">// "Updated again"</span></span><br></pre></td></tr></table></figure>
 <p>对于上述代码的第二个<code>console.log(this);</code>, 因为在对象c内定义了函数表达式setname, 并在内改变了name的值, 因此预期输出的是<code>Object {name: &quot;Updated again&quot;}</code>, 但实际上并非如此, 通过在setname函数中输出this值发现, 这个this指向全局对象(浏览器中是Window), 因此setname实际上是在全局环境中定义了name变量, 在全局环境输出name可以发现这里的name值才是”Updated again”.</p>
 <p>为了避免发生这样的错误, 可以预先定义this的值:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> c = &#123;</span><br><span class="line">  name: <span class="string">'The c object'</span>,</span><br><span class="line">  log: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> self = <span class="keyword">this</span>;</span><br><span class="line">    self.name = <span class="string">'Updated c object'</span>;</span><br><span class="line">    <span class="built_in">console</span>.log(self); <span class="comment">// Object &#123;name: "Updated c object"&#125;</span></span><br><span class="line">    <span class="keyword">var</span> setname = <span class="function"><span class="keyword">function</span>(<span class="params">newname</span>)</span>&#123;</span><br><span class="line">      self.name = newname;</span><br><span class="line">    &#125;</span><br><span class="line">    setname(<span class="string">'Updated again'</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(self); <span class="comment">// Object &#123;name: "Updated again"&#125;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">c.log();</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> c = &#123;</span><br><span class="line">  name: <span class="hljs-string">'The c object'</span>,</span><br><span class="line">  log: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">    <span class="hljs-keyword">var</span> self = <span class="hljs-keyword">this</span>;</span><br><span class="line">    self.name = <span class="hljs-string">'Updated c object'</span>;</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(self); <span class="hljs-comment">// Object &#123;name: "Updated c object"&#125;</span></span><br><span class="line">    <span class="hljs-keyword">var</span> setname = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">newname</span>)</span>&#123;</span><br><span class="line">      self.name = newname;</span><br><span class="line">    &#125;</span><br><span class="line">    setname(<span class="hljs-string">'Updated again'</span>);</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(self); <span class="hljs-comment">// Object &#123;name: "Updated again"&#125;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">c.log();</span><br></pre></td></tr></table></figure>
 <p>因为对象通过引用传递, self与this一样指向对象c, 可以通过self改变对象的属性. 在setname函数中, 没有声明self的值, 通过作用域链到外部寻找self变量, 于是找到了在log方法内定义的指向对象c的self.</p>
 <hr>
 <p><strong>参考</strong></p>
 <ul>
 <li><a href="https://www.udemy.com/understand-javascript/" target="_blank" rel="noopener">JavaScript: Understanding the Weird Parts</a></li>
 </ul>
-</div></article></div></main><footer><div class="paginator"><a href="/posts/2016/10/30/io/" class="prev">PREV</a><a href="/posts/2016/10/25/types-and-operators/" class="next">NEXT</a></div><div class="copyright"><p>© 2019 <a href="https://icyfish.github.io/posts">Fish</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/posts/2016/10/30/io/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">I/O</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/posts/2016/10/25/types-and-operators/">
+                <span class="level-item">类型, 运算符</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="/posts/images/avatar.png" alt="Fish">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Fish
+                    </p>
+                    
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Earth</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        55
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        0
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        0
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://icyfish.github.io/posts" target="_blank">
+                Follow</a>
+        </div>
+        
+        
+    </div>
+</div>
+    
+        
+    
+        
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categories
+            </h3>
+            <ul class="menu-list">
+            
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/2019/06/30/JavaScript-Inside-1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="JavaScript Inside 1 - engine, runtime, callstack">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-29T16:00:00.000Z">2019-06-30</time></div>
+                    <a href="/posts/2019/06/30/JavaScript-Inside-1/" class="has-link-black-ter is-size-6">JavaScript Inside 1 - engine, runtime, callstack</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2019/06/27/element-in-view/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="判断元素是否在可视区域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-26T16:00:00.000Z">2019-06-27</time></div>
+                    <a href="/posts/2019/06/27/element-in-view/" class="has-link-black-ter is-size-6">判断元素是否在可视区域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/02/07/css-position/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="CSS定位笔记(MDN)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-02-06T16:00:00.000Z">2018-02-07</time></div>
+                    <a href="/posts/2018/02/07/css-position/" class="has-link-black-ter is-size-6">CSS定位笔记(MDN)</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/01/18/react-ref/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="React Ref">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-17T16:00:00.000Z">2018-01-18</time></div>
+                    <a href="/posts/2018/01/18/react-ref/" class="has-link-black-ter is-size-6">React Ref</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/01/09/collection-of-web-tools/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="Collection of Web Tools">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-08T16:00:00.000Z">2018-01-09</time></div>
+                    <a href="/posts/2018/01/09/collection-of-web-tools/" class="has-link-black-ter is-size-6">Collection of Web Tools</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2018/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2018/01/">
+                <span class="level-start">
+                    <span class="level-item">January 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/07/">
+                <span class="level-start">
+                    <span class="level-item">July 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/05/">
+                <span class="level-start">
+                    <span class="level-item">May 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">7</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/11/">
+                <span class="level-start">
+                    <span class="level-item">November 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/10/">
+                <span class="level-start">
+                    <span class="level-item">October 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/2019/06/30/JavaScript-Inside-1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="JavaScript Inside 1 - engine, runtime, callstack">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-29T16:00:00.000Z">2019-06-30</time></div>
+                    <a href="/posts/2019/06/30/JavaScript-Inside-1/" class="has-link-black-ter is-size-6">JavaScript Inside 1 - engine, runtime, callstack</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2019/06/27/element-in-view/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="判断元素是否在可视区域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-26T16:00:00.000Z">2019-06-27</time></div>
+                    <a href="/posts/2019/06/27/element-in-view/" class="has-link-black-ter is-size-6">判断元素是否在可视区域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/02/07/css-position/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="CSS定位笔记(MDN)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-02-06T16:00:00.000Z">2018-02-07</time></div>
+                    <a href="/posts/2018/02/07/css-position/" class="has-link-black-ter is-size-6">CSS定位笔记(MDN)</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/01/18/react-ref/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="React Ref">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-17T16:00:00.000Z">2018-01-18</time></div>
+                    <a href="/posts/2018/01/18/react-ref/" class="has-link-black-ter is-size-6">React Ref</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/01/09/collection-of-web-tools/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="Collection of Web Tools">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-08T16:00:00.000Z">2018-01-09</time></div>
+                    <a href="/posts/2018/01/09/collection-of-web-tools/" class="has-link-black-ter is-size-6">Collection of Web Tools</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2018/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2018/01/">
+                <span class="level-start">
+                    <span class="level-item">January 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/07/">
+                <span class="level-start">
+                    <span class="level-item">July 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/05/">
+                <span class="level-start">
+                    <span class="level-item">May 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">7</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/11/">
+                <span class="level-start">
+                    <span class="level-item">November 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/10/">
+                <span class="level-start">
+                    <span class="level-item">October 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/posts/">
+                
+                    <img src="/posts/images/avatar.png" alt="对象与函数" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Fish&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+    
+    
+    
+    <script src="/posts/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/posts/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/posts/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/posts/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+
+<script src="/posts/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/posts/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/posts/js/insight.js" defer></script>
+<link rel="stylesheet" href="/posts/css/search.css">
+<link rel="stylesheet" href="/posts/css/insight.css">
+    
+</body>
+</html>

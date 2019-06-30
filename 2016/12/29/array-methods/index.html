@@ -1,51 +1,216 @@
-<!DOCTYPE html><html lang="en"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="google-site-verification" content="IDYUPnBNhdnU8o9LRNKZ1RSt14tIxTI0rLeMrBtswXw"><title> 常用数组方法及其应用 · Fish</title><meta name="description" content="常用数组方法及其应用 - Fish"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/posts/favicon.png"><link rel="stylesheet" href="/posts/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://icyfish.github.io/posts/atom.xml" title="Fish"></head><body><div class="wrap"><header><a href="/posts/" class="logo-link"><img src="/posts/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/posts/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/posts/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/posts/about/" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="http://twitter.com/icyfish_" target="_blank" class="nav-list-link">TWITTER</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">常用数组方法及其应用</h1><div class="post-info">Dec 29, 2016</div><div class="post-content"><p>JavaScript中一些较常用, 能提高效率的数组方法.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+<title>常用数组方法及其应用 - Fish</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="JavaScript中一些较常用, 能提高效率的数组方法.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="常用数组方法及其应用">
+<meta property="og:url" content="https://icyfish.github.io/posts/2016/12/29/array-methods/index.html">
+<meta property="og:site_name" content="Fish">
+<meta property="og:description" content="JavaScript中一些较常用, 能提高效率的数组方法.">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://icyfish.github.io/posts/images/og_image.png">
+<meta property="og:updated_time" content="2019-06-30T14:05:17.100Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="常用数组方法及其应用">
+<meta name="twitter:description" content="JavaScript中一些较常用, 能提高效率的数组方法.">
+<meta name="twitter:image" content="https://icyfish.github.io/posts/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/posts/images/thumbnail.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/posts/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/posts/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/posts/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/posts/">
+            
+                <img src="/posts/images/avatar.png" alt="常用数组方法及其应用" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/posts/">Home</a>
+                
+                <a class="navbar-item" href="/posts/archives">Archives</a>
+                
+                <a class="navbar-item" href="/posts/categories">Categories</a>
+                
+                <a class="navbar-item" href="/posts/tags">Tags</a>
+                
+                <a class="navbar-item" href="/posts/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/icyfish/blog">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2016-12-28T16:00:00.000Z">2016-12-29</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    17 minutes read (About 2592 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                常用数组方法及其应用
+            
+        </h1>
+        <div class="content">
+            <p>JavaScript中一些较常用, 能提高效率的数组方法.</p>
 <a id="more"></a>
 <h2 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h2><p><strong>示例:</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> colors = [<span class="string">'red'</span>, <span class="string">'green'</span>, <span class="string">'blue'</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不使用forEach</span></span><br><span class="line"><span class="comment">// 遍历数组</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; colors.length; i++)&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(colors[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用forEach</span></span><br><span class="line"></span><br><span class="line">colors.forEach(<span class="function"><span class="params">color</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(color);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> colors = [<span class="hljs-string">'red'</span>, <span class="hljs-string">'green'</span>, <span class="hljs-string">'blue'</span>];</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 不使用forEach</span></span><br><span class="line"><span class="hljs-comment">// 遍历数组</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; colors.length; i++)&#123;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(colors[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 使用forEach</span></span><br><span class="line"></span><br><span class="line">colors.forEach(<span class="hljs-function"><span class="hljs-params">color</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(color);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p><img src="/posts/images/array-forEach.jpg" alt="forEach"></p>
 <p>原数组的元素被遍历传入Iterator Function并执行.</p>
 <p><strong>更实际的应用:</strong></p>
 <p><img src="/posts/images/array-forEach1.jpg" alt="forEach1"></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="keyword">let</span> sum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">numbers.forEach(<span class="function"><span class="params">number</span> =&gt;</span> &#123;</span><br><span class="line">  sum += number;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(sum);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>];</span><br><span class="line"><span class="hljs-keyword">let</span> sum = <span class="hljs-number">0</span>;</span><br><span class="line"></span><br><span class="line">numbers.forEach(<span class="hljs-function"><span class="hljs-params">number</span> =&gt;</span> &#123;</span><br><span class="line">  sum += number;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(sum);</span><br></pre></td></tr></table></figure>
 <h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><p><strong>示例:</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</span><br><span class="line"><span class="comment">// 将原数组中各个元素X2输出</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 不使用map实现</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> doubledNumbers = []; <span class="comment">// 创建一个新数组来存储数据, 为了不改变原数组 (avoid mutating)</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; numbers.length; i++)&#123;</span><br><span class="line">  doubledNumbers.push(numbers[i] * <span class="number">2</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(doubledNumbers); <span class="comment">// [2, 4, 6, 8]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用map实现</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> doubledMap = numbers.map(<span class="function"><span class="params">number</span> =&gt;</span> number * <span class="number">2</span>)</span><br><span class="line"><span class="built_in">console</span>.log(doubledMap); <span class="comment">// [2, 4, 6, 8]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> numbers = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>];</span><br><span class="line"><span class="hljs-comment">// 将原数组中各个元素X2输出</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 不使用map实现</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">let</span> doubledNumbers = []; <span class="hljs-comment">// 创建一个新数组来存储数据, 为了不改变原数组 (avoid mutating)</span></span><br><span class="line"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; numbers.length; i++)&#123;</span><br><span class="line">  doubledNumbers.push(numbers[i] * <span class="hljs-number">2</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-built_in">console</span>.log(doubledNumbers); <span class="hljs-comment">// [2, 4, 6, 8]</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 使用map实现</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">let</span> doubledMap = numbers.map(<span class="hljs-function"><span class="hljs-params">number</span> =&gt;</span> number * <span class="hljs-number">2</span>)</span><br><span class="line"><span class="hljs-built_in">console</span>.log(doubledMap); <span class="hljs-comment">// [2, 4, 6, 8]</span></span><br></pre></td></tr></table></figure>
 <p><img src="/posts/images/array-map.jpg" alt="map"></p>
 <p>原数组的元素被遍历传入Iterator Function并执行, 执行后的结果被返回并存入新数组.</p>
 <p>map可以用于汇总数组内各个元素的属性值, 并输出相关信息. 例子:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cars = [</span><br><span class="line">  &#123;<span class="attr">model</span>: <span class="string">'Buick'</span>, <span class="attr">price</span>: <span class="string">'cheap'</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">model</span>: <span class="string">'Camaro'</span>, <span class="attr">price</span>: <span class="string">'expensive'</span>&#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> model = cars.map(<span class="function"><span class="params">car</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> car.model;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(model); <span class="comment">// ['Buick', 'Camaro']</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> price = cars.map(<span class="function"><span class="params">car</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> car.price;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(price); <span class="comment">// ['cheap', 'expensive']</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> cars = [</span><br><span class="line">  &#123;<span class="hljs-attr">model</span>: <span class="hljs-string">'Buick'</span>, <span class="hljs-attr">price</span>: <span class="hljs-string">'cheap'</span>&#125;,</span><br><span class="line">  &#123;<span class="hljs-attr">model</span>: <span class="hljs-string">'Camaro'</span>, <span class="hljs-attr">price</span>: <span class="hljs-string">'expensive'</span>&#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> model = cars.map(<span class="hljs-function"><span class="hljs-params">car</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> car.model;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="hljs-built_in">console</span>.log(model); <span class="hljs-comment">// ['Buick', 'Camaro']</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> price = cars.map(<span class="hljs-function"><span class="hljs-params">car</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> car.price;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="hljs-built_in">console</span>.log(price); <span class="hljs-comment">// ['cheap', 'expensive']</span></span><br></pre></td></tr></table></figure>
 <p>渲染数据列表:</p>
 <p>可在浏览器控制台输入以下代码片段查看效果</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cars = [</span><br><span class="line">  &#123;<span class="attr">model</span>: <span class="string">'Buick'</span>, <span class="attr">price</span>: <span class="string">'cheap'</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">model</span>: <span class="string">'Camaro'</span>, <span class="attr">price</span>: <span class="string">'expensive'</span>&#125;</span><br><span class="line">];  </span><br><span class="line"><span class="keyword">const</span> carsList = <span class="built_in">document</span>.createElement(<span class="string">'ul'</span>);</span><br><span class="line"></span><br><span class="line"> <span class="keyword">const</span> aboutCars = cars.map(<span class="function"><span class="params">car</span> =&gt;</span> &#123;</span><br><span class="line">   <span class="keyword">return</span> <span class="string">`&lt;li&gt;<span class="subst">$&#123;car.model&#125;</span> is <span class="subst">$&#123;car.price&#125;</span>&lt;/li&gt;`</span>;</span><br><span class="line"> &#125;);</span><br><span class="line"></span><br><span class="line">aboutCars.forEach(<span class="function"><span class="params">car</span> =&gt;</span> &#123;</span><br><span class="line">  carsList.innerHTML += car;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">document</span>.body.innerHTML = <span class="string">''</span>;</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(carsList);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> cars = [</span><br><span class="line">  &#123;<span class="hljs-attr">model</span>: <span class="hljs-string">'Buick'</span>, <span class="hljs-attr">price</span>: <span class="hljs-string">'cheap'</span>&#125;,</span><br><span class="line">  &#123;<span class="hljs-attr">model</span>: <span class="hljs-string">'Camaro'</span>, <span class="hljs-attr">price</span>: <span class="hljs-string">'expensive'</span>&#125;</span><br><span class="line">];  </span><br><span class="line"><span class="hljs-keyword">const</span> carsList = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'ul'</span>);</span><br><span class="line"></span><br><span class="line"> <span class="hljs-keyword">const</span> aboutCars = cars.map(<span class="hljs-function"><span class="hljs-params">car</span> =&gt;</span> &#123;</span><br><span class="line">   <span class="hljs-keyword">return</span> <span class="hljs-string">`&lt;li&gt;<span class="hljs-subst">$&#123;car.model&#125;</span> is <span class="hljs-subst">$&#123;car.price&#125;</span>&lt;/li&gt;`</span>;</span><br><span class="line"> &#125;);</span><br><span class="line"></span><br><span class="line">aboutCars.forEach(<span class="hljs-function"><span class="hljs-params">car</span> =&gt;</span> &#123;</span><br><span class="line">  carsList.innerHTML += car;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="hljs-built_in">document</span>.body.innerHTML = <span class="hljs-string">''</span>;</span><br><span class="line"><span class="hljs-built_in">document</span>.body.appendChild(carsList);</span><br></pre></td></tr></table></figure>
 <p><strong>更实际的应用:</strong></p>
 <p><img src="/posts/images/array-map-practical.jpg" alt="map-practical"></p>
 <h2 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h2><p><strong>示例:</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> products = [</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">'cucumber'</span>, <span class="attr">type</span>: <span class="string">'vegetable'</span>, <span class="attr">quantity</span>: <span class="number">10</span>, <span class="attr">price</span>: <span class="number">1</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">'banana'</span>, <span class="attr">type</span>: <span class="string">'fruit'</span>, <span class="attr">quantity</span>: <span class="number">8</span>, <span class="attr">price</span>: <span class="number">15</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">'cucumber'</span>, <span class="attr">type</span>: <span class="string">'vegetable'</span>, <span class="attr">quantity</span>: <span class="number">25</span>, <span class="attr">price</span>: <span class="number">12</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">'orange'</span>, <span class="attr">type</span>: <span class="string">'fruit'</span>, <span class="attr">quantity</span>: <span class="number">30</span>, <span class="attr">price</span>: <span class="number">8</span> &#125;,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不使用filter实现</span></span><br><span class="line"><span class="comment">// 筛选出类型为水果的产品</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> filteredProducts = [];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; products.length; i++)&#123;</span><br><span class="line">  <span class="keyword">if</span>(products[i].type === <span class="string">'fruit'</span>)&#123;</span><br><span class="line">    filteredProducts.push(products[i])</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.table(filteredProducts);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用filter实现</span></span><br><span class="line"><span class="comment">// 筛选出类型为水果的产品</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> fruit = products.filter(<span class="function"><span class="params">product</span> =&gt;</span> product.type === <span class="string">'fruit'</span>);</span><br><span class="line"><span class="built_in">console</span>.table(fruit);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 筛选出类型为蔬菜, 且数量大于0, 且价格小于10的产品</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> veg = products.filter(<span class="function"><span class="params">product</span> =&gt;</span> product.type === <span class="string">'vegetable'</span> &amp;&amp; product.quantity &gt; <span class="number">0</span> &amp;&amp; product.price &lt; <span class="number">10</span>);</span><br><span class="line"><span class="built_in">console</span>.table(veg);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> products = [</span><br><span class="line">  &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">'cucumber'</span>, <span class="hljs-attr">type</span>: <span class="hljs-string">'vegetable'</span>, <span class="hljs-attr">quantity</span>: <span class="hljs-number">10</span>, <span class="hljs-attr">price</span>: <span class="hljs-number">1</span> &#125;,</span><br><span class="line">  &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">'banana'</span>, <span class="hljs-attr">type</span>: <span class="hljs-string">'fruit'</span>, <span class="hljs-attr">quantity</span>: <span class="hljs-number">8</span>, <span class="hljs-attr">price</span>: <span class="hljs-number">15</span> &#125;,</span><br><span class="line">  &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">'cucumber'</span>, <span class="hljs-attr">type</span>: <span class="hljs-string">'vegetable'</span>, <span class="hljs-attr">quantity</span>: <span class="hljs-number">25</span>, <span class="hljs-attr">price</span>: <span class="hljs-number">12</span> &#125;,</span><br><span class="line">  &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">'orange'</span>, <span class="hljs-attr">type</span>: <span class="hljs-string">'fruit'</span>, <span class="hljs-attr">quantity</span>: <span class="hljs-number">30</span>, <span class="hljs-attr">price</span>: <span class="hljs-number">8</span> &#125;,</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 不使用filter实现</span></span><br><span class="line"><span class="hljs-comment">// 筛选出类型为水果的产品</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">let</span> filteredProducts = [];</span><br><span class="line"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; products.length; i++)&#123;</span><br><span class="line">  <span class="hljs-keyword">if</span>(products[i].type === <span class="hljs-string">'fruit'</span>)&#123;</span><br><span class="line">    filteredProducts.push(products[i])</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-built_in">console</span>.table(filteredProducts);</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 使用filter实现</span></span><br><span class="line"><span class="hljs-comment">// 筛选出类型为水果的产品</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> fruit = products.filter(<span class="hljs-function"><span class="hljs-params">product</span> =&gt;</span> product.type === <span class="hljs-string">'fruit'</span>);</span><br><span class="line"><span class="hljs-built_in">console</span>.table(fruit);</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 筛选出类型为蔬菜, 且数量大于0, 且价格小于10的产品</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> veg = products.filter(<span class="hljs-function"><span class="hljs-params">product</span> =&gt;</span> product.type === <span class="hljs-string">'vegetable'</span> &amp;&amp; product.quantity &gt; <span class="hljs-number">0</span> &amp;&amp; product.price &lt; <span class="hljs-number">10</span>);</span><br><span class="line"><span class="hljs-built_in">console</span>.table(veg);</span><br></pre></td></tr></table></figure>
 <p><code>console.table</code>将数组以表格的形式显示在控制台中, 可读性更强.</p>
 <p><img src="/posts/images/array-filter.jpg" alt="filter"></p>
 <p>原数组的元素被遍历传入Iterator Function, Iterator Function返回值的类型为布尔值, 如果返回true, 则该元素被存入结果数组.</p>
 <p><strong>更实际的应用:</strong></p>
 <p>筛选出指定post的comment内容:</p>
 <p><img src="/posts/images/array-filter-practical.jpg" alt="filter-practical"></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> post = &#123; <span class="attr">id</span>: <span class="number">4</span>, <span class="attr">title</span>: <span class="string">'New Post'</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> comments = [</span><br><span class="line">  &#123; <span class="attr">postId</span>: <span class="number">4</span>, <span class="attr">content</span>: <span class="string">'Awesome Post'</span>&#125;,</span><br><span class="line">  &#123; <span class="attr">postId</span>: <span class="number">3</span>, <span class="attr">content</span>: <span class="string">'It was ok'</span>&#125;,</span><br><span class="line">  &#123; <span class="attr">postId</span>: <span class="number">4</span>, <span class="attr">content</span>: <span class="string">'neat'</span>&#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">commentsForPost</span>(<span class="params">post, comments</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> comments.filter(<span class="function"><span class="params">comment</span> =&gt;</span> comment.postId === post.id);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> filteredComments = commentsForPost(post, comments);</span><br><span class="line"><span class="built_in">console</span>.table(filteredComments);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> post = &#123; <span class="hljs-attr">id</span>: <span class="hljs-number">4</span>, <span class="hljs-attr">title</span>: <span class="hljs-string">'New Post'</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> comments = [</span><br><span class="line">  &#123; <span class="hljs-attr">postId</span>: <span class="hljs-number">4</span>, <span class="hljs-attr">content</span>: <span class="hljs-string">'Awesome Post'</span>&#125;,</span><br><span class="line">  &#123; <span class="hljs-attr">postId</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">content</span>: <span class="hljs-string">'It was ok'</span>&#125;,</span><br><span class="line">  &#123; <span class="hljs-attr">postId</span>: <span class="hljs-number">4</span>, <span class="hljs-attr">content</span>: <span class="hljs-string">'neat'</span>&#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">commentsForPost</span>(<span class="hljs-params">post, comments</span>)</span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> comments.filter(<span class="hljs-function"><span class="hljs-params">comment</span> =&gt;</span> comment.postId === post.id);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> filteredComments = commentsForPost(post, comments);</span><br><span class="line"><span class="hljs-built_in">console</span>.table(filteredComments);</span><br></pre></td></tr></table></figure>
 <p>在Todo App中:</p>
-<p>未完成的todo会一直显示, 完成的todo只有在showCompleted为true时才显示<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> filteredTodos = filteredTodos.filter(<span class="function">(<span class="params">todo</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> !todo.completed || showCompleted;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<p>未完成的todo会一直显示, 完成的todo只有在showCompleted为true时才显示<br><figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> filteredTodos = filteredTodos.filter(<span class="hljs-function">(<span class="hljs-params">todo</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> !todo.completed || showCompleted;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 <p>Ps: 逻辑操作符 <code>||</code>(“或”)</p>
 <p><code>expr1 || expr2</code>, 如果表达式结果为true, 则返回expr1, false则返回expr1, 因此当参数为布尔值时, 任意一个参数为true, <code>expr1 || expr2</code>返回的结果就为true.</p>
 <h2 id="find-and-findIndex"><a href="#find-and-findIndex" class="headerlink" title="find and findIndex"></a>find and findIndex</h2><p><strong>示例:</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> users = [</span><br><span class="line">  &#123;<span class="attr">name</span>: <span class="string">'Jill'</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">name</span>: <span class="string">'Bill'</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">name</span>: <span class="string">'Alex'</span>&#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> user;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 寻找名为Alex的user</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 不使用 find</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; users.length; i++)&#123;</span><br><span class="line">  <span class="keyword">if</span> (users[i].name === <span class="string">'Alex'</span>)&#123;</span><br><span class="line">    user = users[i];</span><br><span class="line">    <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(user); <span class="comment">// &#123;name: 'Alex'&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 find</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> findUser = users.find(<span class="function"><span class="params">user</span> =&gt;</span> user.name === <span class="string">'Alex'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(findUser); <span class="comment">// &#123;name: 'Alex'&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> users = [</span><br><span class="line">  &#123;<span class="hljs-attr">name</span>: <span class="hljs-string">'Jill'</span>&#125;,</span><br><span class="line">  &#123;<span class="hljs-attr">name</span>: <span class="hljs-string">'Bill'</span>&#125;,</span><br><span class="line">  &#123;<span class="hljs-attr">name</span>: <span class="hljs-string">'Alex'</span>&#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">let</span> user;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 寻找名为Alex的user</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 不使用 find</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; users.length; i++)&#123;</span><br><span class="line">  <span class="hljs-keyword">if</span> (users[i].name === <span class="hljs-string">'Alex'</span>)&#123;</span><br><span class="line">    user = users[i];</span><br><span class="line">    <span class="hljs-keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-built_in">console</span>.log(user); <span class="hljs-comment">// &#123;name: 'Alex'&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 使用 find</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> findUser = users.find(<span class="hljs-function"><span class="hljs-params">user</span> =&gt;</span> user.name === <span class="hljs-string">'Alex'</span>);</span><br><span class="line"><span class="hljs-built_in">console</span>.log(findUser); <span class="hljs-comment">// &#123;name: 'Alex'&#125;</span></span><br></pre></td></tr></table></figure>
 <p><img src="/posts/images/array-find.jpg" alt="find"></p>
 <p>原数组的元素被按顺序被传入Iterator Function, Iterator Function返回值的类型为布尔值, 当Iterator Function返回true时, 停止调用Iterator Function, 并返回停止前最后一个Iterator Function执行的结果.</p>
 <p>如果有两个相同的元素符合要求, 只有第一个会被返回.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params">model</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.model = model;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> cars = [</span><br><span class="line">  <span class="keyword">new</span> Car(<span class="string">'Buick'</span>),</span><br><span class="line">  <span class="keyword">new</span> Car(<span class="string">'Camaro'</span>),</span><br><span class="line">  <span class="keyword">new</span> Car(<span class="string">'Focus'</span>)</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> focusCar =  cars.find(<span class="function"><span class="params">car</span> =&gt;</span> car.model === <span class="string">'Focus'</span>)</span><br><span class="line"><span class="built_in">console</span>.log(focusCar); <span class="comment">// &#123;model: "Focus"&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Car</span>(<span class="hljs-params">model</span>)</span>&#123;</span><br><span class="line">  <span class="hljs-keyword">this</span>.model = model;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> cars = [</span><br><span class="line">  <span class="hljs-keyword">new</span> Car(<span class="hljs-string">'Buick'</span>),</span><br><span class="line">  <span class="hljs-keyword">new</span> Car(<span class="hljs-string">'Camaro'</span>),</span><br><span class="line">  <span class="hljs-keyword">new</span> Car(<span class="hljs-string">'Focus'</span>)</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> focusCar =  cars.find(<span class="hljs-function"><span class="hljs-params">car</span> =&gt;</span> car.model === <span class="hljs-string">'Focus'</span>)</span><br><span class="line"><span class="hljs-built_in">console</span>.log(focusCar); <span class="hljs-comment">// &#123;model: "Focus"&#125;</span></span><br></pre></td></tr></table></figure>
 <p><strong>更实际的应用:</strong></p>
 <p>利用find寻找特定id值的post:</p>
 <p><img src="/posts/images/array-find-practical1.jpg" alt="find-practical1"></p>
 <p><img src="/posts/images/array-find-practical2.jpg" alt="find-practical2"></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> posts = [</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">1</span>, <span class="attr">title</span>: <span class="string">'New Post'</span>&#125;,</span><br><span class="line">  &#123; <span class="attr">id</span>: <span class="number">2</span>, <span class="attr">title</span>: <span class="string">'Old Post'</span>&#125;</span><br><span class="line">]</span><br><span class="line"><span class="keyword">const</span> comment = &#123; <span class="attr">postId</span>: <span class="number">1</span>, <span class="attr">content</span>: <span class="string">'Awesome Post'</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">postForComment</span>(<span class="params">posts, comment</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> posts.find(<span class="function"><span class="params">post</span> =&gt;</span> post.id === comment.postId)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">postForComment(posts, comment);</span><br><span class="line"><span class="comment">// &#123; id: 1, title: 'New Post'&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> posts = [</span><br><span class="line">  &#123; <span class="hljs-attr">id</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">title</span>: <span class="hljs-string">'New Post'</span>&#125;,</span><br><span class="line">  &#123; <span class="hljs-attr">id</span>: <span class="hljs-number">2</span>, <span class="hljs-attr">title</span>: <span class="hljs-string">'Old Post'</span>&#125;</span><br><span class="line">]</span><br><span class="line"><span class="hljs-keyword">const</span> comment = &#123; <span class="hljs-attr">postId</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">content</span>: <span class="hljs-string">'Awesome Post'</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">postForComment</span>(<span class="hljs-params">posts, comment</span>)</span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> posts.find(<span class="hljs-function"><span class="hljs-params">post</span> =&gt;</span> post.id === comment.postId)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">postForComment(posts, comment);</span><br><span class="line"><span class="hljs-comment">// &#123; id: 1, title: 'New Post'&#125;</span></span><br></pre></td></tr></table></figure>
 <p>删除特定评论:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> comments = [</span><br><span class="line">  &#123; <span class="attr">text</span>: <span class="string">'Love this!'</span>, <span class="attr">id</span>: <span class="number">523423</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">text</span>: <span class="string">'Super good'</span>, <span class="attr">id</span>: <span class="number">823423</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">text</span>: <span class="string">'You are the best'</span>, <span class="attr">id</span>: <span class="number">2039842</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">text</span>: <span class="string">'Ramen is my fav food ever'</span>, <span class="attr">id</span>: <span class="number">123523</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">text</span>: <span class="string">'Nice Nice Nice!'</span>, <span class="attr">id</span>: <span class="number">542328</span> &#125;</span><br><span class="line">];</span><br><span class="line"><span class="keyword">const</span> comment = comments.find(<span class="function"><span class="params">comment</span> =&gt;</span> comment.id === <span class="number">823423</span>);</span><br><span class="line"><span class="built_in">console</span>.log(comment);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 利用findIndex找到具有某个特定id的评论的索引值</span></span><br><span class="line"><span class="keyword">const</span> commentIndex = comments.findIndex(<span class="function"><span class="params">comment</span> =&gt;</span> comment.id === <span class="number">823423</span>);</span><br><span class="line"><span class="built_in">console</span>.log(commentIndex); <span class="comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 根据索引值删除该条评论, 有两种方法</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. 但会改变(mutate)原先的comments, 不好</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// comments.splice(index, 1);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 新建一个数组来保存修改后的comments, (immutable) 👍</span></span><br><span class="line"><span class="keyword">const</span> newComments = [</span><br><span class="line">  ...comments.slice(<span class="number">0</span>, commentIndex),</span><br><span class="line">  ...comments.slice(commentIndex + <span class="number">1</span>)</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.table(comments);</span><br><span class="line"><span class="built_in">console</span>.table(newComments);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> comments = [</span><br><span class="line">  &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">'Love this!'</span>, <span class="hljs-attr">id</span>: <span class="hljs-number">523423</span> &#125;,</span><br><span class="line">  &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">'Super good'</span>, <span class="hljs-attr">id</span>: <span class="hljs-number">823423</span> &#125;,</span><br><span class="line">  &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">'You are the best'</span>, <span class="hljs-attr">id</span>: <span class="hljs-number">2039842</span> &#125;,</span><br><span class="line">  &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">'Ramen is my fav food ever'</span>, <span class="hljs-attr">id</span>: <span class="hljs-number">123523</span> &#125;,</span><br><span class="line">  &#123; <span class="hljs-attr">text</span>: <span class="hljs-string">'Nice Nice Nice!'</span>, <span class="hljs-attr">id</span>: <span class="hljs-number">542328</span> &#125;</span><br><span class="line">];</span><br><span class="line"><span class="hljs-keyword">const</span> comment = comments.find(<span class="hljs-function"><span class="hljs-params">comment</span> =&gt;</span> comment.id === <span class="hljs-number">823423</span>);</span><br><span class="line"><span class="hljs-built_in">console</span>.log(comment);</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 利用findIndex找到具有某个特定id的评论的索引值</span></span><br><span class="line"><span class="hljs-keyword">const</span> commentIndex = comments.findIndex(<span class="hljs-function"><span class="hljs-params">comment</span> =&gt;</span> comment.id === <span class="hljs-number">823423</span>);</span><br><span class="line"><span class="hljs-built_in">console</span>.log(commentIndex); <span class="hljs-comment">// 1</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 根据索引值删除该条评论, 有两种方法</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 1. 但会改变(mutate)原先的comments, 不好</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// comments.splice(index, 1);</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 2. 新建一个数组来保存修改后的comments, (immutable) 👍</span></span><br><span class="line"><span class="hljs-keyword">const</span> newComments = [</span><br><span class="line">  ...comments.slice(<span class="hljs-number">0</span>, commentIndex),</span><br><span class="line">  ...comments.slice(commentIndex + <span class="hljs-number">1</span>)</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.table(comments);</span><br><span class="line"><span class="hljs-built_in">console</span>.table(newComments);</span><br></pre></td></tr></table></figure>
 <h2 id="every-and-some"><a href="#every-and-some" class="headerlink" title="every and some"></a>every and some</h2><p><strong>示例:</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> computers = [</span><br><span class="line">  &#123;<span class="attr">name</span>: <span class="string">'Apple'</span>, <span class="attr">ram</span>: <span class="number">24</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">name</span>: <span class="string">'Compaq'</span>, <span class="attr">ram</span>: <span class="number">4</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">name</span>: <span class="string">'Acer'</span>, <span class="attr">ram</span>: <span class="number">32</span>&#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 寻找所有能运行特定程序的电脑</span></span><br><span class="line"><span class="comment">// 寻找能运行特定程序的某台电脑</span></span><br><span class="line"><span class="comment">// 不使用 every &amp; some</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> allComputersCanRunProgram = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">let</span> onlySomeComputersCanRunProgram = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; computers.length; i++)&#123;</span><br><span class="line">  <span class="keyword">let</span> computer = computers[i];</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(computer.ram &lt; <span class="number">16</span>) &#123;</span><br><span class="line">    allComputersCanRunProgram = <span class="literal">false</span>;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    onlySomeComputersCanRunProgram = <span class="literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(allComputersCanRunProgram); <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(onlySomeComputersCanRunProgram); <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 every &amp; some</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> allComputers = computers.every(<span class="function"><span class="params">computer</span> =&gt;</span> computer.ram &gt; <span class="number">16</span>);</span><br><span class="line"><span class="built_in">console</span>.log(allComputers); <span class="comment">// false</span></span><br><span class="line"><span class="keyword">const</span> onlySomeComputers = computers.some(<span class="function"><span class="params">computer</span> =&gt;</span> computer.ram &gt; <span class="number">16</span>);</span><br><span class="line"><span class="built_in">console</span>.log(onlySomeComputers); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> computers = [</span><br><span class="line">  &#123;<span class="hljs-attr">name</span>: <span class="hljs-string">'Apple'</span>, <span class="hljs-attr">ram</span>: <span class="hljs-number">24</span>&#125;,</span><br><span class="line">  &#123;<span class="hljs-attr">name</span>: <span class="hljs-string">'Compaq'</span>, <span class="hljs-attr">ram</span>: <span class="hljs-number">4</span>&#125;,</span><br><span class="line">  &#123;<span class="hljs-attr">name</span>: <span class="hljs-string">'Acer'</span>, <span class="hljs-attr">ram</span>: <span class="hljs-number">32</span>&#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 寻找所有能运行特定程序的电脑</span></span><br><span class="line"><span class="hljs-comment">// 寻找能运行特定程序的某台电脑</span></span><br><span class="line"><span class="hljs-comment">// 不使用 every &amp; some</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">let</span> allComputersCanRunProgram = <span class="hljs-literal">true</span>;</span><br><span class="line"><span class="hljs-keyword">let</span> onlySomeComputersCanRunProgram = <span class="hljs-literal">false</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; computers.length; i++)&#123;</span><br><span class="line">  <span class="hljs-keyword">let</span> computer = computers[i];</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">if</span>(computer.ram &lt; <span class="hljs-number">16</span>) &#123;</span><br><span class="line">    allComputersCanRunProgram = <span class="hljs-literal">false</span>;</span><br><span class="line">  &#125; <span class="hljs-keyword">else</span> &#123;</span><br><span class="line">    onlySomeComputersCanRunProgram = <span class="hljs-literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-built_in">console</span>.log(allComputersCanRunProgram); <span class="hljs-comment">// false</span></span><br><span class="line"><span class="hljs-built_in">console</span>.log(onlySomeComputersCanRunProgram); <span class="hljs-comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 使用 every &amp; some</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> allComputers = computers.every(<span class="hljs-function"><span class="hljs-params">computer</span> =&gt;</span> computer.ram &gt; <span class="hljs-number">16</span>);</span><br><span class="line"><span class="hljs-built_in">console</span>.log(allComputers); <span class="hljs-comment">// false</span></span><br><span class="line"><span class="hljs-keyword">const</span> onlySomeComputers = computers.some(<span class="hljs-function"><span class="hljs-params">computer</span> =&gt;</span> computer.ram &gt; <span class="hljs-number">16</span>);</span><br><span class="line"><span class="hljs-built_in">console</span>.log(onlySomeComputers); <span class="hljs-comment">//true</span></span><br></pre></td></tr></table></figure>
 <p><em>every:</em></p>
 <p><img src="/posts/images/array-every.jpg" alt="every"></p>
 <ol>
@@ -61,36 +226,36 @@
 <li>返回布尔值后, 会检视所有值并通过逻辑操作符<code>||</code>(或)对最后结果进行判断.</li>
 <li>如果每一个函数所返回的布尔值中有一个为true, 那么最后结果就为true, 全部为false, 最后则是false.</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> people = [</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">'Wes'</span>, <span class="attr">year</span>: <span class="number">1988</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">'Kait'</span>, <span class="attr">year</span>: <span class="number">1986</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">'Irv'</span>, <span class="attr">year</span>: <span class="number">1970</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">name</span>: <span class="string">'Lux'</span>, <span class="attr">year</span>: <span class="number">2015</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 是否有大于19岁的人</span></span><br><span class="line"><span class="keyword">const</span> isAdult = people.some(<span class="function"><span class="params">person</span> =&gt;</span> ((<span class="keyword">new</span> <span class="built_in">Date</span>()).getFullYear()) - person.year &gt;= <span class="number">19</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(isAdult);</span><br><span class="line"><span class="built_in">console</span>.log(&#123;isAdult&#125;); <span class="comment">// 对象输出时加上&#123;&#125;可读性更强</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 是否所有人都大于19岁</span></span><br><span class="line"><span class="keyword">const</span> allAdult = people.every(<span class="function"><span class="params">person</span> =&gt;</span> ((<span class="keyword">new</span> <span class="built_in">Date</span>()).getFullYear()) - person.year &gt;= <span class="number">19</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(&#123;allAdult&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> people = [</span><br><span class="line">  &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">'Wes'</span>, <span class="hljs-attr">year</span>: <span class="hljs-number">1988</span> &#125;,</span><br><span class="line">  &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">'Kait'</span>, <span class="hljs-attr">year</span>: <span class="hljs-number">1986</span> &#125;,</span><br><span class="line">  &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">'Irv'</span>, <span class="hljs-attr">year</span>: <span class="hljs-number">1970</span> &#125;,</span><br><span class="line">  &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">'Lux'</span>, <span class="hljs-attr">year</span>: <span class="hljs-number">2015</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 是否有大于19岁的人</span></span><br><span class="line"><span class="hljs-keyword">const</span> isAdult = people.some(<span class="hljs-function"><span class="hljs-params">person</span> =&gt;</span> ((<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()).getFullYear()) - person.year &gt;= <span class="hljs-number">19</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(isAdult);</span><br><span class="line"><span class="hljs-built_in">console</span>.log(&#123;isAdult&#125;); <span class="hljs-comment">// 对象输出时加上&#123;&#125;可读性更强</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 是否所有人都大于19岁</span></span><br><span class="line"><span class="hljs-keyword">const</span> allAdult = people.every(<span class="hljs-function"><span class="hljs-params">person</span> =&gt;</span> ((<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>()).getFullYear()) - person.year &gt;= <span class="hljs-number">19</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(&#123;allAdult&#125;);</span><br></pre></td></tr></table></figure>
 <p><strong>更实际的应用:</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Field</span>(<span class="params">value</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.value = value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Field.prototype.validate = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.value.length &gt; <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> username = <span class="keyword">new</span> Field(<span class="string">'2cool'</span>);</span><br><span class="line"><span class="keyword">let</span> password = <span class="keyword">new</span> Field(<span class="string">'my_password'</span>);</span><br><span class="line"><span class="keyword">let</span> birthdate = <span class="keyword">new</span> Field(<span class="string">'10/10/2010'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// no every &amp; some</span></span><br><span class="line">username.validate() &amp;&amp; password.validate() &amp;&amp; birthdate.validate()</span><br><span class="line"></span><br><span class="line"><span class="comment">// every</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> fields = [username, password, birthdate];</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> formIsValid = fields.every(<span class="function"><span class="params">field</span> =&gt;</span> field.validate())</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(formIsValid) &#123;</span><br><span class="line">  <span class="comment">// allow user to submit</span></span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">  <span class="comment">// show an error message</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">compareFunction</span>(<span class="params">a, b</span>)</span>&#123;</span><br><span class="line">  <span class="comment">// return -1, a出现在b之前</span></span><br><span class="line">  <span class="comment">// return 1,  a出现在b之后</span></span><br><span class="line">  <span class="comment">// return 0, 顺序不变</span></span><br><span class="line">&#125;</span><br><span class="line">arr.sort(compareFunction);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Field</span>(<span class="hljs-params">value</span>)</span>&#123;</span><br><span class="line">  <span class="hljs-keyword">this</span>.value = value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Field.prototype.validate = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.value.length &gt; <span class="hljs-number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">let</span> username = <span class="hljs-keyword">new</span> Field(<span class="hljs-string">'2cool'</span>);</span><br><span class="line"><span class="hljs-keyword">let</span> password = <span class="hljs-keyword">new</span> Field(<span class="hljs-string">'my_password'</span>);</span><br><span class="line"><span class="hljs-keyword">let</span> birthdate = <span class="hljs-keyword">new</span> Field(<span class="hljs-string">'10/10/2010'</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// no every &amp; some</span></span><br><span class="line">username.validate() &amp;&amp; password.validate() &amp;&amp; birthdate.validate()</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// every</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">let</span> fields = [username, password, birthdate];</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">let</span> formIsValid = fields.every(<span class="hljs-function"><span class="hljs-params">field</span> =&gt;</span> field.validate())</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">if</span>(formIsValid) &#123;</span><br><span class="line">  <span class="hljs-comment">// allow user to submit</span></span><br><span class="line">&#125;<span class="hljs-keyword">else</span>&#123;</span><br><span class="line">  <span class="hljs-comment">// show an error message</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h2><figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">compareFunction</span>(<span class="hljs-params">a, b</span>)</span>&#123;</span><br><span class="line">  <span class="hljs-comment">// return -1, a出现在b之前</span></span><br><span class="line">  <span class="hljs-comment">// return 1,  a出现在b之后</span></span><br><span class="line">  <span class="hljs-comment">// return 0, 顺序不变</span></span><br><span class="line">&#125;</span><br><span class="line">arr.sort(compareFunction);</span><br></pre></td></tr></table></figure>
 <p><strong>示例:</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> numbers = [<span class="number">4</span>, <span class="number">20</span>, <span class="number">5</span>, <span class="number">1</span>, <span class="number">3</span>];</span><br><span class="line">numbers.sort(<span class="function"><span class="keyword">function</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> a - b;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(numbers); <span class="comment">// [1, 3, 4, 5, 20]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> numbers = [<span class="hljs-number">4</span>, <span class="hljs-number">20</span>, <span class="hljs-number">5</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>];</span><br><span class="line">numbers.sort(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> a - b;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="hljs-built_in">console</span>.log(numbers); <span class="hljs-comment">// [1, 3, 4, 5, 20]</span></span><br></pre></td></tr></table></figure>
 <p>如果没有comparisonFunction, 先将数列中的内容转化成字符串再根据Unicode顺序排序.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> scores = [<span class="number">1</span>, <span class="number">10</span>, <span class="number">21</span>, <span class="number">2</span>];</span><br><span class="line">scores.sort();</span><br><span class="line"><span class="built_in">console</span>.log(scores); <span class="comment">// [1, 10, 2, 21]</span></span><br><span class="line"><span class="comment">// 10在 2之前,</span></span><br><span class="line"><span class="comment">// 因为在Unicode码中'10'在'2'之前</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> inventors = [</span><br><span class="line">  &#123; <span class="attr">first</span>: <span class="string">'Albert'</span>, <span class="attr">last</span>: <span class="string">'Einstein'</span>, <span class="attr">year</span>: <span class="number">1879</span>, <span class="attr">passed</span>: <span class="number">1955</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">first</span>: <span class="string">'Isaac'</span>, <span class="attr">last</span>: <span class="string">'Newton'</span>, <span class="attr">year</span>: <span class="number">1643</span>, <span class="attr">passed</span>: <span class="number">1727</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">first</span>: <span class="string">'Galileo'</span>, <span class="attr">last</span>: <span class="string">'Galilei'</span>, <span class="attr">year</span>: <span class="number">1564</span>, <span class="attr">passed</span>: <span class="number">1642</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">first</span>: <span class="string">'Marie'</span>, <span class="attr">last</span>: <span class="string">'Curie'</span>, <span class="attr">year</span>: <span class="number">1867</span>, <span class="attr">passed</span>: <span class="number">1934</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">first</span>: <span class="string">'Johannes'</span>, <span class="attr">last</span>: <span class="string">'Kepler'</span>, <span class="attr">year</span>: <span class="number">1571</span>, <span class="attr">passed</span>: <span class="number">1630</span> &#125;,</span><br><span class="line">  &#123; <span class="attr">first</span>: <span class="string">'Nicolaus'</span>, <span class="attr">last</span>: <span class="string">'Copernicus'</span>, <span class="attr">year</span>: <span class="number">1473</span>, <span class="attr">passed</span>: <span class="number">1543</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 生辰从早到晚</span></span><br><span class="line"></span><br><span class="line">inventors.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a.year - b.year ? <span class="number">1</span> : <span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.table(inventors);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 活得长的发明家排在后</span></span><br><span class="line"></span><br><span class="line">inventors.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (a.passed - a.year) - (b.passed - b.year);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.table(inventors);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> scores = [<span class="hljs-number">1</span>, <span class="hljs-number">10</span>, <span class="hljs-number">21</span>, <span class="hljs-number">2</span>];</span><br><span class="line">scores.sort();</span><br><span class="line"><span class="hljs-built_in">console</span>.log(scores); <span class="hljs-comment">// [1, 10, 2, 21]</span></span><br><span class="line"><span class="hljs-comment">// 10在 2之前,</span></span><br><span class="line"><span class="hljs-comment">// 因为在Unicode码中'10'在'2'之前</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> inventors = [</span><br><span class="line">  &#123; <span class="hljs-attr">first</span>: <span class="hljs-string">'Albert'</span>, <span class="hljs-attr">last</span>: <span class="hljs-string">'Einstein'</span>, <span class="hljs-attr">year</span>: <span class="hljs-number">1879</span>, <span class="hljs-attr">passed</span>: <span class="hljs-number">1955</span> &#125;,</span><br><span class="line">  &#123; <span class="hljs-attr">first</span>: <span class="hljs-string">'Isaac'</span>, <span class="hljs-attr">last</span>: <span class="hljs-string">'Newton'</span>, <span class="hljs-attr">year</span>: <span class="hljs-number">1643</span>, <span class="hljs-attr">passed</span>: <span class="hljs-number">1727</span> &#125;,</span><br><span class="line">  &#123; <span class="hljs-attr">first</span>: <span class="hljs-string">'Galileo'</span>, <span class="hljs-attr">last</span>: <span class="hljs-string">'Galilei'</span>, <span class="hljs-attr">year</span>: <span class="hljs-number">1564</span>, <span class="hljs-attr">passed</span>: <span class="hljs-number">1642</span> &#125;,</span><br><span class="line">  &#123; <span class="hljs-attr">first</span>: <span class="hljs-string">'Marie'</span>, <span class="hljs-attr">last</span>: <span class="hljs-string">'Curie'</span>, <span class="hljs-attr">year</span>: <span class="hljs-number">1867</span>, <span class="hljs-attr">passed</span>: <span class="hljs-number">1934</span> &#125;,</span><br><span class="line">  &#123; <span class="hljs-attr">first</span>: <span class="hljs-string">'Johannes'</span>, <span class="hljs-attr">last</span>: <span class="hljs-string">'Kepler'</span>, <span class="hljs-attr">year</span>: <span class="hljs-number">1571</span>, <span class="hljs-attr">passed</span>: <span class="hljs-number">1630</span> &#125;,</span><br><span class="line">  &#123; <span class="hljs-attr">first</span>: <span class="hljs-string">'Nicolaus'</span>, <span class="hljs-attr">last</span>: <span class="hljs-string">'Copernicus'</span>, <span class="hljs-attr">year</span>: <span class="hljs-number">1473</span>, <span class="hljs-attr">passed</span>: <span class="hljs-number">1543</span> &#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 生辰从早到晚</span></span><br><span class="line"></span><br><span class="line">inventors.sort(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> a.year - b.year ? <span class="hljs-number">1</span> : <span class="hljs-number">-1</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.table(inventors);</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 活得长的发明家排在后</span></span><br><span class="line"></span><br><span class="line">inventors.sort(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> (a.passed - a.year) - (b.passed - b.year);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.table(inventors);</span><br></pre></td></tr></table></figure>
 <p><strong>对数组以元素字母顺序进行排序</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> people = [<span class="string">'Beck, Glenn'</span>, <span class="string">'Becker, Carl'</span>, <span class="string">'Beckett, Samuel'</span>, <span class="string">'Beddoes, Mick'</span>, <span class="string">'Beecher, Henry'</span>, <span class="string">'Billings, Josh'</span>, <span class="string">'Biondo, Frank'</span>, <span class="string">'Birrell, Augustine'</span>, <span class="string">'Black, Elk'</span>, <span class="string">'Blair, Robert'</span>, <span class="string">'Blair, Tony'</span>, <span class="string">'Blake, William'</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> alpha = people.sort(<span class="function">(<span class="params">lastOne, nextOne</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> [aLast, aFirst] = lastOne.split(<span class="string">', '</span>);</span><br><span class="line">  <span class="keyword">const</span> [bLast, bFirst] = nextOne.split(<span class="string">', '</span>);</span><br><span class="line">  <span class="keyword">return</span> aLast &gt; bLast ? <span class="number">1</span> : <span class="number">-1</span>;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(alpha);</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 对各个band按字母顺序排序, 需要忽略名字开头的冠词再进行排序</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> bands = [<span class="string">'The Plot in You'</span>, <span class="string">'The Devil Wears Prada'</span>, <span class="string">'Pierce the Veil'</span>, <span class="string">'Norma Jean'</span>, <span class="string">'The Bled'</span>, <span class="string">'Say Anything'</span>, <span class="string">'The Midway State'</span>, <span class="string">'We Came as Romans'</span>, <span class="string">'Counterparts'</span>, <span class="string">'Oh, Sleeper'</span>, <span class="string">'A Skylit Drive'</span>, <span class="string">'Anywhere But Here'</span>, <span class="string">'An Old Dog'</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">strip</span>(<span class="params">bandName</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> bandName.replace(<span class="regexp">/^(a |the |an )/i</span>, <span class="string">''</span>).trim();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> sortedBands = bands.sort(<span class="function">(<span class="params">a,b</span>) =&gt;</span> strip(a) &gt; strip(b) ? <span class="number">1</span> : <span class="number">-1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(sortedBands);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> people = [<span class="hljs-string">'Beck, Glenn'</span>, <span class="hljs-string">'Becker, Carl'</span>, <span class="hljs-string">'Beckett, Samuel'</span>, <span class="hljs-string">'Beddoes, Mick'</span>, <span class="hljs-string">'Beecher, Henry'</span>, <span class="hljs-string">'Billings, Josh'</span>, <span class="hljs-string">'Biondo, Frank'</span>, <span class="hljs-string">'Birrell, Augustine'</span>, <span class="hljs-string">'Black, Elk'</span>, <span class="hljs-string">'Blair, Robert'</span>, <span class="hljs-string">'Blair, Tony'</span>, <span class="hljs-string">'Blake, William'</span>]</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> alpha = people.sort(<span class="hljs-function">(<span class="hljs-params">lastOne, nextOne</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="hljs-keyword">const</span> [aLast, aFirst] = lastOne.split(<span class="hljs-string">', '</span>);</span><br><span class="line">  <span class="hljs-keyword">const</span> [bLast, bFirst] = nextOne.split(<span class="hljs-string">', '</span>);</span><br><span class="line">  <span class="hljs-keyword">return</span> aLast &gt; bLast ? <span class="hljs-number">1</span> : <span class="hljs-number">-1</span>;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(alpha);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">// 对各个band按字母顺序排序, 需要忽略名字开头的冠词再进行排序</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> bands = [<span class="hljs-string">'The Plot in You'</span>, <span class="hljs-string">'The Devil Wears Prada'</span>, <span class="hljs-string">'Pierce the Veil'</span>, <span class="hljs-string">'Norma Jean'</span>, <span class="hljs-string">'The Bled'</span>, <span class="hljs-string">'Say Anything'</span>, <span class="hljs-string">'The Midway State'</span>, <span class="hljs-string">'We Came as Romans'</span>, <span class="hljs-string">'Counterparts'</span>, <span class="hljs-string">'Oh, Sleeper'</span>, <span class="hljs-string">'A Skylit Drive'</span>, <span class="hljs-string">'Anywhere But Here'</span>, <span class="hljs-string">'An Old Dog'</span>];</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">strip</span>(<span class="hljs-params">bandName</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> bandName.replace(<span class="hljs-regexp">/^(a |the |an )/i</span>, <span class="hljs-string">''</span>).trim();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> sortedBands = bands.sort(<span class="hljs-function">(<span class="hljs-params">a,b</span>) =&gt;</span> strip(a) &gt; strip(b) ? <span class="hljs-number">1</span> : <span class="hljs-number">-1</span>);</span><br><span class="line"><span class="hljs-built_in">console</span>.log(sortedBands);</span><br></pre></td></tr></table></figure>
 <p>Todo App中, 未完成的Todo显示在已完成的之前:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> sortedTodos;</span><br><span class="line"></span><br><span class="line">sortedTodos.sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span>(!a.completed &amp;&amp; b.completed)&#123;</span><br><span class="line">   <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">  &#125;<span class="keyword">else</span> <span class="keyword">if</span> (a.completed &amp;&amp; !b.completed) &#123;</span><br><span class="line">   <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">let</span> sortedTodos;</span><br><span class="line"></span><br><span class="line">sortedTodos.sort(<span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="hljs-keyword">if</span>(!a.completed &amp;&amp; b.completed)&#123;</span><br><span class="line">   <span class="hljs-keyword">return</span> <span class="hljs-number">-1</span>;</span><br><span class="line">  &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (a.completed &amp;&amp; !b.completed) &#123;</span><br><span class="line">   <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;</span><br><span class="line">  &#125;<span class="hljs-keyword">else</span>&#123;</span><br><span class="line">   <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p>Ps: 逻辑操作符 <code>&amp;&amp;</code>(“与”)</p>
 <p><code>expr1 &amp;&amp; expr2</code>, 如果表达式结果为false, 则返回expr1, 否则返回expr2, 因此当参数为布尔值时, 若参数均为true, 则结果返回true, 否则返回false.</p>
 <h2 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h2><p><strong>示例:</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>];</span><br><span class="line"><span class="keyword">let</span> sum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 不使用 reduce</span></span><br><span class="line"><span class="comment">// 计算numbers数组中所有值的和</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; numbers.length; i++)&#123;</span><br><span class="line">  sum += numbers[i];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(sum); <span class="comment">//60</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//使用 reduce</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> reduceSum = numbers.reduce(<span class="function">(<span class="params">sum, number</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> sum + number;</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(reduceSum); <span class="comment">//60</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> numbers = [<span class="hljs-number">10</span>,<span class="hljs-number">20</span>,<span class="hljs-number">30</span>];</span><br><span class="line"><span class="hljs-keyword">let</span> sum = <span class="hljs-number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 不使用 reduce</span></span><br><span class="line"><span class="hljs-comment">// 计算numbers数组中所有值的和</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; numbers.length; i++)&#123;</span><br><span class="line">  sum += numbers[i];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(sum); <span class="hljs-comment">//60</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">//使用 reduce</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> reduceSum = numbers.reduce(<span class="hljs-function">(<span class="hljs-params">sum, number</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> sum + number;</span><br><span class="line">&#125;, <span class="hljs-number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(reduceSum); <span class="hljs-comment">//60</span></span><br></pre></td></tr></table></figure>
 <p><img src="/posts/images/array-reduce.jpg" alt="reduce"></p>
 <p>传入reduce的第二个参数是初始值(initial value), 第一个参数是Iterator Function, Iterator Function接受两个参数, 第一次执行接受初始值和原数组中的第一个元素作为参数, 执行结束后返回的值作为Iterator Function的第一个参数, 原数组中的第二个元素作为第二个参数, 以此类推.</p>
 <p>reduce功能强大, 可以使用reduce实现以上所有数组方法的功能.</p>
 <p><strong>reduce实现map的功能:</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> primaryColors = [</span><br><span class="line">  &#123;<span class="attr">color</span>: <span class="string">'red'</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">color</span>: <span class="string">'yellow'</span>&#125;,</span><br><span class="line">  &#123;<span class="attr">color</span>: <span class="string">'blue'</span>&#125;,</span><br><span class="line">];</span><br><span class="line"><span class="keyword">const</span> reducedColor = primaryColors.reduce(<span class="function">(<span class="params">accumulator, primaryColor</span>)=&gt;</span>&#123;</span><br><span class="line">  accumulator.push(primaryColor.color);</span><br><span class="line">  <span class="keyword">return</span> accumulator;</span><br><span class="line">&#125;, []);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(reducedColor); <span class="comment">// ["red", "yellow", "blue"]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 若使用map, 则是:</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> mappedColor = primaryColors.map(<span class="function"><span class="params">primaryColor</span> =&gt;</span> primaryColor.color);</span><br><span class="line"><span class="built_in">console</span>.log(mappedColor); <span class="comment">// ["red", "yellow", "blue"]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">let</span> primaryColors = [</span><br><span class="line">  &#123;<span class="hljs-attr">color</span>: <span class="hljs-string">'red'</span>&#125;,</span><br><span class="line">  &#123;<span class="hljs-attr">color</span>: <span class="hljs-string">'yellow'</span>&#125;,</span><br><span class="line">  &#123;<span class="hljs-attr">color</span>: <span class="hljs-string">'blue'</span>&#125;,</span><br><span class="line">];</span><br><span class="line"><span class="hljs-keyword">const</span> reducedColor = primaryColors.reduce(<span class="hljs-function">(<span class="hljs-params">accumulator, primaryColor</span>)=&gt;</span>&#123;</span><br><span class="line">  accumulator.push(primaryColor.color);</span><br><span class="line">  <span class="hljs-keyword">return</span> accumulator;</span><br><span class="line">&#125;, []);</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(reducedColor); <span class="hljs-comment">// ["red", "yellow", "blue"]</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 若使用map, 则是:</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> mappedColor = primaryColors.map(<span class="hljs-function"><span class="hljs-params">primaryColor</span> =&gt;</span> primaryColor.color);</span><br><span class="line"><span class="hljs-built_in">console</span>.log(mappedColor); <span class="hljs-comment">// ["red", "yellow", "blue"]</span></span><br></pre></td></tr></table></figure>
 <p><strong>计算order总量</strong>:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> orders = [</span><br><span class="line">	&#123; <span class="attr">amount</span>: <span class="number">250</span> &#125;,</span><br><span class="line">	&#123; <span class="attr">amount</span>: <span class="number">200</span> &#125;,</span><br><span class="line">	&#123; <span class="attr">amount</span>: <span class="number">340</span> &#125;,</span><br><span class="line">	&#123; <span class="attr">amount</span>: <span class="number">100</span> &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> totalAmount = orders.reduce(<span class="function">(<span class="params">sum, order</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="keyword">return</span> sum + order.amount</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(totalAmount);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> orders = [</span><br><span class="line">	&#123; <span class="hljs-attr">amount</span>: <span class="hljs-number">250</span> &#125;,</span><br><span class="line">	&#123; <span class="hljs-attr">amount</span>: <span class="hljs-number">200</span> &#125;,</span><br><span class="line">	&#123; <span class="hljs-attr">amount</span>: <span class="hljs-number">340</span> &#125;,</span><br><span class="line">	&#123; <span class="hljs-attr">amount</span>: <span class="hljs-number">100</span> &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">let</span> totalAmount = orders.reduce(<span class="hljs-function">(<span class="hljs-params">sum, order</span>) =&gt;</span> &#123;</span><br><span class="line">	<span class="hljs-keyword">return</span> sum + order.amount</span><br><span class="line">&#125;, <span class="hljs-number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(totalAmount);</span><br></pre></td></tr></table></figure>
 <p><strong>计算各个交通工具的个数</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> data = [<span class="string">'car'</span>, <span class="string">'car'</span>, <span class="string">'truck'</span>, <span class="string">'truck'</span>, <span class="string">'bike'</span>, <span class="string">'walk'</span>, <span class="string">'car'</span>, <span class="string">'van'</span>, <span class="string">'bike'</span>, <span class="string">'walk'</span>, <span class="string">'car'</span>, <span class="string">'van'</span>, <span class="string">'car'</span>, <span class="string">'truck'</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> transportation = data.reduce(<span class="function">(<span class="params">obj, item</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (!obj[item]) &#123;</span><br><span class="line">    obj[item] = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  obj[item]++;</span><br><span class="line">  <span class="keyword">return</span> obj;</span><br><span class="line">&#125;, &#123;&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(transportation);</span><br><span class="line"><span class="comment">//&#123;car: 5, truck: 3, bike: 2, walk: 2, van: 2&#125;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> data = [<span class="hljs-string">'car'</span>, <span class="hljs-string">'car'</span>, <span class="hljs-string">'truck'</span>, <span class="hljs-string">'truck'</span>, <span class="hljs-string">'bike'</span>, <span class="hljs-string">'walk'</span>, <span class="hljs-string">'car'</span>, <span class="hljs-string">'van'</span>, <span class="hljs-string">'bike'</span>, <span class="hljs-string">'walk'</span>, <span class="hljs-string">'car'</span>, <span class="hljs-string">'van'</span>, <span class="hljs-string">'car'</span>, <span class="hljs-string">'truck'</span>];</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> transportation = data.reduce(<span class="hljs-function">(<span class="hljs-params">obj, item</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="hljs-keyword">if</span> (!obj[item]) &#123;</span><br><span class="line">    obj[item] = <span class="hljs-number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  obj[item]++;</span><br><span class="line">  <span class="hljs-keyword">return</span> obj;</span><br><span class="line">&#125;, &#123;&#125;);</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(transportation);</span><br><span class="line"><span class="hljs-comment">//&#123;car: 5, truck: 3, bike: 2, walk: 2, van: 2&#125;</span></span><br></pre></td></tr></table></figure>
 <p><strong>检查括号是否对称</strong></p>
 <p>(必须是一对括号且左括号在前) [balanced parentheses]:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">balancedParens</span>(<span class="params">string</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> !string.split(<span class="string">''</span>).reduce(<span class="function"><span class="keyword">function</span> (<span class="params">counter, char</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (counter &lt; <span class="number">0</span>) &#123;<span class="keyword">return</span> counter;&#125;</span><br><span class="line">    <span class="keyword">if</span> (char === <span class="string">"("</span>) &#123;<span class="keyword">return</span> ++counter;&#125;</span><br><span class="line">    <span class="keyword">if</span> (char === <span class="string">")"</span>) &#123;<span class="keyword">return</span> --counter;&#125;</span><br><span class="line">    <span class="keyword">return</span> counter;</span><br><span class="line">  &#125;,<span class="number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">balancedParens(<span class="string">"((())))"</span>); <span class="comment">// false</span></span><br><span class="line">balancedParens(<span class="string">"))((()"</span>); <span class="comment">// false</span></span><br><span class="line">balancedParens(<span class="string">"(((())))"</span>); <span class="comment">// true</span></span><br><span class="line">balancedParens(<span class="string">"()()()()"</span>); <span class="comment">// true</span></span><br><span class="line">balancedParens(<span class="string">'()()()skoaksod'</span>); <span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">balancedParens</span>(<span class="hljs-params">string</span>)</span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> !string.split(<span class="hljs-string">''</span>).reduce(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">counter, char</span>)</span>&#123;</span><br><span class="line">    <span class="hljs-keyword">if</span> (counter &lt; <span class="hljs-number">0</span>) &#123;<span class="hljs-keyword">return</span> counter;&#125;</span><br><span class="line">    <span class="hljs-keyword">if</span> (char === <span class="hljs-string">"("</span>) &#123;<span class="hljs-keyword">return</span> ++counter;&#125;</span><br><span class="line">    <span class="hljs-keyword">if</span> (char === <span class="hljs-string">")"</span>) &#123;<span class="hljs-keyword">return</span> --counter;&#125;</span><br><span class="line">    <span class="hljs-keyword">return</span> counter;</span><br><span class="line">  &#125;,<span class="hljs-number">0</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">balancedParens(<span class="hljs-string">"((())))"</span>); <span class="hljs-comment">// false</span></span><br><span class="line">balancedParens(<span class="hljs-string">"))((()"</span>); <span class="hljs-comment">// false</span></span><br><span class="line">balancedParens(<span class="hljs-string">"(((())))"</span>); <span class="hljs-comment">// true</span></span><br><span class="line">balancedParens(<span class="hljs-string">"()()()()"</span>); <span class="hljs-comment">// true</span></span><br><span class="line">balancedParens(<span class="hljs-string">'()()()skoaksod'</span>); <span class="hljs-comment">//true</span></span><br></pre></td></tr></table></figure>
 <ol>
 <li><code>string.split(&#39;&#39;)</code>: 因为reduce只能在数组中使用, 所以先将参数的类型从string转化为array;</li>
 <li>将初始值设为0, 若数组中出现<code>(</code>, 计数器(counter)+1, 出现<code>)</code>计数器减1, 只有当计数器最后结果为0时返回true;</li>
@@ -98,12 +263,988 @@
 <li><code>if (counter &lt; 0) {return counter;}</code>: 如果计数器值为负, 直接返回, 最后结果就为false, 因为左括号必须在右括号之前.</li>
 </ol>
 <p><strong>计算下例中视频时间总和</strong></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"videos"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-time</span>=<span class="string">"5:43"</span>&gt;</span>Video 1<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-time</span>=<span class="string">"2:33"</span>&gt;</span>Video 2<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-time</span>=<span class="string">"3:45"</span>&gt;</span>Video 3<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-time</span>=<span class="string">"0:47"</span>&gt;</span>Video 4<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-time</span>=<span class="string">"5:21"</span>&gt;</span>Video 5<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-time</span>=<span class="string">"6:56"</span>&gt;</span>Video 6<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-time</span>=<span class="string">"3:46"</span>&gt;</span>Video 7<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-time</span>=<span class="string">"5:25"</span>&gt;</span>Video 8<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-time</span>=<span class="string">"3:14"</span>&gt;</span>Video 9<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">data-time</span>=<span class="string">"3:31"</span>&gt;</span>Video 10<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> timeNodes = [...document.querySelectorAll(<span class="string">'[data-time]'</span>)];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第一种方法:</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="keyword">const</span> seconds = timeNodes</span><br><span class="line">    .map(<span class="function"><span class="params">node</span> =&gt;</span> node.dataset.time) <span class="comment">// 提取标签为'data-time'的属性值, 并放入数组中</span></span><br><span class="line">    .map(<span class="function"><span class="params">timeCode</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> [mins, secs] = timeCode.split(<span class="string">':'</span>).map(<span class="built_in">parseFloat</span>); <span class="comment">// 相当于.map(str =&gt; parseFloat(str))</span></span><br><span class="line">      <span class="keyword">return</span> (mins * <span class="number">60</span>) + secs;</span><br><span class="line">    &#125;)</span><br><span class="line">    .reduce(<span class="function">(<span class="params">total, vidSeconds</span>) =&gt;</span> total + vidSeconds);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 第二种方法:</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//    </span></span><br><span class="line"><span class="comment">// const times = [];</span></span><br><span class="line"><span class="comment">// timeNodes.map(video =&gt; &#123;</span></span><br><span class="line"><span class="comment">//   times.push(video.dataset.time.split(':').map(parseFloat));</span></span><br><span class="line"><span class="comment">// &#125;);</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// const seconds = times.reduce((sum,time) =&gt;  sum += (time[0] * 60 + time[1]), 0);</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> secondsLeft = seconds;</span><br><span class="line"><span class="keyword">const</span> hours = <span class="built_in">Math</span>.floor(secondsLeft / <span class="number">3600</span>);</span><br><span class="line">secondsLeft = secondsLeft % <span class="number">3600</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> mins = <span class="built_in">Math</span>.floor(secondsLeft / <span class="number">60</span>);</span><br><span class="line">secondsLeft = secondsLeft % <span class="number">60</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(hours, mins, secondsLeft);</span><br></pre></td></tr></table></figure>
+<figure class="highlight html hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"videos"</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">data-time</span>=<span class="hljs-string">"5:43"</span>&gt;</span>Video 1<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">data-time</span>=<span class="hljs-string">"2:33"</span>&gt;</span>Video 2<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">data-time</span>=<span class="hljs-string">"3:45"</span>&gt;</span>Video 3<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">data-time</span>=<span class="hljs-string">"0:47"</span>&gt;</span>Video 4<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">data-time</span>=<span class="hljs-string">"5:21"</span>&gt;</span>Video 5<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">data-time</span>=<span class="hljs-string">"6:56"</span>&gt;</span>Video 6<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">data-time</span>=<span class="hljs-string">"3:46"</span>&gt;</span>Video 7<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">data-time</span>=<span class="hljs-string">"5:25"</span>&gt;</span>Video 8<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">data-time</span>=<span class="hljs-string">"3:14"</span>&gt;</span>Video 9<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="line">    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">data-time</span>=<span class="hljs-string">"3:31"</span>&gt;</span>Video 10<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span></span><br><span class="line"><span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">const</span> timeNodes = [...document.querySelectorAll(<span class="hljs-string">'[data-time]'</span>)];</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 第一种方法:</span></span><br><span class="line"><span class="hljs-comment">//</span></span><br><span class="line"><span class="hljs-comment">//</span></span><br><span class="line"><span class="hljs-keyword">const</span> seconds = timeNodes</span><br><span class="line">    .map(<span class="hljs-function"><span class="hljs-params">node</span> =&gt;</span> node.dataset.time) <span class="hljs-comment">// 提取标签为'data-time'的属性值, 并放入数组中</span></span><br><span class="line">    .map(<span class="hljs-function"><span class="hljs-params">timeCode</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="hljs-keyword">const</span> [mins, secs] = timeCode.split(<span class="hljs-string">':'</span>).map(<span class="hljs-built_in">parseFloat</span>); <span class="hljs-comment">// 相当于.map(str =&gt; parseFloat(str))</span></span><br><span class="line">      <span class="hljs-keyword">return</span> (mins * <span class="hljs-number">60</span>) + secs;</span><br><span class="line">    &#125;)</span><br><span class="line">    .reduce(<span class="hljs-function">(<span class="hljs-params">total, vidSeconds</span>) =&gt;</span> total + vidSeconds);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 第二种方法:</span></span><br><span class="line"><span class="hljs-comment">//</span></span><br><span class="line"><span class="hljs-comment">//    </span></span><br><span class="line"><span class="hljs-comment">// const times = [];</span></span><br><span class="line"><span class="hljs-comment">// timeNodes.map(video =&gt; &#123;</span></span><br><span class="line"><span class="hljs-comment">//   times.push(video.dataset.time.split(':').map(parseFloat));</span></span><br><span class="line"><span class="hljs-comment">// &#125;);</span></span><br><span class="line"><span class="hljs-comment">//</span></span><br><span class="line"><span class="hljs-comment">// const seconds = times.reduce((sum,time) =&gt;  sum += (time[0] * 60 + time[1]), 0);</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">let</span> secondsLeft = seconds;</span><br><span class="line"><span class="hljs-keyword">const</span> hours = <span class="hljs-built_in">Math</span>.floor(secondsLeft / <span class="hljs-number">3600</span>);</span><br><span class="line">secondsLeft = secondsLeft % <span class="hljs-number">3600</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">const</span> mins = <span class="hljs-built_in">Math</span>.floor(secondsLeft / <span class="hljs-number">60</span>);</span><br><span class="line">secondsLeft = secondsLeft % <span class="hljs-number">60</span>;</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">console</span>.log(hours, mins, secondsLeft);</span><br></pre></td></tr></table></figure>
 <hr>
 <p><strong>参考</strong></p>
 <ul>
 <li><a href="https://javascript30.com/" target="_blank" rel="noopener">JavaScript30</a></li>
 <li><a href="https://www.udemy.com/javascript-es6-tutorial/" target="_blank" rel="noopener">ES6 Javascript</a></li>
 </ul>
-</div></article></div></main><footer><div class="paginator"><a href="/posts/2017/02/16/learning-web-dev-from-scratch/" class="prev">PREV</a><a href="/posts/2016/12/13/about-node/" class="next">NEXT</a></div><div class="copyright"><p>© 2019 <a href="https://icyfish.github.io/posts">Fish</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/posts/2017/02/16/learning-web-dev-from-scratch/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">初期自学路线</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/posts/2016/12/13/about-node/">
+                <span class="level-item">Node相关知识点</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="/posts/images/avatar.png" alt="Fish">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Fish
+                    </p>
+                    
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Earth</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        55
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        0
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        0
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://icyfish.github.io/posts" target="_blank">
+                Follow</a>
+        </div>
+        
+        
+    </div>
+</div>
+    
+        
+    
+        
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categories
+            </h3>
+            <ul class="menu-list">
+            
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/2019/06/30/JavaScript-Inside-1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="JavaScript Inside 1 - engine, runtime, callstack">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-29T16:00:00.000Z">2019-06-30</time></div>
+                    <a href="/posts/2019/06/30/JavaScript-Inside-1/" class="has-link-black-ter is-size-6">JavaScript Inside 1 - engine, runtime, callstack</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2019/06/27/element-in-view/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="判断元素是否在可视区域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-26T16:00:00.000Z">2019-06-27</time></div>
+                    <a href="/posts/2019/06/27/element-in-view/" class="has-link-black-ter is-size-6">判断元素是否在可视区域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/02/07/css-position/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="CSS定位笔记(MDN)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-02-06T16:00:00.000Z">2018-02-07</time></div>
+                    <a href="/posts/2018/02/07/css-position/" class="has-link-black-ter is-size-6">CSS定位笔记(MDN)</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/01/18/react-ref/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="React Ref">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-17T16:00:00.000Z">2018-01-18</time></div>
+                    <a href="/posts/2018/01/18/react-ref/" class="has-link-black-ter is-size-6">React Ref</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/01/09/collection-of-web-tools/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="Collection of Web Tools">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-08T16:00:00.000Z">2018-01-09</time></div>
+                    <a href="/posts/2018/01/09/collection-of-web-tools/" class="has-link-black-ter is-size-6">Collection of Web Tools</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2018/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2018/01/">
+                <span class="level-start">
+                    <span class="level-item">January 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/07/">
+                <span class="level-start">
+                    <span class="level-item">July 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/05/">
+                <span class="level-start">
+                    <span class="level-item">May 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">7</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/11/">
+                <span class="level-start">
+                    <span class="level-item">November 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/10/">
+                <span class="level-start">
+                    <span class="level-item">October 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/2019/06/30/JavaScript-Inside-1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="JavaScript Inside 1 - engine, runtime, callstack">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-29T16:00:00.000Z">2019-06-30</time></div>
+                    <a href="/posts/2019/06/30/JavaScript-Inside-1/" class="has-link-black-ter is-size-6">JavaScript Inside 1 - engine, runtime, callstack</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2019/06/27/element-in-view/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="判断元素是否在可视区域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-26T16:00:00.000Z">2019-06-27</time></div>
+                    <a href="/posts/2019/06/27/element-in-view/" class="has-link-black-ter is-size-6">判断元素是否在可视区域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/02/07/css-position/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="CSS定位笔记(MDN)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-02-06T16:00:00.000Z">2018-02-07</time></div>
+                    <a href="/posts/2018/02/07/css-position/" class="has-link-black-ter is-size-6">CSS定位笔记(MDN)</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/01/18/react-ref/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="React Ref">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-17T16:00:00.000Z">2018-01-18</time></div>
+                    <a href="/posts/2018/01/18/react-ref/" class="has-link-black-ter is-size-6">React Ref</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/01/09/collection-of-web-tools/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="Collection of Web Tools">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-08T16:00:00.000Z">2018-01-09</time></div>
+                    <a href="/posts/2018/01/09/collection-of-web-tools/" class="has-link-black-ter is-size-6">Collection of Web Tools</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2018/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2018/01/">
+                <span class="level-start">
+                    <span class="level-item">January 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/07/">
+                <span class="level-start">
+                    <span class="level-item">July 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/05/">
+                <span class="level-start">
+                    <span class="level-item">May 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">7</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/11/">
+                <span class="level-start">
+                    <span class="level-item">November 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/10/">
+                <span class="level-start">
+                    <span class="level-item">October 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/posts/">
+                
+                    <img src="/posts/images/avatar.png" alt="常用数组方法及其应用" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Fish&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+    
+    
+    
+    <script src="/posts/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/posts/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/posts/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/posts/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+
+<script src="/posts/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/posts/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/posts/js/insight.js" defer></script>
+<link rel="stylesheet" href="/posts/css/search.css">
+<link rel="stylesheet" href="/posts/css/insight.css">
+    
+</body>
+</html>

@@ -169,6 +169,22 @@
   </entry>
   
   <entry>
+    <title>Code Snippets</title>
+    <link href="https://icyfish.github.io/posts/2017/09/12/code-snippets/"/>
+    <id>https://icyfish.github.io/posts/2017/09/12/code-snippets/</id>
+    <published>2017-09-11T16:00:00.000Z</published>
+    <updated>2019-06-30T13:55:37.003Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;代码片段收集&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>webpack tips</title>
     <link href="https://icyfish.github.io/posts/2017/09/12/webpack-tips/"/>
     <id>https://icyfish.github.io/posts/2017/09/12/webpack-tips/</id>
@@ -179,22 +195,6 @@
     
       &lt;p&gt;观看视频: &lt;a href=&quot;https://www.youtube.com/watch?v=zFoBYfMLUCM&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Totally Tooling Tips: Webpack Tips&lt;/a&gt;笔记, 视频发布时间: 2017-08-11.&lt;/p&gt;
 &lt;p&gt;内容大多为性能相关. &lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Code Snippets</title>
-    <link href="https://icyfish.github.io/posts/2017/09/12/code-snippets/"/>
-    <id>https://icyfish.github.io/posts/2017/09/12/code-snippets/</id>
-    <published>2017-09-11T16:00:00.000Z</published>
-    <updated>2019-06-30T13:55:37.003Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;代码片段收集&lt;/p&gt;
     
     </summary>
     
@@ -234,22 +234,6 @@
   </entry>
   
   <entry>
-    <title>CORS</title>
-    <link href="https://icyfish.github.io/posts/2017/08/11/CORS/"/>
-    <id>https://icyfish.github.io/posts/2017/08/11/CORS/</id>
-    <published>2017-08-10T16:00:00.000Z</published>
-    <updated>2019-06-30T14:05:17.101Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;CORS(Cross-Origin Resource Sharing 跨域资源共享)&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>移动设备300毫秒延迟问题</title>
     <link href="https://icyfish.github.io/posts/2017/08/11/300-ms-delay/"/>
     <id>https://icyfish.github.io/posts/2017/08/11/300-ms-delay/</id>
@@ -259,6 +243,22 @@
     <summary type="html">
     
       &lt;p&gt;过去, 移动端浏览器对于&lt;code&gt;touchend&lt;/code&gt;和&lt;code&gt;click&lt;/code&gt;事件添加了300-350毫秒的延迟, 以检测用户是否要执行两次点击.&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>CORS</title>
+    <link href="https://icyfish.github.io/posts/2017/08/11/CORS/"/>
+    <id>https://icyfish.github.io/posts/2017/08/11/CORS/</id>
+    <published>2017-08-10T16:00:00.000Z</published>
+    <updated>2019-06-30T14:05:17.101Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;CORS(Cross-Origin Resource Sharing 跨域资源共享)&lt;/p&gt;
     
     </summary>
     
@@ -362,22 +362,6 @@
   </entry>
   
   <entry>
-    <title>相邻兄弟选择器</title>
-    <link href="https://icyfish.github.io/posts/2017/05/18/adjacent-sibling/"/>
-    <id>https://icyfish.github.io/posts/2017/05/18/adjacent-sibling/</id>
-    <published>2017-05-17T16:00:00.000Z</published>
-    <updated>2019-06-30T13:53:55.395Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在&lt;a href=&quot;https://github.com/orderedlist/minimal&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;minimal主题&lt;/a&gt;的样式文件中发现了下面的代码, 对”+”号有点不理解, 于是在《CSS权威指南》里查了一下, 发现这是&lt;strong&gt;相邻兄弟结合符Adjacent Sibling Combinator&lt;/strong&gt;, 也叫 &lt;strong&gt;相邻兄弟选择器&lt;/strong&gt;.&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>[译]babel-preset-env</title>
     <link href="https://icyfish.github.io/posts/2017/05/18/babel-preset-env/"/>
     <id>https://icyfish.github.io/posts/2017/05/18/babel-preset-env/</id>
@@ -387,6 +371,22 @@
     <summary type="html">
     
       &lt;p&gt;看了两个webpack2基础的视频教程, 发现两位老师所用的babel-preset的差异, 于是查了一下两者的区别, 看到了一篇相关的文章, 尝试将其翻译. 原文: &lt;a href=&quot;http://2ality.com/2017/02/babel-preset-env.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;babel-preset-env: a preset that configures Babel for you&lt;/a&gt;.&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>相邻兄弟选择器</title>
+    <link href="https://icyfish.github.io/posts/2017/05/18/adjacent-sibling/"/>
+    <id>https://icyfish.github.io/posts/2017/05/18/adjacent-sibling/</id>
+    <published>2017-05-17T16:00:00.000Z</published>
+    <updated>2019-06-30T13:53:55.395Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在&lt;a href=&quot;https://github.com/orderedlist/minimal&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;minimal主题&lt;/a&gt;的样式文件中发现了下面的代码, 对”+”号有点不理解, 于是在《CSS权威指南》里查了一下, 发现这是&lt;strong&gt;相邻兄弟结合符Adjacent Sibling Combinator&lt;/strong&gt;, 也叫 &lt;strong&gt;相邻兄弟选择器&lt;/strong&gt;.&lt;/p&gt;
     
     </summary>
     

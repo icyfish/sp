@@ -1,3 +1,2096 @@
-<!DOCTYPE html><html lang="en"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="google-site-verification" content="IDYUPnBNhdnU8o9LRNKZ1RSt14tIxTI0rLeMrBtswXw"><title> Fish</title><meta name="description" content="life"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/posts/favicon.png"><link rel="stylesheet" href="/posts/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://icyfish.github.io/posts/atom.xml" title="Fish"></head><body><div class="wrap"><header><a href="/posts/" class="logo-link"><img src="/posts/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/posts/" target="_self" class="nav-list-link active">BLOG</a></li><li class="nav-list-item"><a href="/posts/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/posts/about/" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="http://twitter.com/icyfish_" target="_blank" class="nav-list-link">TWITTER</a></li></ul></header><main class="container"><ul class="home post-list"><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/posts/2019/06/30/JavaScript-Inside-1/" class="post-title-link">JavaScript Inside 1 - engine, runtime, callstack</a></h2><div class="post-info">Jun 30, 2019</div><div class="post-content"></div><a href="/posts/2019/06/30/JavaScript-Inside-1/" class="read-more">Read on...</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/posts/2019/06/27/element-in-view/" class="post-title-link">判断元素是否在可视区域</a></h2><div class="post-info">Jun 27, 2019</div><div class="post-content"></div><a href="/posts/2019/06/27/element-in-view/" class="read-more">Read on...</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/posts/2018/02/07/css-position/" class="post-title-link">CSS定位笔记(MDN)</a></h2><div class="post-info">Feb 7, 2018</div><div class="post-content"><p>阅读MDN - CSS定位学习笔记</p></div><a href="/posts/2018/02/07/css-position/" class="read-more">Read on...</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/posts/2018/01/18/react-ref/" class="post-title-link">React Ref</a></h2><div class="post-info">Jan 18, 2018</div><div class="post-content"><p>引用某个react UI组件的时候遇到了这样的告警: addComponentAsRefTo(…): Only a ReactOwner can have refs. You might be adding a ref to a component that was not created inside a component’s render method, or you have multiple copies of React loaded. </p>
-<p>于是去了解了一下ref的用法:</p></div><a href="/posts/2018/01/18/react-ref/" class="read-more">Read on...</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/posts/2018/01/09/collection-of-web-tools/" class="post-title-link">Collection of Web Tools</a></h2><div class="post-info">Jan 9, 2018</div><div class="post-content"><p>updating…</p></div><a href="/posts/2018/01/09/collection-of-web-tools/" class="read-more">Read on...</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/posts/2018/01/09/react-projects-in-2017/" class="post-title-link">2017年度React开源项目推荐</a></h2><div class="post-info">Jan 9, 2018</div><div class="post-content"><p>via. <a href="https://medium.mybridge.co/react-js-open-source-for-the-past-year-2018-a7c553902010" target="_blank" rel="noopener">25 Amazing Open Source React.js Projects for the Past Year (v.2018)</a></p></div><a href="/posts/2018/01/09/react-projects-in-2017/" class="read-more">Read on...</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/posts/2018/01/02/iterators-and-the-for-of-loop/" class="post-title-link">Iterators 与 for-of 循环</a></h2><div class="post-info">Jan 2, 2018</div><div class="post-content"><p>Iterators 与 for-of 循环</p></div><a href="/posts/2018/01/02/iterators-and-the-for-of-loop/" class="read-more">Read on...</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/posts/2017/12/25/script-error/" class="post-title-link">script error</a></h2><div class="post-info">Dec 25, 2017</div><div class="post-content"><p>script error 和 JavaScript 中的错误类型</p></div><a href="/posts/2017/12/25/script-error/" class="read-more">Read on...</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/posts/2017/12/02/quotes/" class="post-title-link">Quotes</a></h2><div class="post-info">Dec 2, 2017</div><div class="post-content"><p>Something valuable</p></div><a href="/posts/2017/12/02/quotes/" class="read-more">Read on...</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/posts/2017/09/12/webpack-tips/" class="post-title-link">webpack tips</a></h2><div class="post-info">Sep 12, 2017</div><div class="post-content"><p>观看视频: <a href="https://www.youtube.com/watch?v=zFoBYfMLUCM" target="_blank" rel="noopener">Totally Tooling Tips: Webpack Tips</a>笔记, 视频发布时间: 2017-08-11.</p>
-<p>内容大多为性能相关. </p></div><a href="/posts/2017/09/12/webpack-tips/" class="read-more">Read on...</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/posts/2017/09/12/code-snippets/" class="post-title-link">Code Snippets</a></h2><div class="post-info">Sep 12, 2017</div><div class="post-content"><p>代码片段收集</p></div><a href="/posts/2017/09/12/code-snippets/" class="read-more">Read on...</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/posts/2017/08/30/session/" class="post-title-link">Session相关</a></h2><div class="post-info">Aug 30, 2017</div><div class="post-content"><p>Session相关知识点(笔记)</p></div><a href="/posts/2017/08/30/session/" class="read-more">Read on...</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/posts/2017/08/24/module-pattern/" class="post-title-link">模块模式</a></h2><div class="post-info">Aug 24, 2017</div><div class="post-content"><p><a href="https://toddmotto.com/mastering-the-module-pattern/" target="_blank" rel="noopener">Mastering the Module Pattern</a>(2014) <strong>阅读笔记</strong></p></div><a href="/posts/2017/08/24/module-pattern/" class="read-more">Read on...</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/posts/2017/08/11/CORS/" class="post-title-link">CORS</a></h2><div class="post-info">Aug 11, 2017</div><div class="post-content"><p>CORS(Cross-Origin Resource Sharing 跨域资源共享)</p></div><a href="/posts/2017/08/11/CORS/" class="read-more">Read on...</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/posts/2017/08/11/300-ms-delay/" class="post-title-link">移动设备300毫秒延迟问题</a></h2><div class="post-info">Aug 11, 2017</div><div class="post-content"><p>过去, 移动端浏览器对于<code>touchend</code>和<code>click</code>事件添加了300-350毫秒的延迟, 以检测用户是否要执行两次点击.</p></div><a href="/posts/2017/08/11/300-ms-delay/" class="read-more">Read on...</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/posts/2017/07/21/js-inheritance-by-example/" class="post-title-link">[译]JavaScript继承实例</a></h2><div class="post-info">Jul 21, 2017</div><div class="post-content"><p>原文: <a href="http://2ality.com/2012/01/js-inheritance-by-example.html" target="_blank" rel="noopener">JavaScript inheritance by example</a><br>作者: <a href="http://2ality.com/p/about.html" target="_blank" rel="noopener">Axel Rauschmayer</a><br>原文发布时间: 2012.01.08</p></div><a href="/posts/2017/07/21/js-inheritance-by-example/" class="read-more">Read on...</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/posts/2017/07/11/implement-js-template-engine/" class="post-title-link">20行代码实现JavaScript模板引擎</a></h2><div class="post-info">Jul 11, 2017</div><div class="post-content"><p>刷朋友圈看到了一个不错的题目, 于是Google了一下, 找到一篇文章: <a href="http://krasimirtsonev.com/blog/article/Javascript-template-engine-in-just-20-line" target="_blank" rel="noopener">JavaScript template engine in just 20 lines</a>, 并不是逐字逐句翻译, 因此算是翻译+笔记吧.</p></div><a href="/posts/2017/07/11/implement-js-template-engine/" class="read-more">Read on...</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/posts/2017/07/10/cookie-the-basics/" class="post-title-link">cookie基础</a></h2><div class="post-info">Jul 10, 2017</div><div class="post-content"><p>cookie是服务器贴到客户端, 由客户端维护的状态片段, 并在下一次向同一个服务器发送请求时一同发送这段数据. cookie常用于保存用户的登录信息或其他不便于保存在服务器端数据库的size较小的数据. </p></div><a href="/posts/2017/07/10/cookie-the-basics/" class="read-more">Read on...</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/posts/2017/07/06/npm-mac-problems/" class="post-title-link">Mac下安装npm包出现错误</a></h2><div class="post-info">Jul 6, 2017</div><div class="post-content"><p>在Mac下安装某些npm包时会返回这样的错误信息:<br><code>env: node\r: No such file or directory</code>. 从错误信息的<code>\r</code>中可以推测出可能是代码行末字符的原因. </p></div><a href="/posts/2017/07/06/npm-mac-problems/" class="read-more">Read on...</a></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/posts/2017/06/05/dom-manipulation/" class="post-title-link">操作DOM</a></h2><div class="post-info">Jun 5, 2017</div><div class="post-content"><p>操作DOM练习, updating…</p></div><a href="/posts/2017/06/05/dom-manipulation/" class="read-more">Read on...</a></article></li></ul></main><footer><div class="paginator"><a href="/posts/page/2/" class="next">NEXT</a></div><div class="copyright"><p>© 2019 <a href="https://icyfish.github.io/posts">Fish</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+<title>Fish</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="life">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fish">
+<meta property="og:url" content="https://icyfish.github.io/posts/index.html">
+<meta property="og:site_name" content="Fish">
+<meta property="og:description" content="life">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://icyfish.github.io/posts/images/og_image.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Fish">
+<meta name="twitter:description" content="life">
+<meta name="twitter:image" content="https://icyfish.github.io/posts/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/posts/images/thumbnail.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/posts/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/posts/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/posts/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/posts/">
+            
+                <img src="/posts/images/avatar.png" alt="Fish" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item is-active" href="/posts/">Home</a>
+                
+                <a class="navbar-item" href="/posts/archives">Archives</a>
+                
+                <a class="navbar-item" href="/posts/categories">Categories</a>
+                
+                <a class="navbar-item" href="/posts/tags">Tags</a>
+                
+                <a class="navbar-item" href="/posts/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/icyfish/blog">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-06-29T16:00:00.000Z">2019-06-30</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    6 minutes read (About 881 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/2019/06/30/JavaScript-Inside-1/">JavaScript Inside 1 - engine, runtime, callstack</a>
+            
+        </h1>
+        <div class="content">
+            <p><a href="https://blog.sessionstack.com/how-does-javascript-actually-work-part-1-b0bacc073cf" target="_blank" rel="noopener">How JavaScript works: an overview of the engine, the runtime, and the call stack</a></p>
+<h3 id="JS引擎"><a href="#JS引擎" class="headerlink" title="JS引擎"></a>JS引擎</h3><p>JavaScript 引擎: 最出名的是 V8 引擎, Chrome 和 Node.js 内部使用的就是 V8 引擎. V8 引擎大概长这样:<br><img src="/posts/images/15618888972406.jpg" alt="-w450"></p>
+<p>从图片中可以看出, V8引擎由两部分组成: </p>
+<ul>
+<li>内存堆 – 主要控制内存的分配</li>
+<li>调用栈 – 代码执行时栈是如何被构造的</li>
+</ul>
+<h3 id="执行环境-The-Runtime"><a href="#执行环境-The-Runtime" class="headerlink" title="执行环境 (The Runtime)"></a>执行环境 (The Runtime)</h3><p>浏览器提供了一些API (如: setTimeout). 这些API不是由JS引擎提供的.<br><img src="/posts/images/15618892125075.jpg" alt="-w744"></p>
+<p>因此, 编写浏览器环境下的JS代码时, 不仅依赖JS引擎, 还依赖 Web API (如 DOM, AJAX, setTimeout) 提供给我们的能力. </p>
+<p>于是, 我们需要 <strong>Event Loop</strong> 与 <strong>callback queue</strong>.</p>
+<h3 id="调用栈"><a href="#调用栈" class="headerlink" title="调用栈"></a>调用栈</h3><p>JavaScript 是单线程的编程语言, 这意味着它只有一个调用栈, 因此一次只能做一件事. </p>
+<p>调用栈是一种数据结构, 记录了我们的程序执行到了哪一个位置. 当执行到某个函数的时候, 这个函数就位于执行栈的顶部. 从函数中<code>return</code>意味着该函数从执行栈顶部弹出. 下面看一个代码实例: </p>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">multiply</span>(<span class="hljs-params">x, y</span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> x * y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">printSquare</span>(<span class="hljs-params">x</span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">var</span> s = multiply(x, x);</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(s);</span><br><span class="line">&#125;</span><br><span class="line">printSquare(<span class="hljs-number">5</span>);</span><br></pre></td></tr></table></figure>
+<p>当引擎开始执行上述代码时, 调用栈首先是空的, 之后的步骤则如下图所示: </p>
+<p><img src="/posts/images/15618896502672.jpg" alt="-w686"></p>
+<p>执行栈的每一个入口被叫做栈帧(<strong>Stack Frame</strong>).</p>
+<p>当函数抛出错误时, 引擎会根据调用栈的顺序抛出错误:</p>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'SessionStack will help you resolve crashes :)'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">bar</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    foo();</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">start</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    bar();</span><br><span class="line">&#125;</span><br><span class="line">start();</span><br></pre></td></tr></table></figure>
+<p><img src="/posts/images/15618899992439.jpg" alt="-w570"></p>
+<p>爆栈指的是超出了调用栈可以接受的最大size. 这种场景很容易发生, 特别是当我们在代码中使用递归时:</p>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    foo();</span><br><span class="line">&#125;</span><br><span class="line">foo();</span><br></pre></td></tr></table></figure>
+<p>当引擎开始执行这段代码时, <code>foo</code>函数被调用. 因为<code>foo</code>函数内部调用了本身, 同时并没有终止条件. 因此每一次<code>foo</code>被调用, 它就被加调用栈中, 超过一定次数之后就会爆栈.</p>
+<p><img src="/posts/images/15618902608386.jpg" alt="-w675"></p>
+<p>单线程语言, 处理代码相对比较简单, 因为我们不需要处理多线程语言中才会出现的复杂情景, 比如: 死锁(deadlocks).</p>
+<p>然而单线程带来的限制也比较多, 当在主线程的函数运行太慢怎么办呢? </p>
+<h3 id="并发与事件循环-Concurrency-amp-the-Event-Loop"><a href="#并发与事件循环-Concurrency-amp-the-Event-Loop" class="headerlink" title="并发与事件循环(Concurrency &amp; the Event Loop)"></a>并发与事件循环(Concurrency &amp; the Event Loop)</h3><p>当调用栈中的函数执行事件太长, 阻住了下一个函数的执行, 怎么办呢? 比如, 当我们使用JavaScript在浏览器环境下执行复杂的图片转换程序.</p>
+<p>你也许会问, 这哪里算是问题? 但实际情况是, 在执行图片转换程序时, 浏览器的主线程被阻塞, 无法处理其他事件. 这意味着浏览器进行渲染, 无法执行其他代码, 体验差到极致. 如果你对产品的流畅性有比较高的要求, 这就是个很大的问题了. </p>
+<p>当然这并不是唯一的问题. 一旦调用栈中有过多的任务需要执行, 会有很长一段时间, 浏览器无法处理用户交互. 大多数浏览器会采取相应的抛异常措施, 询问用户是否需要关闭网页. </p>
+<p>那么要如何解决这个阻塞的问题呢? 答案是<strong>异步回调</strong>.</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-06-26T16:00:00.000Z">2019-06-27</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 minutes read (About 245 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/2019/06/27/element-in-view/">判断元素是否在可视区域</a>
+            
+        </h1>
+        <div class="content">
+            <h3 id="元素是否在可视区域"><a href="#元素是否在可视区域" class="headerlink" title="元素是否在可视区域"></a>元素是否在可视区域</h3><p><strong>initial version:</strong></p>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isElementInView</span>(<span class="hljs-params">element</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">document</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;</span><br><span class="line">  <span class="hljs-keyword">let</span> viewHeight = <span class="hljs-built_in">document</span>.documentElement.clientHeight; <span class="hljs-comment">// 容器可见区域高度</span></span><br><span class="line">  <span class="hljs-keyword">let</span> elemTopToViewTop = element.getBoundingClientRect().top; <span class="hljs-comment">//元素顶端到可见区域顶端的距离</span></span><br><span class="line">  <span class="hljs-keyword">if</span> (</span><br><span class="line">    elemTopToViewTop &lt;= viewHeight &amp;&amp;</span><br><span class="line">    elemTopToViewTop &gt;= <span class="hljs-number">0</span> &amp;&amp;</span><br><span class="line">    elementHasHeight</span><br><span class="line">  ) &#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>需要完善的点:</p>
+<ul>
+<li>判断 left 值</li>
+<li>DOM 要有宽高</li>
+<li>display: none &amp; visibility: hidden 时应该是不可见的</li>
+</ul>
+<p><strong>final version:</strong></p>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isVisible</span>(<span class="hljs-params">el</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">let</span> &#123; display, visibility &#125; = getComputedStyle(el);</span><br><span class="line">  <span class="hljs-keyword">return</span> display !== <span class="hljs-string">"none"</span> &amp;&amp; visibility !== <span class="hljs-string">"hidden"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getWindowHeight</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-built_in">window</span>.innerHeight || <span class="hljs-built_in">document</span>.documentElement.clientHeight;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getWindowWidth</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-built_in">window</span>.innerWidth || <span class="hljs-built_in">document</span>.documentElement.clientWidth;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">elHasWidthHeight</span>(<span class="hljs-params">el</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> el.clientHeight &gt; <span class="hljs-number">0</span> &amp;&amp; el.clientWidth &gt; <span class="hljs-number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isPartOfElementInViewport</span>(<span class="hljs-params">el</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">const</span> rect = el.getBoundingClientRect();</span><br><span class="line">  <span class="hljs-keyword">const</span> windowHeight = getWindowHeight();</span><br><span class="line">  <span class="hljs-keyword">const</span> windowWidth = getWindowWidth();</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">const</span> vertInView = rect.top &lt;= windowHeight &amp;&amp; rect.top + rect.height &gt;= <span class="hljs-number">0</span>;</span><br><span class="line">  <span class="hljs-keyword">const</span> horInView = rect.left &lt;= windowWidth &amp;&amp; rect.left + rect.width &gt;= <span class="hljs-number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">return</span> vertInView &amp;&amp; horInView &amp;&amp; elHasWidthHeight(el) &amp;&amp; isVisible(el);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isElementAllInViewport</span>(<span class="hljs-params">el</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">const</span> rect = el.getBoundingClientRect();</span><br><span class="line">  <span class="hljs-keyword">const</span> windowHeight = getWindowHeight();</span><br><span class="line">  <span class="hljs-keyword">const</span> windowWidth = getWindowWidth();</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">return</span> (</span><br><span class="line">    rect.top &gt;= <span class="hljs-number">0</span> &amp;&amp;</span><br><span class="line">    rect.left &gt;= <span class="hljs-number">0</span> &amp;&amp;</span><br><span class="line">    rect.bottom &lt;= windowHeight &amp;&amp;</span><br><span class="line">    rect.right &lt;= windowWidth &amp;&amp;</span><br><span class="line">    elHasWidthHeight(el) &amp;&amp;</span><br><span class="line">    isVisible(el)</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="DOM-元素各种高度值"><a href="#DOM-元素各种高度值" class="headerlink" title="DOM 元素各种高度值"></a>DOM 元素各种高度值</h3><p><strong>clientHight</strong></p>
+<blockquote>
+<p>VISIBLE content (CSS height) &amp; padding</p>
+</blockquote>
+<p><strong>offsetHeight</strong></p>
+<blockquote>
+<p>VISIBLE content (CSS height) &amp; padding + border + scrollbar (no margin)</p>
+</blockquote>
+<p><strong>scrollHeight</strong></p>
+<blockquote>
+<p>ENTIRE content &amp; padding (visible or not)</p>
+</blockquote>
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
+<li><a href="https://gist.github.com/davidtheclark/5515733" target="_blank" rel="noopener">Is Element In Viewport</a></li>
+<li><a href="https://stackoverflow.com/questions/22675126/what-is-offsetheight-clientheight-scrollheight" target="_blank" rel="noopener">DOM height</a></li>
+</ul>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-02-06T16:00:00.000Z">2018-02-07</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    9 minutes read (About 1345 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/2018/02/07/css-position/">CSS定位笔记(MDN)</a>
+            
+        </h1>
+        <div class="content">
+            <p>阅读MDN - CSS定位学习笔记</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/2018/02/07/css-position/#more">Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-01-17T16:00:00.000Z">2018-01-18</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    15 minutes read (About 2185 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/2018/01/18/react-ref/">React Ref</a>
+            
+        </h1>
+        <div class="content">
+            <p>引用某个react UI组件的时候遇到了这样的告警: addComponentAsRefTo(…): Only a ReactOwner can have refs. You might be adding a ref to a component that was not created inside a component’s render method, or you have multiple copies of React loaded. </p>
+<p>于是去了解了一下ref的用法:</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/2018/01/18/react-ref/#more">Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-01-08T16:00:00.000Z">2018-01-09</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    a few seconds read (About 23 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/2018/01/09/collection-of-web-tools/">Collection of Web Tools</a>
+            
+        </h1>
+        <div class="content">
+            <p>updating…</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/2018/01/09/collection-of-web-tools/#more">Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-01-08T16:00:00.000Z">2018-01-09</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    5 minutes read (About 754 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/2018/01/09/react-projects-in-2017/">2017年度React开源项目推荐</a>
+            
+        </h1>
+        <div class="content">
+            <p>via. <a href="https://medium.mybridge.co/react-js-open-source-for-the-past-year-2018-a7c553902010" target="_blank" rel="noopener">25 Amazing Open Source React.js Projects for the Past Year (v.2018)</a></p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/2018/01/09/react-projects-in-2017/#more">Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-01-01T16:00:00.000Z">2018-01-02</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    7 minutes read (About 1027 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/2018/01/02/iterators-and-the-for-of-loop/">Iterators 与 for-of 循环</a>
+            
+        </h1>
+        <div class="content">
+            <p>Iterators 与 for-of 循环</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/2018/01/02/iterators-and-the-for-of-loop/#more">Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2017-12-24T16:00:00.000Z">2017-12-25</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    17 minutes read (About 2533 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/2017/12/25/script-error/">script error</a>
+            
+        </h1>
+        <div class="content">
+            <p>script error 和 JavaScript 中的错误类型</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/2017/12/25/script-error/#more">Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2017-12-01T16:00:00.000Z">2017-12-02</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 minutes read (About 242 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/2017/12/02/quotes/">Quotes</a>
+            
+        </h1>
+        <div class="content">
+            <p>Something valuable</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/2017/12/02/quotes/#more">Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2017-09-11T16:00:00.000Z">2017-09-12</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 minutes read (About 251 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/2017/09/12/code-snippets/">Code Snippets</a>
+            
+        </h1>
+        <div class="content">
+            <p>代码片段收集</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/2017/09/12/code-snippets/#more">Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2017-09-11T16:00:00.000Z">2017-09-12</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    4 minutes read (About 651 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/2017/09/12/webpack-tips/">webpack tips</a>
+            
+        </h1>
+        <div class="content">
+            <p>观看视频: <a href="https://www.youtube.com/watch?v=zFoBYfMLUCM" target="_blank" rel="noopener">Totally Tooling Tips: Webpack Tips</a>笔记, 视频发布时间: 2017-08-11.</p>
+<p>内容大多为性能相关. </p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/2017/09/12/webpack-tips/#more">Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2017-08-29T16:00:00.000Z">2017-08-30</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    6 minutes read (About 893 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/2017/08/30/session/">Session相关</a>
+            
+        </h1>
+        <div class="content">
+            <p>Session相关知识点(笔记)</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/2017/08/30/session/#more">Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2017-08-23T16:00:00.000Z">2017-08-24</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    5 minutes read (About 819 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/2017/08/24/module-pattern/">模块模式</a>
+            
+        </h1>
+        <div class="content">
+            <p><a href="https://toddmotto.com/mastering-the-module-pattern/" target="_blank" rel="noopener">Mastering the Module Pattern</a>(2014) <strong>阅读笔记</strong></p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/2017/08/24/module-pattern/#more">Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2017-08-10T16:00:00.000Z">2017-08-11</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    5 minutes read (About 690 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/2017/08/11/300-ms-delay/">移动设备300毫秒延迟问题</a>
+            
+        </h1>
+        <div class="content">
+            <p>过去, 移动端浏览器对于<code>touchend</code>和<code>click</code>事件添加了300-350毫秒的延迟, 以检测用户是否要执行两次点击.</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/2017/08/11/300-ms-delay/#more">Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2017-08-10T16:00:00.000Z">2017-08-11</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    24 minutes read (About 3525 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/2017/08/11/CORS/">CORS</a>
+            
+        </h1>
+        <div class="content">
+            <p>CORS(Cross-Origin Resource Sharing 跨域资源共享)</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/2017/08/11/CORS/#more">Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2017-07-20T16:00:00.000Z">2017-07-21</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    23 minutes read (About 3410 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/2017/07/21/js-inheritance-by-example/">[译]JavaScript继承实例</a>
+            
+        </h1>
+        <div class="content">
+            <p>原文: <a href="http://2ality.com/2012/01/js-inheritance-by-example.html" target="_blank" rel="noopener">JavaScript inheritance by example</a><br>作者: <a href="http://2ality.com/p/about.html" target="_blank" rel="noopener">Axel Rauschmayer</a><br>原文发布时间: 2012.01.08</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/2017/07/21/js-inheritance-by-example/#more">Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2017-07-10T16:00:00.000Z">2017-07-11</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    14 minutes read (About 2066 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/2017/07/11/implement-js-template-engine/">20行代码实现JavaScript模板引擎</a>
+            
+        </h1>
+        <div class="content">
+            <p>刷朋友圈看到了一个不错的题目, 于是Google了一下, 找到一篇文章: <a href="http://krasimirtsonev.com/blog/article/Javascript-template-engine-in-just-20-line" target="_blank" rel="noopener">JavaScript template engine in just 20 lines</a>, 并不是逐字逐句翻译, 因此算是翻译+笔记吧.</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/2017/07/11/implement-js-template-engine/#more">Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2017-07-09T16:00:00.000Z">2017-07-10</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    11 minutes read (About 1620 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/2017/07/10/cookie-the-basics/">cookie基础</a>
+            
+        </h1>
+        <div class="content">
+            <p>cookie是服务器贴到客户端, 由客户端维护的状态片段, 并在下一次向同一个服务器发送请求时一同发送这段数据. cookie常用于保存用户的登录信息或其他不便于保存在服务器端数据库的size较小的数据. </p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/2017/07/10/cookie-the-basics/#more">Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2017-07-05T16:00:00.000Z">2017-07-06</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 minutes read (About 310 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/2017/07/06/npm-mac-problems/">Mac下安装npm包出现错误</a>
+            
+        </h1>
+        <div class="content">
+            <p>在Mac下安装某些npm包时会返回这样的错误信息:<br><code>env: node\r: No such file or directory</code>. 从错误信息的<code>\r</code>中可以推测出可能是代码行末字符的原因. </p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/2017/07/06/npm-mac-problems/#more">Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2017-06-04T16:00:00.000Z">2017-06-05</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    a minute read (About 205 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/posts/2017/06/05/dom-manipulation/">操作DOM</a>
+            
+        </h1>
+        <div class="content">
+            <p>操作DOM练习, updating…</p>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/2017/06/05/dom-manipulation/#more">Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+    
+<div class="card card-transparent">
+    <nav class="pagination is-centered" role="navigation" aria-label="pagination">
+        <div class="pagination-previous is-invisible is-hidden-mobile">
+            <a class="is-flex-grow has-text-black-ter" href="/posts/page/0/">Previous</a>
+        </div>
+        <div class="pagination-next">
+            <a class="is-flex-grow has-text-black-ter" href="/posts/page/2/">Next</a>
+        </div>
+        <ul class="pagination-list is-hidden-mobile">
+            
+            <li><a class="pagination-link is-current" href="/posts/">1</a></li>
+            
+            <li><a class="pagination-link has-text-black-ter" href="/posts/page/2/">2</a></li>
+            
+            <li><a class="pagination-link has-text-black-ter" href="/posts/page/3/">3</a></li>
+            
+        </ul>
+    </nav>
+</div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="/posts/images/avatar.png" alt="Fish">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Fish
+                    </p>
+                    
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Earth</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        55
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        0
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        0
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://icyfish.github.io/posts" target="_blank">
+                Follow</a>
+        </div>
+        
+        
+    </div>
+</div>
+    
+        
+    
+        
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categories
+            </h3>
+            <ul class="menu-list">
+            
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/2019/06/30/JavaScript-Inside-1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="JavaScript Inside 1 - engine, runtime, callstack">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-29T16:00:00.000Z">2019-06-30</time></div>
+                    <a href="/posts/2019/06/30/JavaScript-Inside-1/" class="has-link-black-ter is-size-6">JavaScript Inside 1 - engine, runtime, callstack</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2019/06/27/element-in-view/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="判断元素是否在可视区域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-26T16:00:00.000Z">2019-06-27</time></div>
+                    <a href="/posts/2019/06/27/element-in-view/" class="has-link-black-ter is-size-6">判断元素是否在可视区域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/02/07/css-position/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="CSS定位笔记(MDN)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-02-06T16:00:00.000Z">2018-02-07</time></div>
+                    <a href="/posts/2018/02/07/css-position/" class="has-link-black-ter is-size-6">CSS定位笔记(MDN)</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/01/18/react-ref/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="React Ref">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-17T16:00:00.000Z">2018-01-18</time></div>
+                    <a href="/posts/2018/01/18/react-ref/" class="has-link-black-ter is-size-6">React Ref</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/01/09/collection-of-web-tools/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="Collection of Web Tools">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-08T16:00:00.000Z">2018-01-09</time></div>
+                    <a href="/posts/2018/01/09/collection-of-web-tools/" class="has-link-black-ter is-size-6">Collection of Web Tools</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2018/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2018/01/">
+                <span class="level-start">
+                    <span class="level-item">January 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/07/">
+                <span class="level-start">
+                    <span class="level-item">July 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/05/">
+                <span class="level-start">
+                    <span class="level-item">May 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">7</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/11/">
+                <span class="level-start">
+                    <span class="level-item">November 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/10/">
+                <span class="level-start">
+                    <span class="level-item">October 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/2019/06/30/JavaScript-Inside-1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="JavaScript Inside 1 - engine, runtime, callstack">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-29T16:00:00.000Z">2019-06-30</time></div>
+                    <a href="/posts/2019/06/30/JavaScript-Inside-1/" class="has-link-black-ter is-size-6">JavaScript Inside 1 - engine, runtime, callstack</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2019/06/27/element-in-view/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="判断元素是否在可视区域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-26T16:00:00.000Z">2019-06-27</time></div>
+                    <a href="/posts/2019/06/27/element-in-view/" class="has-link-black-ter is-size-6">判断元素是否在可视区域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/02/07/css-position/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="CSS定位笔记(MDN)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-02-06T16:00:00.000Z">2018-02-07</time></div>
+                    <a href="/posts/2018/02/07/css-position/" class="has-link-black-ter is-size-6">CSS定位笔记(MDN)</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/01/18/react-ref/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="React Ref">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-17T16:00:00.000Z">2018-01-18</time></div>
+                    <a href="/posts/2018/01/18/react-ref/" class="has-link-black-ter is-size-6">React Ref</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/01/09/collection-of-web-tools/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="Collection of Web Tools">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-08T16:00:00.000Z">2018-01-09</time></div>
+                    <a href="/posts/2018/01/09/collection-of-web-tools/" class="has-link-black-ter is-size-6">Collection of Web Tools</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2018/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2018/01/">
+                <span class="level-start">
+                    <span class="level-item">January 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/07/">
+                <span class="level-start">
+                    <span class="level-item">July 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/05/">
+                <span class="level-start">
+                    <span class="level-item">May 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">7</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/11/">
+                <span class="level-start">
+                    <span class="level-item">November 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/10/">
+                <span class="level-start">
+                    <span class="level-item">October 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/posts/">
+                
+                    <img src="/posts/images/avatar.png" alt="Fish" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Fish&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+    
+    
+    
+    <script src="/posts/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/posts/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/posts/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/posts/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+
+<script src="/posts/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/posts/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/posts/js/insight.js" defer></script>
+<link rel="stylesheet" href="/posts/css/search.css">
+<link rel="stylesheet" href="/posts/css/insight.css">
+    
+</body>
+</html>

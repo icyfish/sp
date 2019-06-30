@@ -1,4 +1,169 @@
-<!DOCTYPE html><html lang="en"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><meta name="google-site-verification" content="IDYUPnBNhdnU8o9LRNKZ1RSt14tIxTI0rLeMrBtswXw"><title> 理解Event Emitter · Fish</title><meta name="description" content="理解Event Emitter - Fish"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/posts/favicon.png"><link rel="stylesheet" href="/posts/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://icyfish.github.io/posts/atom.xml" title="Fish"></head><body><div class="wrap"><header><a href="/posts/" class="logo-link"><img src="/posts/favicon.png" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/posts/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/posts/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/posts/about/" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="http://twitter.com/icyfish_" target="_blank" class="nav-list-link">TWITTER</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">理解Event Emitter</h1><div class="post-info">Nov 20, 2016</div><div class="post-content"><p>Node中很多模块都运用了Event Emitter, 以下是对Event Emitter的介绍及在Node中的实现方式, 还介绍了在JavaScript中实现继承的几种方式.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+<title>理解Event Emitter - Fish</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="Node中很多模块都运用了Event Emitter, 以下是对Event Emitter的介绍及在Node中的实现方式, 还介绍了在JavaScript中实现继承的几种方式.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="理解Event Emitter">
+<meta property="og:url" content="https://icyfish.github.io/posts/2016/11/20/event-emitter/index.html">
+<meta property="og:site_name" content="Fish">
+<meta property="og:description" content="Node中很多模块都运用了Event Emitter, 以下是对Event Emitter的介绍及在Node中的实现方式, 还介绍了在JavaScript中实现继承的几种方式.">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://icyfish.github.io/posts/images/og_image.png">
+<meta property="og:updated_time" content="2019-06-30T14:05:17.099Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="理解Event Emitter">
+<meta name="twitter:description" content="Node中很多模块都运用了Event Emitter, 以下是对Event Emitter的介绍及在Node中的实现方式, 还介绍了在JavaScript中实现继承的几种方式.">
+<meta name="twitter:image" content="https://icyfish.github.io/posts/images/og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/posts/images/thumbnail.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/posts/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/posts/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+    
+    
+
+    
+    
+    
+
+
+<link rel="stylesheet" href="/posts/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/posts/">
+            
+                <img src="/posts/images/avatar.png" alt="理解Event Emitter" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/posts/">Home</a>
+                
+                <a class="navbar-item" href="/posts/archives">Archives</a>
+                
+                <a class="navbar-item" href="/posts/categories">Categories</a>
+                
+                <a class="navbar-item" href="/posts/tags">Tags</a>
+                
+                <a class="navbar-item" href="/posts/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/icyfish/blog">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2016-11-19T16:00:00.000Z">2016-11-20</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    7 minutes read (About 1023 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                理解Event Emitter
+            
+        </h1>
+        <div class="content">
+            <p>Node中很多模块都运用了Event Emitter, 以下是对Event Emitter的介绍及在Node中的实现方式, 还介绍了在JavaScript中实现继承的几种方式.</p>
 <a id="more"></a>
 <h2 id="Node中的事件"><a href="#Node中的事件" class="headerlink" title="Node中的事件"></a>Node中的事件</h2><p>Node需要处理两种类型的事件. </p>
 <p>1.<strong>系统事件(System Events)</strong>(C++ Core [libuv])</p>
@@ -12,38 +177,1014 @@
 <p>When a event occurs in libuv, it generates a Custom JavaScript event to make it easier for us to decide what code should run when that event happens.</p>
 <p>Actually JavaScript is faking event because it does not have event object.</p>
 <h2 id="EventEmitter的实现原理-简化版"><a href="#EventEmitter的实现原理-简化版" class="headerlink" title="EventEmitter的实现原理(简化版)"></a>EventEmitter的实现原理(简化版)</h2><p><em>emitter.js</em></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Emitter</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.events = &#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Emitter.prototype.on = <span class="function"><span class="keyword">function</span>(<span class="params">type, listener</span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 在事件对象中加入新的属性</span></span><br><span class="line">  <span class="comment">// 确保新的属性以数组的形式保存</span></span><br><span class="line">  <span class="keyword">this</span>.events[type] = <span class="keyword">this</span>.events[type] || [];</span><br><span class="line">  <span class="comment">// 在数组中加入事件处理函数</span></span><br><span class="line">  <span class="keyword">this</span>.events[type].push(listener);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//   gotSomthingFromInternet: [function()&#123;&#125;, function()&#123;&#125;]</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">Emitter.prototype.emit = <span class="function"><span class="keyword">function</span>(<span class="params">type</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(<span class="keyword">this</span>.events[type]) &#123;<span class="comment">// 如果事件对象中含有该属性</span></span><br><span class="line">    <span class="keyword">this</span>.events[type].forEach(<span class="function"><span class="keyword">function</span>(<span class="params">listener</span>)</span>&#123;</span><br><span class="line">      listener();</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = Emitter;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Emitter</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">  <span class="hljs-keyword">this</span>.events = &#123;&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Emitter.prototype.on = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">type, listener</span>)</span>&#123;</span><br><span class="line">  <span class="hljs-comment">// 在事件对象中加入新的属性</span></span><br><span class="line">  <span class="hljs-comment">// 确保新的属性以数组的形式保存</span></span><br><span class="line">  <span class="hljs-keyword">this</span>.events[type] = <span class="hljs-keyword">this</span>.events[type] || [];</span><br><span class="line">  <span class="hljs-comment">// 在数组中加入事件处理函数</span></span><br><span class="line">  <span class="hljs-keyword">this</span>.events[type].push(listener);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// &#123;</span></span><br><span class="line"><span class="hljs-comment">//   gotSomthingFromInternet: [function()&#123;&#125;, function()&#123;&#125;]</span></span><br><span class="line"><span class="hljs-comment">// &#125;</span></span><br><span class="line"></span><br><span class="line">Emitter.prototype.emit = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">type</span>)</span>&#123;</span><br><span class="line">  <span class="hljs-keyword">if</span>(<span class="hljs-keyword">this</span>.events[type]) &#123;<span class="hljs-comment">// 如果事件对象中含有该属性</span></span><br><span class="line">    <span class="hljs-keyword">this</span>.events[type].forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">listener</span>)</span>&#123;</span><br><span class="line">      listener();</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">module</span>.exports = Emitter;</span><br></pre></td></tr></table></figure>
 <p><em>app.js</em></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Emitter = <span class="built_in">require</span>(<span class="string">'./emitter'</span>);</span><br><span class="line"><span class="comment">// var Emitter = require('events'); Node内置模块events</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> emtr = <span class="keyword">new</span> Emitter();</span><br><span class="line"></span><br><span class="line">emtr.on(<span class="string">'greet'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Somewhere, someone said hello.'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">emtr.on(<span class="string">'greet'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'A greeting occurred!'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"> </span><br><span class="line">emtr.emit(<span class="string">'greet'</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> Emitter = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./emitter'</span>);</span><br><span class="line"><span class="hljs-comment">// var Emitter = require('events'); Node内置模块events</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> emtr = <span class="hljs-keyword">new</span> Emitter();</span><br><span class="line"></span><br><span class="line">emtr.on(<span class="hljs-string">'greet'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Somewhere, someone said hello.'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">emtr.on(<span class="hljs-string">'greet'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'A greeting occurred!'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"> </span><br><span class="line">emtr.emit(<span class="hljs-string">'greet'</span>);</span><br></pre></td></tr></table></figure>
 <p><strong>Magic String</strong></p>
 <p>代码中含有特殊含义的字符串, 传入emit和on方法中的第一个参数就是Magic String, 上例中为’greet’. 直接以字符串的形式传入会使调试变困难.</p>
 <p>可以这样解决该问题(不容易犯错, 更易控制):</p>
 <p>添加一个配置文件<code>config.js</code>:</p>
 <p><em>config.js</em></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  events: &#123;</span><br><span class="line">    GREET: <span class="string">'greet'</span>,</span><br><span class="line">    FILESAVED: <span class="string">'filesaved'</span>,</span><br><span class="line">    FILEOPENED: <span class="string">'fileopened'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-built_in">module</span>.exports = &#123;</span><br><span class="line">  events: &#123;</span><br><span class="line">    GREET: <span class="hljs-string">'greet'</span>,</span><br><span class="line">    FILESAVED: <span class="hljs-string">'filesaved'</span>,</span><br><span class="line">    FILEOPENED: <span class="hljs-string">'fileopened'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><em>app.js</em></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Emitter = <span class="built_in">require</span>(<span class="string">'events'</span>);</span><br><span class="line"><span class="keyword">var</span> eventConfig = <span class="built_in">require</span>(<span class="string">'./config'</span>).events;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> emtr = <span class="keyword">new</span> Emitter(); </span><br><span class="line"></span><br><span class="line">emtr.on(eventConfig.GREET, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Somewhere, someone said hello.'</span>);</span><br><span class="line">&#125;); </span><br><span class="line"></span><br><span class="line">emtr.on(eventConfig.GREET, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'A greeting occurred!'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"> </span><br><span class="line">emtr.emit(<span class="string">'greet'</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> Emitter = <span class="hljs-built_in">require</span>(<span class="hljs-string">'events'</span>);</span><br><span class="line"><span class="hljs-keyword">var</span> eventConfig = <span class="hljs-built_in">require</span>(<span class="hljs-string">'./config'</span>).events;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> emtr = <span class="hljs-keyword">new</span> Emitter(); </span><br><span class="line"></span><br><span class="line">emtr.on(eventConfig.GREET, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Somewhere, someone said hello.'</span>);</span><br><span class="line">&#125;); </span><br><span class="line"></span><br><span class="line">emtr.on(eventConfig.GREET, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'A greeting occurred!'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"> </span><br><span class="line">emtr.emit(<span class="hljs-string">'greet'</span>);</span><br></pre></td></tr></table></figure>
 <h2 id="从EventEmitter继承"><a href="#从EventEmitter继承" class="headerlink" title="从EventEmitter继承"></a>从EventEmitter继承</h2><p><strong>继承的方法inherits实现</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">exports.inherits = <span class="function"><span class="keyword">function</span>(<span class="params">ctor, superCtor</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (ctor === <span class="literal">undefined</span> || ctor === <span class="literal">null</span>)</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'The constructor to "inherits" must not be '</span> +</span><br><span class="line">                        <span class="string">'null or undefined'</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (superCtor === <span class="literal">undefined</span> || superCtor === <span class="literal">null</span>)</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'The super constructor to "inherits" must not '</span> +</span><br><span class="line">                        <span class="string">'be null or undefined'</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (superCtor.prototype === <span class="literal">undefined</span>)</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'The super constructor to "inherits" must '</span> +</span><br><span class="line">                        <span class="string">'have a prototype'</span>);</span><br><span class="line"></span><br><span class="line">  ctor.super_ = superCtor;</span><br><span class="line">  <span class="built_in">Object</span>.setPrototypeOf(ctor.prototype, superCtor.prototype);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">exports.inherits = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">ctor, superCtor</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">if</span> (ctor === <span class="hljs-literal">undefined</span> || ctor === <span class="hljs-literal">null</span>)</span><br><span class="line">    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">TypeError</span>(<span class="hljs-string">'The constructor to "inherits" must not be '</span> +</span><br><span class="line">                        <span class="hljs-string">'null or undefined'</span>);</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">if</span> (superCtor === <span class="hljs-literal">undefined</span> || superCtor === <span class="hljs-literal">null</span>)</span><br><span class="line">    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">TypeError</span>(<span class="hljs-string">'The super constructor to "inherits" must not '</span> +</span><br><span class="line">                        <span class="hljs-string">'be null or undefined'</span>);</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">if</span> (superCtor.prototype === <span class="hljs-literal">undefined</span>)</span><br><span class="line">    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">TypeError</span>(<span class="hljs-string">'The super constructor to "inherits" must '</span> +</span><br><span class="line">                        <span class="hljs-string">'have a prototype'</span>);</span><br><span class="line"></span><br><span class="line">  ctor.super_ = superCtor;</span><br><span class="line">  <span class="hljs-built_in">Object</span>.setPrototypeOf(ctor.prototype, superCtor.prototype);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p><img src="/posts/images/util-inherits.jpg" alt="util-inherits"></p>
 <p><strong>使用inherits继承EventEmitter</strong></p>
 <p>Node中许多内置对象都从EventEmitter继承</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> EventEmitter = <span class="built_in">require</span>(<span class="string">'events'</span>);</span><br><span class="line"><span class="keyword">var</span> util = <span class="built_in">require</span>(<span class="string">'util'</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Greetr</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  EventEmitter.call(<span class="keyword">this</span>); <span class="comment">// super constructor </span></span><br><span class="line">  <span class="comment">// 确保从该函数构造器中创建出的对象继承所有EventEmitter的属性, 因为inherits只使对象继承prototype中的属性, 没有继承构造器本身的属性(下面有示例)</span></span><br><span class="line">  <span class="keyword">this</span>.greeting = <span class="string">"Hello World!"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使Greetr继承EventEmitter的prototype的属性 </span></span><br><span class="line">util.inherits(Greetr, EventEmitter);</span><br><span class="line"> </span><br><span class="line">Greetr.prototype.greet = <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.greeting + <span class="string">': '</span>+ data);</span><br><span class="line">  <span class="keyword">this</span>.emit(<span class="string">'greet'</span>,data);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> greeter1 = <span class="keyword">new</span> Greetr();</span><br><span class="line"></span><br><span class="line">greeter1.on(<span class="string">'greet'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Someone greeted!: '</span> + data);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">greeter1.greet(<span class="string">'Tony'</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> EventEmitter = <span class="hljs-built_in">require</span>(<span class="hljs-string">'events'</span>);</span><br><span class="line"><span class="hljs-keyword">var</span> util = <span class="hljs-built_in">require</span>(<span class="hljs-string">'util'</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Greetr</span>(<span class="hljs-params"></span>)</span>&#123;</span><br><span class="line">  EventEmitter.call(<span class="hljs-keyword">this</span>); <span class="hljs-comment">// super constructor </span></span><br><span class="line">  <span class="hljs-comment">// 确保从该函数构造器中创建出的对象继承所有EventEmitter的属性, 因为inherits只使对象继承prototype中的属性, 没有继承构造器本身的属性(下面有示例)</span></span><br><span class="line">  <span class="hljs-keyword">this</span>.greeting = <span class="hljs-string">"Hello World!"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment">// 使Greetr继承EventEmitter的prototype的属性 </span></span><br><span class="line">util.inherits(Greetr, EventEmitter);</span><br><span class="line"> </span><br><span class="line">Greetr.prototype.greet = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>)</span>&#123;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>.greeting + <span class="hljs-string">': '</span>+ data);</span><br><span class="line">  <span class="hljs-keyword">this</span>.emit(<span class="hljs-string">'greet'</span>,data);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> greeter1 = <span class="hljs-keyword">new</span> Greetr();</span><br><span class="line"></span><br><span class="line">greeter1.on(<span class="hljs-string">'greet'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>)</span>&#123;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Someone greeted!: '</span> + data);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">greeter1.greet(<span class="hljs-string">'Tony'</span>);</span><br></pre></td></tr></table></figure>
 <p><img src="/posts/images/event-inherits.jpg" alt="event-inherits"></p>
 <p><strong>确保继承完整性</strong></p>
 <p>inherits只使对象继承prototype中的属性, 没有继承构造器本身的属性, 利用<code>构造器.call(this)</code>确保继承完全.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> util = <span class="built_in">require</span>(<span class="string">'util'</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.firstname = <span class="string">'John'</span>;</span><br><span class="line">	<span class="keyword">this</span>.lastname = <span class="string">'Doe'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype.greet = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'Hello '</span> + <span class="keyword">this</span>.firstname + <span class="string">' '</span> + <span class="keyword">this</span>.lastname);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Policeman</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="comment">//Person.call(this);</span></span><br><span class="line">	<span class="keyword">this</span>.badgenumber = <span class="string">'1234'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">util.inherits(Policeman, Person);</span><br><span class="line"><span class="keyword">var</span> officer = <span class="keyword">new</span> Policeman();</span><br><span class="line">officer.greet(); </span><br><span class="line"><span class="comment">// Hello undefined undefined</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> util = <span class="hljs-built_in">require</span>(<span class="hljs-string">'util'</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">	<span class="hljs-keyword">this</span>.firstname = <span class="hljs-string">'John'</span>;</span><br><span class="line">	<span class="hljs-keyword">this</span>.lastname = <span class="hljs-string">'Doe'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype.greet = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">	<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Hello '</span> + <span class="hljs-keyword">this</span>.firstname + <span class="hljs-string">' '</span> + <span class="hljs-keyword">this</span>.lastname);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Policeman</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">	<span class="hljs-comment">//Person.call(this);</span></span><br><span class="line">	<span class="hljs-keyword">this</span>.badgenumber = <span class="hljs-string">'1234'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">util.inherits(Policeman, Person);</span><br><span class="line"><span class="hljs-keyword">var</span> officer = <span class="hljs-keyword">new</span> Policeman();</span><br><span class="line">officer.greet(); </span><br><span class="line"><span class="hljs-comment">// Hello undefined undefined</span></span><br></pre></td></tr></table></figure>
 <p>在Policeman构造器中调用<code>Person.call(this);</code>后, 从Policeman中实例化出的对象的属性就不只继承自原型链, 还有<code>Person</code>构造器中定义的属性, 这样再调用<code>office.greet()</code>, 结果就是: `Hello John Doe’.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> util = <span class="built_in">require</span>(<span class="string">'util'</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.firstname = <span class="string">'John'</span>;</span><br><span class="line">	<span class="keyword">this</span>.lastname = <span class="string">'Doe'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype.greet = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'Hello '</span> + <span class="keyword">this</span>.firstname + <span class="string">' '</span> + <span class="keyword">this</span>.lastname);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Policeman</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	Person.call(<span class="keyword">this</span>);</span><br><span class="line">	<span class="keyword">this</span>.badgenumber = <span class="string">'1234'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">util.inherits(Policeman, Person);</span><br><span class="line"><span class="keyword">var</span> officer = <span class="keyword">new</span> Policeman();</span><br><span class="line">officer.greet();</span><br><span class="line"><span class="comment">//Hello John Doe</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> util = <span class="hljs-built_in">require</span>(<span class="hljs-string">'util'</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Person</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">	<span class="hljs-keyword">this</span>.firstname = <span class="hljs-string">'John'</span>;</span><br><span class="line">	<span class="hljs-keyword">this</span>.lastname = <span class="hljs-string">'Doe'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Person.prototype.greet = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">	<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Hello '</span> + <span class="hljs-keyword">this</span>.firstname + <span class="hljs-string">' '</span> + <span class="hljs-keyword">this</span>.lastname);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Policeman</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">	Person.call(<span class="hljs-keyword">this</span>);</span><br><span class="line">	<span class="hljs-keyword">this</span>.badgenumber = <span class="hljs-string">'1234'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">util.inherits(Policeman, Person);</span><br><span class="line"><span class="hljs-keyword">var</span> officer = <span class="hljs-keyword">new</span> Policeman();</span><br><span class="line">officer.greet();</span><br><span class="line"><span class="hljs-comment">//Hello John Doe</span></span><br></pre></td></tr></table></figure>
 <p><strong>使用ES6 class重构上述代码</strong></p>
 <p>class只是语法糖, 并不是其他编程语言中的”类”.</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(firstname, lastname)&#123;</span><br><span class="line">    <span class="keyword">this</span>.firstname = <span class="string">'John'</span>;</span><br><span class="line">    <span class="keyword">this</span>.lastname = <span class="string">'Doe'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  greet()&#123;</span><br><span class="line">	  <span class="built_in">console</span>.log(<span class="string">`Hello <span class="subst">$&#123;<span class="keyword">this</span>.firstname&#125;</span> <span class="subst">$&#123;<span class="keyword">this</span>.lastname&#125;</span>`</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Policeman</span> <span class="keyword">extends</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">	<span class="keyword">constructor</span>( )&#123;</span><br><span class="line">		<span class="keyword">super</span>(); <span class="comment">// 相当于Person.call(this) </span></span><br><span class="line">    <span class="keyword">this</span>.badgenumber = <span class="string">'1234'</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line"><span class="keyword">var</span> officer = <span class="keyword">new</span> Policeman();</span><br><span class="line">officer.greet();</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> EventEmiiter = <span class="built_in">require</span>(<span class="string">'events'</span>);</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Greetr</span> <span class="keyword">extends</span> <span class="title">EventEmiiter</span> </span>&#123;</span><br><span class="line">	<span class="keyword">constructor</span>()&#123;</span><br><span class="line">		<span class="keyword">super</span>(); <span class="comment">// 相当于EventEmitter.call(this)</span></span><br><span class="line">		<span class="keyword">this</span>.greeting = <span class="string">"Hello World!"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">  greet(data)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;<span class="keyword">this</span>.greeting&#125;</span>: <span class="subst">$&#123;data&#125;</span>`</span>);</span><br><span class="line">    <span class="keyword">this</span>.emit(<span class="string">'greet'</span>, data);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> greeter1 = <span class="keyword">new</span> Greetr();</span><br><span class="line">greeter1.on(<span class="string">'greet'</span>, (data) =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`Someone greeted!: <span class="subst">$&#123;data&#125;</span>`</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">greeter1.greet(<span class="string">'Tony'</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Person</span> </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">constructor</span>(firstname, lastname)&#123;</span><br><span class="line">    <span class="hljs-keyword">this</span>.firstname = <span class="hljs-string">'John'</span>;</span><br><span class="line">    <span class="hljs-keyword">this</span>.lastname = <span class="hljs-string">'Doe'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  greet()&#123;</span><br><span class="line">	  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Hello <span class="hljs-subst">$&#123;<span class="hljs-keyword">this</span>.firstname&#125;</span> <span class="hljs-subst">$&#123;<span class="hljs-keyword">this</span>.lastname&#125;</span>`</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Policeman</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Person</span> </span>&#123;</span><br><span class="line">	<span class="hljs-keyword">constructor</span>( )&#123;</span><br><span class="line">		<span class="hljs-keyword">super</span>(); <span class="hljs-comment">// 相当于Person.call(this) </span></span><br><span class="line">    <span class="hljs-keyword">this</span>.badgenumber = <span class="hljs-string">'1234'</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">  </span><br><span class="line"><span class="hljs-keyword">var</span> officer = <span class="hljs-keyword">new</span> Policeman();</span><br><span class="line">officer.greet();</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> EventEmiiter = <span class="hljs-built_in">require</span>(<span class="hljs-string">'events'</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Greetr</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">EventEmiiter</span> </span>&#123;</span><br><span class="line">	<span class="hljs-keyword">constructor</span>()&#123;</span><br><span class="line">		<span class="hljs-keyword">super</span>(); <span class="hljs-comment">// 相当于EventEmitter.call(this)</span></span><br><span class="line">		<span class="hljs-keyword">this</span>.greeting = <span class="hljs-string">"Hello World!"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">  greet(data)&#123;</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`<span class="hljs-subst">$&#123;<span class="hljs-keyword">this</span>.greeting&#125;</span>: <span class="hljs-subst">$&#123;data&#125;</span>`</span>);</span><br><span class="line">    <span class="hljs-keyword">this</span>.emit(<span class="hljs-string">'greet'</span>, data);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-keyword">var</span> greeter1 = <span class="hljs-keyword">new</span> Greetr();</span><br><span class="line">greeter1.on(<span class="hljs-string">'greet'</span>, (data) =&gt; &#123;</span><br><span class="line">  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Someone greeted!: <span class="hljs-subst">$&#123;data&#125;</span>`</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">greeter1.greet(<span class="hljs-string">'Tony'</span>);</span><br></pre></td></tr></table></figure>
 <p><em>class使用module.exports:</em></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> EventEmitter = <span class="built_in">require</span>(<span class="string">'events'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="class"><span class="keyword">class</span> <span class="title">Greetr</span> <span class="keyword">extends</span> <span class="title">EventEmiiter</span> </span>&#123;</span><br><span class="line">	<span class="keyword">constructor</span>()&#123;</span><br><span class="line">		<span class="keyword">super</span>();</span><br><span class="line">		<span class="keyword">this</span>.greeting = <span class="string">"Hello world"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">var</span> EventEmitter = <span class="hljs-built_in">require</span>(<span class="hljs-string">'events'</span>);</span><br><span class="line"></span><br><span class="line"><span class="hljs-built_in">module</span>.exports = <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Greetr</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">EventEmiiter</span> </span>&#123;</span><br><span class="line">	<span class="hljs-keyword">constructor</span>()&#123;</span><br><span class="line">		<span class="hljs-keyword">super</span>();</span><br><span class="line">		<span class="hljs-keyword">this</span>.greeting = <span class="hljs-string">"Hello world"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 <p><strong>参考</strong></p>
 <ul>
 <li><a href="https://www.udemy.com/understand-nodejs/" target="_blank" rel="noopener">Learn and Understand NodeJS</a></li>
 </ul>
-</div></article></div></main><footer><div class="paginator"><a href="/posts/2016/11/29/async-n-event/" class="prev">PREV</a><a href="/posts/2016/11/15/closure/" class="next">NEXT</a></div><div class="copyright"><p>© 2019 <a href="https://icyfish.github.io/posts">Fish</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script></body></html>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/posts/2016/11/29/async-n-event/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">异步与事件</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/posts/2016/11/15/closure/">
+                <span class="level-item">闭包</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    
+                        <img class="image is-128x128 has-mb-6" src="/posts/images/avatar.png" alt="Fish">
+                    
+                    
+                    <p class="is-size-4 is-block">
+                        Fish
+                    </p>
+                    
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Earth</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        55
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        0
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        0
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://icyfish.github.io/posts" target="_blank">
+                Follow</a>
+        </div>
+        
+        
+    </div>
+</div>
+    
+        
+    
+        
+
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categories
+            </h3>
+            <ul class="menu-list">
+            
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/2019/06/30/JavaScript-Inside-1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="JavaScript Inside 1 - engine, runtime, callstack">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-29T16:00:00.000Z">2019-06-30</time></div>
+                    <a href="/posts/2019/06/30/JavaScript-Inside-1/" class="has-link-black-ter is-size-6">JavaScript Inside 1 - engine, runtime, callstack</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2019/06/27/element-in-view/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="判断元素是否在可视区域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-26T16:00:00.000Z">2019-06-27</time></div>
+                    <a href="/posts/2019/06/27/element-in-view/" class="has-link-black-ter is-size-6">判断元素是否在可视区域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/02/07/css-position/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="CSS定位笔记(MDN)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-02-06T16:00:00.000Z">2018-02-07</time></div>
+                    <a href="/posts/2018/02/07/css-position/" class="has-link-black-ter is-size-6">CSS定位笔记(MDN)</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/01/18/react-ref/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="React Ref">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-17T16:00:00.000Z">2018-01-18</time></div>
+                    <a href="/posts/2018/01/18/react-ref/" class="has-link-black-ter is-size-6">React Ref</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/01/09/collection-of-web-tools/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="Collection of Web Tools">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-08T16:00:00.000Z">2018-01-09</time></div>
+                    <a href="/posts/2018/01/09/collection-of-web-tools/" class="has-link-black-ter is-size-6">Collection of Web Tools</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2018/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2018/01/">
+                <span class="level-start">
+                    <span class="level-item">January 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/07/">
+                <span class="level-start">
+                    <span class="level-item">July 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/05/">
+                <span class="level-start">
+                    <span class="level-item">May 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">7</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/11/">
+                <span class="level-start">
+                    <span class="level-item">November 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/10/">
+                <span class="level-start">
+                    <span class="level-item">October 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/posts/2019/06/30/JavaScript-Inside-1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="JavaScript Inside 1 - engine, runtime, callstack">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-29T16:00:00.000Z">2019-06-30</time></div>
+                    <a href="/posts/2019/06/30/JavaScript-Inside-1/" class="has-link-black-ter is-size-6">JavaScript Inside 1 - engine, runtime, callstack</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2019/06/27/element-in-view/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="判断元素是否在可视区域">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-06-26T16:00:00.000Z">2019-06-27</time></div>
+                    <a href="/posts/2019/06/27/element-in-view/" class="has-link-black-ter is-size-6">判断元素是否在可视区域</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/02/07/css-position/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="CSS定位笔记(MDN)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-02-06T16:00:00.000Z">2018-02-07</time></div>
+                    <a href="/posts/2018/02/07/css-position/" class="has-link-black-ter is-size-6">CSS定位笔记(MDN)</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/01/18/react-ref/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="React Ref">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-17T16:00:00.000Z">2018-01-18</time></div>
+                    <a href="/posts/2018/01/18/react-ref/" class="has-link-black-ter is-size-6">React Ref</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/posts/2018/01/09/collection-of-web-tools/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/posts/images/thumbnail.svg" alt="Collection of Web Tools">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-01-08T16:00:00.000Z">2018-01-09</time></div>
+                    <a href="/posts/2018/01/09/collection-of-web-tools/" class="has-link-black-ter is-size-6">Collection of Web Tools</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2019/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2018/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2018/01/">
+                <span class="level-start">
+                    <span class="level-item">January 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/07/">
+                <span class="level-start">
+                    <span class="level-item">July 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/06/">
+                <span class="level-start">
+                    <span class="level-item">June 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/05/">
+                <span class="level-start">
+                    <span class="level-item">May 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">8</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">7</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2017/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2017</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/11/">
+                <span class="level-start">
+                    <span class="level-item">November 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/10/">
+                <span class="level-start">
+                    <span class="level-item">October 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">5</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/posts/archives/2016/08/">
+                <span class="level-start">
+                    <span class="level-item">August 2016</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/posts/">
+                
+                    <img src="/posts/images/avatar.png" alt="理解Event Emitter" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Fish&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+    
+    
+    
+    <script src="/posts/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/posts/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/posts/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+    <script src="/posts/js/clipboard.js" defer></script>
+    
+
+    
+    
+    
+
+
+<script src="/posts/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/posts/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/posts/js/insight.js" defer></script>
+<link rel="stylesheet" href="/posts/css/search.css">
+<link rel="stylesheet" href="/posts/css/insight.css">
+    
+</body>
+</html>
