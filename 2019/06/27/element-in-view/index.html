@@ -7,18 +7,18 @@
 
 
 
-    <meta name="description" content="元素是否在可视区域initial version: 12345678910111213function isElementInView(element) &amp;#123;  if (!document) return false;  let viewHeight = document.documentElement.clientHeight; // 容器可见区域高度  let elemTopToVie">
+    <meta name="description" content="元素是否在可视区域">
 <meta property="og:type" content="article">
 <meta property="og:title" content="判断元素是否在可视区域">
 <meta property="og:url" content="https://icyfish.github.io/posts/2019/06/27/element-in-view/index.html">
 <meta property="og:site_name" content="Fish">
-<meta property="og:description" content="元素是否在可视区域initial version: 12345678910111213function isElementInView(element) &amp;#123;  if (!document) return false;  let viewHeight = document.documentElement.clientHeight; // 容器可见区域高度  let elemTopToVie">
+<meta property="og:description" content="元素是否在可视区域">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://icyfish.github.io/posts/images/og_image.png">
-<meta property="og:updated_time" content="2019-06-26T16:40:49.372Z">
+<meta property="og:updated_time" content="2019-06-30T17:17:45.224Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="判断元素是否在可视区域">
-<meta name="twitter:description" content="元素是否在可视区域initial version: 12345678910111213function isElementInView(element) &amp;#123;  if (!document) return false;  let viewHeight = document.documentElement.clientHeight; // 容器可见区域高度  let elemTopToVie">
+<meta name="twitter:description" content="元素是否在可视区域">
 <meta name="twitter:image" content="https://icyfish.github.io/posts/images/og_image.png">
 
 
@@ -150,7 +150,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    2 minutes read (About 245 words)
+                    2 minutes read (About 246 words)
                 </span>
                 
                 
@@ -163,7 +163,8 @@
             
         </h1>
         <div class="content">
-            <h3 id="元素是否在可视区域"><a href="#元素是否在可视区域" class="headerlink" title="元素是否在可视区域"></a>元素是否在可视区域</h3><p><strong>initial version:</strong></p>
+            <h3 id="元素是否在可视区域"><a href="#元素是否在可视区域" class="headerlink" title="元素是否在可视区域"></a>元素是否在可视区域</h3><a id="more"></a>
+<p><strong>initial version:</strong></p>
 <figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isElementInView</span>(<span class="hljs-params">element</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">document</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;</span><br><span class="line">  <span class="hljs-keyword">let</span> viewHeight = <span class="hljs-built_in">document</span>.documentElement.clientHeight; <span class="hljs-comment">// 容器可见区域高度</span></span><br><span class="line">  <span class="hljs-keyword">let</span> elemTopToViewTop = element.getBoundingClientRect().top; <span class="hljs-comment">//元素顶端到可见区域顶端的距离</span></span><br><span class="line">  <span class="hljs-keyword">if</span> (</span><br><span class="line">    elemTopToViewTop &lt;= viewHeight &amp;&amp;</span><br><span class="line">    elemTopToViewTop &gt;= <span class="hljs-number">0</span> &amp;&amp;</span><br><span class="line">    elementHasHeight</span><br><span class="line">  ) &#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>需要完善的点:</p>
 <ul>
@@ -254,6 +255,10 @@
                         Fish
                     </p>
                     
+                    
+                    <p class="is-size-6 is-block">
+                        未经审视的人生不值得一过
+                    </p>
                     
                     
                     <p class="is-size-6 is-flex is-flex-center has-text-grey">

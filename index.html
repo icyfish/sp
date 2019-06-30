@@ -150,7 +150,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    6 minutes read (About 881 words)
+                    6 minutes read (About 882 words)
                 </span>
                 
                 
@@ -164,37 +164,16 @@
         </h1>
         <div class="content">
             <p><a href="https://blog.sessionstack.com/how-does-javascript-actually-work-part-1-b0bacc073cf" target="_blank" rel="noopener">How JavaScript works: an overview of the engine, the runtime, and the call stack</a></p>
-<h3 id="JS引擎"><a href="#JS引擎" class="headerlink" title="JS引擎"></a>JS引擎</h3><p>JavaScript 引擎: 最出名的是 V8 引擎, Chrome 和 Node.js 内部使用的就是 V8 引擎. V8 引擎大概长这样:<br><img src="/posts/images/15618888972406.jpg" alt="-w450"></p>
-<p>从图片中可以看出, V8引擎由两部分组成: </p>
-<ul>
-<li>内存堆 – 主要控制内存的分配</li>
-<li>调用栈 – 代码执行时栈是如何被构造的</li>
-</ul>
-<h3 id="执行环境-The-Runtime"><a href="#执行环境-The-Runtime" class="headerlink" title="执行环境 (The Runtime)"></a>执行环境 (The Runtime)</h3><p>浏览器提供了一些API (如: setTimeout). 这些API不是由JS引擎提供的.<br><img src="/posts/images/15618892125075.jpg" alt="-w744"></p>
-<p>因此, 编写浏览器环境下的JS代码时, 不仅依赖JS引擎, 还依赖 Web API (如 DOM, AJAX, setTimeout) 提供给我们的能力. </p>
-<p>于是, 我们需要 <strong>Event Loop</strong> 与 <strong>callback queue</strong>.</p>
-<h3 id="调用栈"><a href="#调用栈" class="headerlink" title="调用栈"></a>调用栈</h3><p>JavaScript 是单线程的编程语言, 这意味着它只有一个调用栈, 因此一次只能做一件事. </p>
-<p>调用栈是一种数据结构, 记录了我们的程序执行到了哪一个位置. 当执行到某个函数的时候, 这个函数就位于执行栈的顶部. 从函数中<code>return</code>意味着该函数从执行栈顶部弹出. 下面看一个代码实例: </p>
-<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">multiply</span>(<span class="hljs-params">x, y</span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> x * y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">printSquare</span>(<span class="hljs-params">x</span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">var</span> s = multiply(x, x);</span><br><span class="line">    <span class="hljs-built_in">console</span>.log(s);</span><br><span class="line">&#125;</span><br><span class="line">printSquare(<span class="hljs-number">5</span>);</span><br></pre></td></tr></table></figure>
-<p>当引擎开始执行上述代码时, 调用栈首先是空的, 之后的步骤则如下图所示: </p>
-<p><img src="/posts/images/15618896502672.jpg" alt="-w686"></p>
-<p>执行栈的每一个入口被叫做栈帧(<strong>Stack Frame</strong>).</p>
-<p>当函数抛出错误时, 引擎会根据调用栈的顺序抛出错误:</p>
-<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'SessionStack will help you resolve crashes :)'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">bar</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    foo();</span><br><span class="line">&#125;</span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">start</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    bar();</span><br><span class="line">&#125;</span><br><span class="line">start();</span><br></pre></td></tr></table></figure>
-<p><img src="/posts/images/15618899992439.jpg" alt="-w570"></p>
-<p>爆栈指的是超出了调用栈可以接受的最大size. 这种场景很容易发生, 特别是当我们在代码中使用递归时:</p>
-<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">foo</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">    foo();</span><br><span class="line">&#125;</span><br><span class="line">foo();</span><br></pre></td></tr></table></figure>
-<p>当引擎开始执行这段代码时, <code>foo</code>函数被调用. 因为<code>foo</code>函数内部调用了本身, 同时并没有终止条件. 因此每一次<code>foo</code>被调用, 它就被加调用栈中, 超过一定次数之后就会爆栈.</p>
-<p><img src="/posts/images/15618902608386.jpg" alt="-w675"></p>
-<p>单线程语言, 处理代码相对比较简单, 因为我们不需要处理多线程语言中才会出现的复杂情景, 比如: 死锁(deadlocks).</p>
-<p>然而单线程带来的限制也比较多, 当在主线程的函数运行太慢怎么办呢? </p>
-<h3 id="并发与事件循环-Concurrency-amp-the-Event-Loop"><a href="#并发与事件循环-Concurrency-amp-the-Event-Loop" class="headerlink" title="并发与事件循环(Concurrency &amp; the Event Loop)"></a>并发与事件循环(Concurrency &amp; the Event Loop)</h3><p>当调用栈中的函数执行事件太长, 阻住了下一个函数的执行, 怎么办呢? 比如, 当我们使用JavaScript在浏览器环境下执行复杂的图片转换程序.</p>
-<p>你也许会问, 这哪里算是问题? 但实际情况是, 在执行图片转换程序时, 浏览器的主线程被阻塞, 无法处理其他事件. 这意味着浏览器进行渲染, 无法执行其他代码, 体验差到极致. 如果你对产品的流畅性有比较高的要求, 这就是个很大的问题了. </p>
-<p>当然这并不是唯一的问题. 一旦调用栈中有过多的任务需要执行, 会有很长一段时间, 浏览器无法处理用户交互. 大多数浏览器会采取相应的抛异常措施, 询问用户是否需要关闭网页. </p>
-<p>那么要如何解决这个阻塞的问题呢? 答案是<strong>异步回调</strong>.</p>
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/2019/06/30/JavaScript-Inside-1/#more">Read More</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -219,7 +198,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    2 minutes read (About 245 words)
+                    2 minutes read (About 246 words)
                 </span>
                 
                 
@@ -232,35 +211,17 @@
             
         </h1>
         <div class="content">
-            <h3 id="元素是否在可视区域"><a href="#元素是否在可视区域" class="headerlink" title="元素是否在可视区域"></a>元素是否在可视区域</h3><p><strong>initial version:</strong></p>
-<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isElementInView</span>(<span class="hljs-params">element</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">document</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;</span><br><span class="line">  <span class="hljs-keyword">let</span> viewHeight = <span class="hljs-built_in">document</span>.documentElement.clientHeight; <span class="hljs-comment">// 容器可见区域高度</span></span><br><span class="line">  <span class="hljs-keyword">let</span> elemTopToViewTop = element.getBoundingClientRect().top; <span class="hljs-comment">//元素顶端到可见区域顶端的距离</span></span><br><span class="line">  <span class="hljs-keyword">if</span> (</span><br><span class="line">    elemTopToViewTop &lt;= viewHeight &amp;&amp;</span><br><span class="line">    elemTopToViewTop &gt;= <span class="hljs-number">0</span> &amp;&amp;</span><br><span class="line">    elementHasHeight</span><br><span class="line">  ) &#123;</span><br><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>需要完善的点:</p>
-<ul>
-<li>判断 left 值</li>
-<li>DOM 要有宽高</li>
-<li>display: none &amp; visibility: hidden 时应该是不可见的</li>
-</ul>
-<p><strong>final version:</strong></p>
-<figure class="highlight js hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isVisible</span>(<span class="hljs-params">el</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">let</span> &#123; display, visibility &#125; = getComputedStyle(el);</span><br><span class="line">  <span class="hljs-keyword">return</span> display !== <span class="hljs-string">"none"</span> &amp;&amp; visibility !== <span class="hljs-string">"hidden"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getWindowHeight</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-built_in">window</span>.innerHeight || <span class="hljs-built_in">document</span>.documentElement.clientHeight;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getWindowWidth</span>(<span class="hljs-params"></span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-built_in">window</span>.innerWidth || <span class="hljs-built_in">document</span>.documentElement.clientWidth;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">elHasWidthHeight</span>(<span class="hljs-params">el</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">return</span> el.clientHeight &gt; <span class="hljs-number">0</span> &amp;&amp; el.clientWidth &gt; <span class="hljs-number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isPartOfElementInViewport</span>(<span class="hljs-params">el</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">const</span> rect = el.getBoundingClientRect();</span><br><span class="line">  <span class="hljs-keyword">const</span> windowHeight = getWindowHeight();</span><br><span class="line">  <span class="hljs-keyword">const</span> windowWidth = getWindowWidth();</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">const</span> vertInView = rect.top &lt;= windowHeight &amp;&amp; rect.top + rect.height &gt;= <span class="hljs-number">0</span>;</span><br><span class="line">  <span class="hljs-keyword">const</span> horInView = rect.left &lt;= windowWidth &amp;&amp; rect.left + rect.width &gt;= <span class="hljs-number">0</span>;</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">return</span> vertInView &amp;&amp; horInView &amp;&amp; elHasWidthHeight(el) &amp;&amp; isVisible(el);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">isElementAllInViewport</span>(<span class="hljs-params">el</span>) </span>&#123;</span><br><span class="line">  <span class="hljs-keyword">const</span> rect = el.getBoundingClientRect();</span><br><span class="line">  <span class="hljs-keyword">const</span> windowHeight = getWindowHeight();</span><br><span class="line">  <span class="hljs-keyword">const</span> windowWidth = getWindowWidth();</span><br><span class="line"></span><br><span class="line">  <span class="hljs-keyword">return</span> (</span><br><span class="line">    rect.top &gt;= <span class="hljs-number">0</span> &amp;&amp;</span><br><span class="line">    rect.left &gt;= <span class="hljs-number">0</span> &amp;&amp;</span><br><span class="line">    rect.bottom &lt;= windowHeight &amp;&amp;</span><br><span class="line">    rect.right &lt;= windowWidth &amp;&amp;</span><br><span class="line">    elHasWidthHeight(el) &amp;&amp;</span><br><span class="line">    isVisible(el)</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="DOM-元素各种高度值"><a href="#DOM-元素各种高度值" class="headerlink" title="DOM 元素各种高度值"></a>DOM 元素各种高度值</h3><p><strong>clientHight</strong></p>
-<blockquote>
-<p>VISIBLE content (CSS height) &amp; padding</p>
-</blockquote>
-<p><strong>offsetHeight</strong></p>
-<blockquote>
-<p>VISIBLE content (CSS height) &amp; padding + border + scrollbar (no margin)</p>
-</blockquote>
-<p><strong>scrollHeight</strong></p>
-<blockquote>
-<p>ENTIRE content &amp; padding (visible or not)</p>
-</blockquote>
-<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><ul>
-<li><a href="https://gist.github.com/davidtheclark/5515733" target="_blank" rel="noopener">Is Element In Viewport</a></li>
-<li><a href="https://stackoverflow.com/questions/22675126/what-is-offsetheight-clientheight-scrollheight" target="_blank" rel="noopener">DOM height</a></li>
-</ul>
-
+            <h3 id="元素是否在可视区域"><a href="#元素是否在可视区域" class="headerlink" title="元素是否在可视区域"></a>元素是否在可视区域</h3>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/posts/2019/06/27/element-in-view/#more">Read More</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -1182,6 +1143,10 @@
                         Fish
                     </p>
                     
+                    
+                    <p class="is-size-6 is-block">
+                        未经审视的人生不值得一过
+                    </p>
                     
                     
                     <p class="is-size-6 is-flex is-flex-center has-text-grey">
