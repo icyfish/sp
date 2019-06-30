@@ -93,14 +93,14 @@
   </url>
   
   <url>
-    <loc>https://icyfish.github.io/posts/2017/05/01/redux-cartoon-guide/</loc>
+    <loc>https://icyfish.github.io/posts/2017/05/15/why-webpack/</loc>
     
     <lastmod>2019-06-30T14:05:17.099Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://icyfish.github.io/posts/2017/05/15/why-webpack/</loc>
+    <loc>https://icyfish.github.io/posts/2017/05/01/redux-cartoon-guide/</loc>
     
     <lastmod>2019-06-30T14:05:17.099Z</lastmod>
     
@@ -135,6 +135,13 @@
   </url>
   
   <url>
+    <loc>https://icyfish.github.io/posts/2016/11/12/object-creation-prototype/</loc>
+    
+    <lastmod>2019-06-30T14:05:17.098Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://icyfish.github.io/posts/2017/05/01/hot-reloading-time-travel/</loc>
     
     <lastmod>2019-06-30T14:05:17.098Z</lastmod>
@@ -143,13 +150,6 @@
   
   <url>
     <loc>https://icyfish.github.io/posts/2017/04/15/video-download-record/</loc>
-    
-    <lastmod>2019-06-30T14:05:17.098Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://icyfish.github.io/posts/2016/11/12/object-creation-prototype/</loc>
     
     <lastmod>2019-06-30T14:05:17.098Z</lastmod>
     
@@ -166,13 +166,6 @@
     <loc>https://icyfish.github.io/posts/2017/05/13/webpack2-basics/</loc>
     
     <lastmod>2019-06-30T13:59:29.838Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://icyfish.github.io/posts/2019/06/22/tail-call-optimization-in-es6/</loc>
-    
-    <lastmod>2019-06-30T13:56:40.725Z</lastmod>
     
   </url>
   

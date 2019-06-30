@@ -56,22 +56,6 @@
   </entry>
   
   <entry>
-    <title>ES6中的尾递归优化</title>
-    <link href="https://icyfish.github.io/posts/2019/06/22/tail-call-optimization-in-es6/"/>
-    <id>https://icyfish.github.io/posts/2019/06/22/tail-call-optimization-in-es6/</id>
-    <published>2019-06-21T16:00:00.000Z</published>
-    <updated>2019-06-30T13:56:40.725Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;a href=&quot;http://2ality.com/2015/06/tail-call-optimization.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://2ality.com/2015/06/tail-call-optimization.html&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>CSS定位笔记(MDN)</title>
     <link href="https://icyfish.github.io/posts/2018/02/07/css-position/"/>
     <id>https://icyfish.github.io/posts/2018/02/07/css-position/</id>
@@ -105,22 +89,6 @@
   </entry>
   
   <entry>
-    <title>Collection of Web Tools</title>
-    <link href="https://icyfish.github.io/posts/2018/01/09/collection-of-web-tools/"/>
-    <id>https://icyfish.github.io/posts/2018/01/09/collection-of-web-tools/</id>
-    <published>2018-01-08T16:00:00.000Z</published>
-    <updated>2019-06-30T13:56:12.120Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;updating…&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>2017年度React开源项目推荐</title>
     <link href="https://icyfish.github.io/posts/2018/01/09/react-projects-in-2017/"/>
     <id>https://icyfish.github.io/posts/2018/01/09/react-projects-in-2017/</id>
@@ -130,6 +98,22 @@
     <summary type="html">
     
       &lt;p&gt;via. &lt;a href=&quot;https://medium.mybridge.co/react-js-open-source-for-the-past-year-2018-a7c553902010&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;25 Amazing Open Source React.js Projects for the Past Year (v.2018)&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Collection of Web Tools</title>
+    <link href="https://icyfish.github.io/posts/2018/01/09/collection-of-web-tools/"/>
+    <id>https://icyfish.github.io/posts/2018/01/09/collection-of-web-tools/</id>
+    <published>2018-01-08T16:00:00.000Z</published>
+    <updated>2019-06-30T13:56:12.120Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;updating…&lt;/p&gt;
     
     </summary>
     
@@ -250,22 +234,6 @@
   </entry>
   
   <entry>
-    <title>CORS</title>
-    <link href="https://icyfish.github.io/posts/2017/08/11/CORS/"/>
-    <id>https://icyfish.github.io/posts/2017/08/11/CORS/</id>
-    <published>2017-08-10T16:00:00.000Z</published>
-    <updated>2019-06-30T14:05:17.101Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;CORS(Cross-Origin Resource Sharing 跨域资源共享)&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>移动设备300毫秒延迟问题</title>
     <link href="https://icyfish.github.io/posts/2017/08/11/300-ms-delay/"/>
     <id>https://icyfish.github.io/posts/2017/08/11/300-ms-delay/</id>
@@ -275,6 +243,22 @@
     <summary type="html">
     
       &lt;p&gt;过去, 移动端浏览器对于&lt;code&gt;touchend&lt;/code&gt;和&lt;code&gt;click&lt;/code&gt;事件添加了300-350毫秒的延迟, 以检测用户是否要执行两次点击.&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>CORS</title>
+    <link href="https://icyfish.github.io/posts/2017/08/11/CORS/"/>
+    <id>https://icyfish.github.io/posts/2017/08/11/CORS/</id>
+    <published>2017-08-10T16:00:00.000Z</published>
+    <updated>2019-06-30T14:05:17.101Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;CORS(Cross-Origin Resource Sharing 跨域资源共享)&lt;/p&gt;
     
     </summary>
     
