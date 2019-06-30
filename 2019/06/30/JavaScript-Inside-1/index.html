@@ -5,22 +5,22 @@
 <li>内存堆 – 主要控制内存的分配</li>
 <li>调用栈 – 代码执行时栈是如何被构造的</li>
 </ul>
-<h3 id="执行环境-The-Runtime"><a href="#执行环境-The-Runtime" class="headerlink" title="执行环境 (The Runtime)"></a>执行环境 (The Runtime)</h3><p>浏览器提供了一些API (如: setTimeout). 这些API不是由JS引擎提供的.<br><img src="/images/15618892125075.jpg" alt="-w744"></p>
+<h3 id="执行环境-The-Runtime"><a href="#执行环境-The-Runtime" class="headerlink" title="执行环境 (The Runtime)"></a>执行环境 (The Runtime)</h3><p>浏览器提供了一些API (如: setTimeout). 这些API不是由JS引擎提供的.<br><img src="/posts/images/15618892125075.jpg" alt="-w744"></p>
 <p>因此, 编写浏览器环境下的JS代码时, 不仅依赖JS引擎, 还依赖 Web API (如 DOM, AJAX, setTimeout) 提供给我们的能力. </p>
 <p>于是, 我们需要 <strong>Event Loop</strong> 与 <strong>callback queue</strong>.</p>
 <h3 id="调用栈"><a href="#调用栈" class="headerlink" title="调用栈"></a>调用栈</h3><p>JavaScript 是单线程的编程语言, 这意味着它只有一个调用栈, 因此一次只能做一件事. </p>
 <p>调用栈是一种数据结构, 记录了我们的程序执行到了哪一个位置. 当执行到某个函数的时候, 这个函数就位于执行栈的顶部. 从函数中<code>return</code>意味着该函数从执行栈顶部弹出. 下面看一个代码实例: </p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">multiply</span>(<span class="params">x, y</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x * y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printSquare</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> s = multiply(x, x);</span><br><span class="line">    <span class="built_in">console</span>.log(s);</span><br><span class="line">&#125;</span><br><span class="line">printSquare(<span class="number">5</span>);</span><br></pre></td></tr></table></figure>
 <p>当引擎开始执行上述代码时, 调用栈首先是空的, 之后的步骤则如下图所示: </p>
-<p><img src="/images/15618896502672.jpg" alt="-w686"></p>
+<p><img src="/posts/images/15618896502672.jpg" alt="-w686"></p>
 <p>执行栈的每一个入口被叫做栈帧(<strong>Stack Frame</strong>).</p>
 <p>当函数抛出错误时, 引擎会根据调用栈的顺序抛出错误:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'SessionStack will help you resolve crashes :)'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    foo();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">start</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    bar();</span><br><span class="line">&#125;</span><br><span class="line">start();</span><br></pre></td></tr></table></figure>
-<p><img src="/images/15618899992439.jpg" alt="-w570"></p>
+<p><img src="/posts/images/15618899992439.jpg" alt="-w570"></p>
 <p>爆栈指的是超出了调用栈可以接受的最大size. 这种场景很容易发生, 特别是当我们在代码中使用递归时:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    foo();</span><br><span class="line">&#125;</span><br><span class="line">foo();</span><br></pre></td></tr></table></figure>
 <p>当引擎开始执行这段代码时, <code>foo</code>函数被调用. 因为<code>foo</code>函数内部调用了本身, 同时并没有终止条件. 因此每一次<code>foo</code>被调用, 它就被加调用栈中, 超过一定次数之后就会爆栈.</p>
-<p><img src="/images/15618902608386.jpg" alt="-w675"></p>
+<p><img src="/posts/images/15618902608386.jpg" alt="-w675"></p>
 <p>单线程语言, 处理代码相对比较简单, 因为我们不需要处理多线程语言中才会出现的复杂情景, 比如: 死锁(deadlocks).</p>
 <p>然而单线程带来的限制也比较多, 当在主线程的函数运行太慢怎么办呢? </p>
 <h3 id="并发与事件循环-Concurrency-amp-the-Event-Loop"><a href="#并发与事件循环-Concurrency-amp-the-Event-Loop" class="headerlink" title="并发与事件循环(Concurrency &amp; the Event Loop)"></a>并发与事件循环(Concurrency &amp; the Event Loop)</h3><p>当调用栈中的函数执行事件太长, 阻住了下一个函数的执行, 怎么办呢? 比如, 当我们使用JavaScript在浏览器环境下执行复杂的图片转换程序.</p>
