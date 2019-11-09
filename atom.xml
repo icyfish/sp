@@ -6,7 +6,7 @@
   <link href="/posts/atom.xml" rel="self"/>
   
   <link href="https://icyfish.github.io/posts/"/>
-  <updated>2019-06-30T17:17:35.976Z</updated>
+  <updated>2019-07-06T09:03:58.278Z</updated>
   <id>https://icyfish.github.io/posts/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://icyfish.github.io/posts/2019/06/30/JavaScript-Inside-1/"/>
     <id>https://icyfish.github.io/posts/2019/06/30/JavaScript-Inside-1/</id>
     <published>2019-06-29T16:00:00.000Z</published>
-    <updated>2019-06-30T17:17:35.976Z</updated>
+    <updated>2019-07-06T09:03:58.278Z</updated>
     
     <summary type="html">
     
@@ -82,38 +82,6 @@
   </entry>
   
   <entry>
-    <title>Collection of Web Tools</title>
-    <link href="https://icyfish.github.io/posts/2018/01/09/collection-of-web-tools/"/>
-    <id>https://icyfish.github.io/posts/2018/01/09/collection-of-web-tools/</id>
-    <published>2018-01-08T16:00:00.000Z</published>
-    <updated>2019-06-30T13:56:12.120Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;updating…&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>2017年度React开源项目推荐</title>
-    <link href="https://icyfish.github.io/posts/2018/01/09/react-projects-in-2017/"/>
-    <id>https://icyfish.github.io/posts/2018/01/09/react-projects-in-2017/</id>
-    <published>2018-01-08T16:00:00.000Z</published>
-    <updated>2019-06-30T13:56:19.864Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;via. &lt;a href=&quot;https://medium.mybridge.co/react-js-open-source-for-the-past-year-2018-a7c553902010&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;25 Amazing Open Source React.js Projects for the Past Year (v.2018)&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>Iterators 与 for-of 循环</title>
     <link href="https://icyfish.github.io/posts/2018/01/02/iterators-and-the-for-of-loop/"/>
     <id>https://icyfish.github.io/posts/2018/01/02/iterators-and-the-for-of-loop/</id>
@@ -139,22 +107,6 @@
     <summary type="html">
     
       &lt;p&gt;script error 和 JavaScript 中的错误类型&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Quotes</title>
-    <link href="https://icyfish.github.io/posts/2017/12/02/quotes/"/>
-    <id>https://icyfish.github.io/posts/2017/12/02/quotes/</id>
-    <published>2017-12-01T16:00:00.000Z</published>
-    <updated>2019-06-30T13:55:54.558Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Something valuable&lt;/p&gt;
     
     </summary>
     
@@ -227,22 +179,6 @@
   </entry>
   
   <entry>
-    <title>移动设备300毫秒延迟问题</title>
-    <link href="https://icyfish.github.io/posts/2017/08/11/300-ms-delay/"/>
-    <id>https://icyfish.github.io/posts/2017/08/11/300-ms-delay/</id>
-    <published>2017-08-10T16:00:00.000Z</published>
-    <updated>2019-06-30T13:55:04.427Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;过去, 移动端浏览器对于&lt;code&gt;touchend&lt;/code&gt;和&lt;code&gt;click&lt;/code&gt;事件添加了300-350毫秒的延迟, 以检测用户是否要执行两次点击.&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>CORS</title>
     <link href="https://icyfish.github.io/posts/2017/08/11/CORS/"/>
     <id>https://icyfish.github.io/posts/2017/08/11/CORS/</id>
@@ -252,6 +188,22 @@
     <summary type="html">
     
       &lt;p&gt;CORS(Cross-Origin Resource Sharing 跨域资源共享)&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>移动设备300毫秒延迟问题</title>
+    <link href="https://icyfish.github.io/posts/2017/08/11/300-ms-delay/"/>
+    <id>https://icyfish.github.io/posts/2017/08/11/300-ms-delay/</id>
+    <published>2017-08-10T16:00:00.000Z</published>
+    <updated>2019-06-30T13:55:04.427Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;过去, 移动端浏览器对于&lt;code&gt;touchend&lt;/code&gt;和&lt;code&gt;click&lt;/code&gt;事件添加了300-350毫秒的延迟, 以检测用户是否要执行两次点击.&lt;/p&gt;
     
     </summary>
     
@@ -419,27 +371,11 @@
   </entry>
   
   <entry>
-    <title>Small Tips</title>
-    <link href="https://icyfish.github.io/posts/2017/05/07/small-tips/"/>
-    <id>https://icyfish.github.io/posts/2017/05/07/small-tips/</id>
-    <published>2017-05-06T16:00:00.000Z</published>
-    <updated>2019-06-30T13:53:36.239Z</updated>
-    
-    <summary type="html">
-    
-      &lt;p&gt;记录一些琐碎的知识点, 多了之后会重新分类, 持续更新…&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>[译]看漫画理解Redux</title>
     <link href="https://icyfish.github.io/posts/2017/05/01/redux-cartoon-guide/"/>
     <id>https://icyfish.github.io/posts/2017/05/01/redux-cartoon-guide/</id>
     <published>2017-04-30T16:00:00.000Z</published>
-    <updated>2019-06-30T14:05:17.099Z</updated>
+    <updated>2019-07-06T09:46:44.804Z</updated>
     
     <summary type="html">
     
@@ -447,6 +383,12 @@
     
     </summary>
     
+      <category term="redux" scheme="https://icyfish.github.io/posts/categories/redux/"/>
+    
+    
+      <category term="redux" scheme="https://icyfish.github.io/posts/tags/redux/"/>
+    
+      <category term="react" scheme="https://icyfish.github.io/posts/tags/react/"/>
     
   </entry>
   
@@ -471,7 +413,7 @@
     <link href="https://icyfish.github.io/posts/2017/04/27/flux-cartoon-guide/"/>
     <id>https://icyfish.github.io/posts/2017/04/27/flux-cartoon-guide/</id>
     <published>2017-04-26T16:00:00.000Z</published>
-    <updated>2019-06-30T14:05:17.101Z</updated>
+    <updated>2019-07-06T09:48:35.604Z</updated>
     
     <summary type="html">
     
@@ -479,6 +421,14 @@
     
     </summary>
     
+      <category term="redux" scheme="https://icyfish.github.io/posts/categories/redux/"/>
+    
+    
+      <category term="redux" scheme="https://icyfish.github.io/posts/tags/redux/"/>
+    
+      <category term="react" scheme="https://icyfish.github.io/posts/tags/react/"/>
+    
+      <category term="flux" scheme="https://icyfish.github.io/posts/tags/flux/"/>
     
   </entry>
   
@@ -503,7 +453,7 @@
     <link href="https://icyfish.github.io/posts/2017/04/17/redux-avoid-mutation/"/>
     <id>https://icyfish.github.io/posts/2017/04/17/redux-avoid-mutation/</id>
     <published>2017-04-16T16:00:00.000Z</published>
-    <updated>2019-06-30T13:52:51.722Z</updated>
+    <updated>2019-07-06T09:46:52.078Z</updated>
     
     <summary type="html">
     
@@ -511,6 +461,12 @@
     
     </summary>
     
+      <category term="redux" scheme="https://icyfish.github.io/posts/categories/redux/"/>
+    
+    
+      <category term="redux" scheme="https://icyfish.github.io/posts/tags/redux/"/>
+    
+      <category term="react" scheme="https://icyfish.github.io/posts/tags/react/"/>
     
   </entry>
   
@@ -519,7 +475,7 @@
     <link href="https://icyfish.github.io/posts/2017/04/16/redux-booklist/"/>
     <id>https://icyfish.github.io/posts/2017/04/16/redux-booklist/</id>
     <published>2017-04-15T16:00:00.000Z</published>
-    <updated>2019-06-30T14:05:17.099Z</updated>
+    <updated>2019-07-06T09:46:33.835Z</updated>
     
     <summary type="html">
     
@@ -527,6 +483,12 @@
     
     </summary>
     
+      <category term="redux" scheme="https://icyfish.github.io/posts/categories/redux/"/>
+    
+    
+      <category term="redux" scheme="https://icyfish.github.io/posts/tags/redux/"/>
+    
+      <category term="react" scheme="https://icyfish.github.io/posts/tags/react/"/>
     
   </entry>
   
