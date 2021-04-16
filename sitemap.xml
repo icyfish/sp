@@ -32,14 +32,14 @@
   <url>
     <loc>https://icyfish.github.io/posts/2017/04/17/redux-avoid-mutation/</loc>
     
-    <lastmod>2019-07-06T09:46:52.078Z</lastmod>
+    <lastmod>2020-02-25T00:54:51.227Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://icyfish.github.io/posts/2017/04/16/redux-booklist/</loc>
     
-    <lastmod>2019-07-06T09:46:33.835Z</lastmod>
+    <lastmod>2020-02-25T00:54:51.226Z</lastmod>
     
   </url>
   
@@ -86,13 +86,6 @@
   </url>
   
   <url>
-    <loc>https://icyfish.github.io/posts/2017/03/07/array-stack-queue/</loc>
-    
-    <lastmod>2019-06-30T14:05:17.101Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://icyfish.github.io/posts/2017/04/25/why-react/</loc>
     
     <lastmod>2019-06-30T14:05:17.101Z</lastmod>
@@ -107,9 +100,9 @@
   </url>
   
   <url>
-    <loc>https://icyfish.github.io/posts/2016/09/11/programming-languages/</loc>
+    <loc>https://icyfish.github.io/posts/2017/03/07/array-stack-queue/</loc>
     
-    <lastmod>2019-06-30T14:05:17.100Z</lastmod>
+    <lastmod>2019-06-30T14:05:17.101Z</lastmod>
     
   </url>
   
@@ -128,7 +121,14 @@
   </url>
   
   <url>
-    <loc>https://icyfish.github.io/posts/2017/05/15/why-webpack/</loc>
+    <loc>https://icyfish.github.io/posts/2016/09/11/programming-languages/</loc>
+    
+    <lastmod>2019-06-30T14:05:17.100Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://icyfish.github.io/posts/2016/11/29/async-n-event/</loc>
     
     <lastmod>2019-06-30T14:05:17.099Z</lastmod>
     
@@ -142,7 +142,7 @@
   </url>
   
   <url>
-    <loc>https://icyfish.github.io/posts/2016/11/29/async-n-event/</loc>
+    <loc>https://icyfish.github.io/posts/2016/10/12/internet-basics/</loc>
     
     <lastmod>2019-06-30T14:05:17.099Z</lastmod>
     
@@ -156,7 +156,7 @@
   </url>
   
   <url>
-    <loc>https://icyfish.github.io/posts/2016/10/12/internet-basics/</loc>
+    <loc>https://icyfish.github.io/posts/2017/05/15/why-webpack/</loc>
     
     <lastmod>2019-06-30T14:05:17.099Z</lastmod>
     
